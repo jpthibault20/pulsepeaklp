@@ -2,10 +2,12 @@
 import SurveyForm from '../components/SurveyForm';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import BackgroundEffect from '../components/BackgroundEffect';
 
 export default function SurveyPage() {
     return (
-        <main className="min-h-screen bg-background flex flex-col">
+        <main className="min-h-screen flex flex-col">
+            <BackgroundEffect />
             <div className="p-6">
                 <Link href="/" className="inline-flex items-center text-slate-400 hover:text-white transition-colors">
                     <ArrowLeft size={20} className="mr-2" /> Retour

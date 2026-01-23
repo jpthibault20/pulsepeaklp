@@ -1,17 +1,25 @@
 // app/page.tsx
 import Image from 'next/image';
 import Link from 'next/link';
-import { Activity, BarChart3, Calendar, Lock, Check, Brain, Heart, Bike } from 'lucide-react'; // Ajout de nouvelles icônes
+import { Calendar, Brain, Heart, Zap, ArrowRight, Users, Target } from 'lucide-react'; // Ajout de nouvelles icônes
+import BackgroundEffect from './components/BackgroundEffect';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-slate-200 overflow-x-hidden selection:bg-primary selection:text-black">
-
+    <main className="min-h-screen  text-slate-200 overflow-x-hidden selection:bg-primary selection:text-black">
+      <BackgroundEffect />
       {/* Navbar simplifiée */}
-      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-white/5">
+      <nav className="fixed top-0 w-full z-50  backdrop-blur-md border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center font-bold text-black">P</div>
+            <Image
+              src="/logoWhite.png"
+              alt="PulsePeak Logo"
+              width={100}
+              height={100}
+              className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-black"
+            />
+            {/* <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center font-bold text-black">P</div> */}
             <span className="font-bold text-xl tracking-tight text-white">PulsePeak</span>
           </div>
           <Link
@@ -33,97 +41,66 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 md:pt-48 md:pb-32 text-center overflow-visible">
-        {/* Halo lumineux en arrière-plan pour détacher les boutons du fond sombre */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/20 rounded-full blur-[120px] -z-10" />
-
-        <div className="max-w-4xl mx-auto space-y-8">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs md:text-sm font-bold tracking-wider uppercase mb-4">
-            🚀 Révolutionnez votre entraînement Triathlon
+      <section className="relative pt-32 pb-20 px-4 text-center">
+        <div className="max-w-5xl mx-auto">
+          {/* Badge animé */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-8 animate-bounce">
+            <Zap size={14} /> L&apos;IA qui vit votre entraînement
           </div>
 
-          <h1 className="text-4xl md:text-7xl font-black text-white tracking-tight leading-[1.1]">
-            Votre Coach Triathlon <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-primary to-blue-500">
-              Sur-Mesure & Intelligent.
-            </span>
+          <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter mb-8 leading-[0.9]">
+            PULSE<span className="text-cyan-400">PEAK</span>
           </h1>
 
-          <p className="text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto font-medium">
-            L&apos;IA qui transforme votre potentiel en performance. <span className="text-white">Adaptez-vous, progressez, excellez.</span>
+          <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+            Le premier coach IA pour triathlètes qui ne dort jamais. <span className="text-white">Adaptatif. Radical. Performant.</span>
           </p>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-10">
-
-            {/* Bouton Sondage (L'action principale - ULTRA VISIBLE) */}
-            <Link
-              href="/sondage"
-              className="group relative w-full md:w-auto px-10 py-5 bg-cyan-400 text-slate-950 font-black text-xl rounded-2xl 
-                   transition-all duration-300 transform hover:scale-105 active:scale-95
-                   shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:shadow-[0_0_50px_rgba(34,211,238,0.7)]
-                   border-b-4 border-cyan-600 flex items-center justify-center gap-3"
-            >
-              <span className="relative z-10">PARTICIPER AU DÉVELOPPEMENT</span>
-              <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <Link href="/sondage" className="group relative px-10 py-5 bg-cyan-400 text-slate-950 font-black text-xl rounded-2xl shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:shadow-[0_0_50px_rgba(34,211,238,0.7)] transition-all border-b-4 border-cyan-600 active:border-b-0 active:translate-y-1 flex items-center gap-3">
+              PARTICIPER AU DÉVELOPPEMENT
+              <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-
-            {/* Bouton App (L'action secondaire - SOBRE) */}
-            <div className="group relative w-full md:w-auto">
-              <button
-                disabled
-                className="w-full md:w-auto px-8 py-5 bg-slate-900/80 text-slate-500 rounded-2xl font-bold border-2 border-slate-800 
-                     flex items-center justify-center gap-2 cursor-not-allowed backdrop-blur-sm"
-              >
-                <Lock size={20} />
-                Accéder à l&apos;App
-              </button>
-              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] md:text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-slate-700 shadow-xl">
-                L&apos;aventure commence bientôt ! 🕒
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
 
       {/* Section 'Vision des fondateurs' */}
-      <section className="py-24 px-4 bg-surface">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-primary text-sm font-semibold uppercase tracking-wide mb-3">Notre Philosophie</p>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-8">
-            La Révolution de l&apos;Entraînement Personnel
-          </h2>
-          <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-12">
-            &quot;En tant que passionnés de triathlon, nous avons été frustrés par les plans d&apos;entraînement génériques.
-            C&apos;est pourquoi nous avons créé PulsePeak : pour offrir à chaque athlète, quel que soit son niveau,
-            un coaching intelligent qui s&apos;adapte réellement à sa vie, pas l&apos;inverse.&quot;
-          </p>
-          {/* Photos des fondateurs - à remplacer par tes images */}
-          <div className="flex justify-center gap-8 md:gap-16 items-center flex-wrap">
-            <div className="text-center">
-              <div className="w-32 h-32 md:w-40 md:h-40 relative rounded-full overflow-hidden mx-auto mb-4 border-2 border-primary/50 shadow-lg">
-                <Image
-                  src="/images/jeanpierre.jpg" // Remplace par ta photo
-                  alt="Jean-Pierre, Co-fondateur"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-white text-lg font-semibold">Jean-Pierre</h3>
-              <p className="text-slate-500 text-sm">Co-fondateur & CTO</p>
+      <section className="py-24 px-4 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          {/* Carte Vision (Large) */}
+          <div className="md:col-span-2 p-10 rounded-4xl bg-slate-900/40 border border-white/5 backdrop-blur-md flex flex-col justify-between">
+            <div className="space-y-4">
+              <Target className="text-cyan-400" size={40} />
+              <h2 className="text-3xl font-bold text-white">Notre Vision</h2>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                &quot;Nous avons créé PulsePeak parce que les plans d&apos;entraînement statiques sont les ennemis de la progression. Nous voulons offrir à chaque amateur la précision d&apos;un coach pro, boostée par une IA capable d&apos;analyser chaque battement de cœur.&quot;
+              </p>
             </div>
-            <div className="text-center">
-              <div className="w-32 h-32 md:w-40 md:h-40 relative rounded-full overflow-hidden mx-auto mb-4 border-2 border-secondary/50 shadow-lg">
+            <div className="mt-8 pt-8 border-t border-white/5 flex items-center gap-4">
+              <div className="flex -space-x-4">
                 <Image
-                  src="/images/thibaut.jpg" // Remplace par ta photo
-                  alt="Thibaut, Co-fondateur"
-                  fill
-                  className="object-cover"
+                  src="/profile.png"
+                  alt="Photo Fondateur 1"
+                  width={100}
+                  height={100}
+                  className="w-16 h-16 rounded-full border-2 border-background bg-slate-800"
                 />
+                {/* <div className="w-12 h-12 rounded-full border-2 border-[#050A14] bg-slate-800" /> Photo Fondateur 1 */}
+                {/* <div className="w-12 h-12 rounded-full border-2 border-[#050A14] bg-slate-800" /> Photo Fondateur 2 */}
               </div>
-              <h3 className="text-white text-lg font-semibold">Thibaut</h3>
-              <p className="text-slate-500 text-sm">Co-fondateur & CEO</p>
+              <p className="text-sm font-bold text-white">JEANPIERRE Thibaut, <span className="text-cyan-400">Fondateurs</span></p>
             </div>
+          </div>
+
+          {/* Carte "Pas juste de la tech" */}
+          <div className="p-10 rounded-4xl bg-linear-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/20 backdrop-blur-md">
+            <Users className="text-cyan-400 mb-6" size={40} />
+            <h3 className="text-2xl font-bold text-white mb-4">Plus qu&apos;une App</h3>
+            <p className="text-slate-300">
+              C&apos;est une communauté d&apos;athlètes qui refusent le &quot;standard&quot;. On parle vélo, sueur et data, pas juste code.
+            </p>
           </div>
         </div>
       </section>
