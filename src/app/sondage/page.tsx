@@ -21,35 +21,73 @@ export default function SurveyPage() {
 
     const currentQuestion = SURVEY_CONFIG[currentStep];
     const progress = ((currentStep + 1) / SURVEY_CONFIG.length) * 100;
+    const currentAnswer = answers[currentQuestion.id] || "";
 
     // --- LOGIQUE (Handlers) ---
+    const canProceed = (() => {
+        // Si c'est l'étape du NOM
+        if (currentQuestion.id === 'name') {
+            return typeof currentAnswer === 'string' && currentAnswer.trim().length >= 2;
+        }
+
+        // Si c'est l'étape de l'EMAIL
+        if (currentQuestion.id === 'email') {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(currentAnswer as string);
+        }
+
+        // Pour le classement (drag & drop), c'est toujours bon car il y a un ordre par défaut
+        return true;
+    })();
+
     const handleAnswer = (value: AnswerValue) => {
         setAnswers(prev => ({ ...prev, [currentQuestion.id]: value }));
     };
+
     const submitSurvey = async () => {
         setLoading(true);
+
+        // 1. Préparation des données complètes
+        const finalAnswers = { ...answers };
+
+        // On parcourt la config pour combler les trous
+        SURVEY_CONFIG.forEach((question) => {
+            // Si l'utilisateur n'a pas répondu (ou pas touché au classement)
+            if (!finalAnswers[question.id]) {
+                // S'il y a des options par défaut (comme pour le classement), on les utilise
+                if (question.options) {
+                    finalAnswers[question.id] = question.options;
+                }
+                // Sinon, on peut mettre une chaine vide ou "Non renseigné"
+                else {
+                    finalAnswers[question.id] = "Non renseigné";
+                }
+            }
+        });
+
         try {
             const response = await fetch('/api/survey', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ answers }),
+                // 2. On envoie finalAnswers au lieu de answers
+                body: JSON.stringify({ answers: finalAnswers }),
             });
 
             if (!response.ok) {
                 throw new Error('Erreur lors de l\'envoi');
             }
 
-            // Si tout est bon, on affiche l'écran de succès
             setIsSubmitted(true);
         } catch (error) {
             console.error(error);
-            alert("Une erreur est survenue lors de l'envoi. Réessayez.");
+            alert("Une erreur est survenue. Vérifiez votre connexion.");
         } finally {
             setLoading(false);
         }
     };
+
 
     const handleDragEnd = (event: DragEndEvent) => {
         const { active, over } = event;
@@ -209,16 +247,34 @@ export default function SurveyPage() {
 
                                     {/* --- TYPE TEXT --- */}
                                     {currentQuestion.type === 'text' && (
-                                        <input
-                                            type={currentQuestion.id === 'email' ? 'email' : 'text'}
-                                            className="w-full bg-slate-950 border-2 border-slate-800 text-white p-6 rounded-2xl focus:border-cyan-400 outline-none transition-all text-xl font-medium placeholder:text-slate-600"
-                                            placeholder={currentQuestion.placeholder || "Écrivez ici..."}
-                                            value={answers[currentQuestion.id] || ''}
-                                            onChange={(e) => handleAnswer(e.target.value)}
-                                            onKeyDown={(e) => e.key === 'Enter' && handleNext()}
-                                            autoFocus
-                                        />
+                                        <div className="w-full">
+                                            <input
+                                                type={currentQuestion.id === 'email' ? 'email' : 'text'}
+                                                // On récupère la valeur actuelle ou une chaîne vide
+                                                value={(answers[currentQuestion.id] as string) || ''}
+
+                                                // CORRECTION ICI : On passe uniquement la valeur (pas l'ID)
+                                                onChange={(e) => handleAnswer(e.target.value)}
+
+                                                placeholder={currentQuestion.placeholder}
+                                                className={`
+                                                        w-full bg-slate-800/50 border-2 rounded-xl p-4 text-white placeholder-slate-500 outline-none transition-all
+                                                        ${answers[currentQuestion.id] && !canProceed
+                                                        ? "border-red-500/50 focus:border-red-500" // Erreur
+                                                        : "border-slate-700 focus:border-cyan-400" // Normal
+                                                    }
+                                                    `}
+                                                autoFocus
+                                            />
+                                            {/* Message d'erreur */}
+                                            {answers[currentQuestion.id] && !canProceed && (
+                                                <p className="text-red-400 text-sm mt-2 ml-1 animate-pulse">
+                                                    {currentQuestion.id === 'email' ? "Format d'email invalide" : "Minimum 2 caractères"}
+                                                </p>
+                                            )}
+                                        </div>
                                     )}
+
                                 </div>
 
                                 {/* Navigation Boutons */}
@@ -233,11 +289,18 @@ export default function SurveyPage() {
 
                                     <button
                                         onClick={handleNext}
-                                        disabled={loading || (currentQuestion.type === 'text' && !answers[currentQuestion.id])}
-                                        className="w-full md:w-auto bg-cyan-400 hover:bg-white text-slate-950 font-black py-5 px-12 rounded-2xl shadow-[0_15px_30px_rgba(34,211,238,0.3)] hover:shadow-[0_20px_40px_rgba(34,211,238,0.4)] transition-all flex items-center justify-center gap-3 disabled:opacity-20 disabled:cursor-not-allowed transform hover:-translate-y-1"
+                                        // Le bouton est désactivé si la validation échoue OU si ça charge
+                                        disabled={!canProceed || loading}
+                                        className={`
+                                                flex items-center justify-center w-full py-4 rounded-xl font-bold text-lg transition-all
+                                                ${!canProceed || loading
+                                                ? "bg-slate-700 text-slate-500 cursor-not-allowed" // Style désactivé
+                                                : "bg-cyan-500 hover:bg-cyan-400 text-black shadow-lg shadow-cyan-500/20" // Style actif
+                                            }
+    `}
                                     >
-                                        {loading ? 'ENREGISTREMENT...' : (currentStep === SURVEY_CONFIG.length - 1 ? 'TERMINER' : 'SUIVANT')}
-                                        {!loading && <ArrowRight size={24} />}
+                                        {loading ? "Envoi..." : (currentStep === SURVEY_CONFIG.length - 1 ? "Terminer" : "Suivant")}
+                                        {!loading && <ArrowRight size={20} className="ml-2" />}
                                     </button>
                                 </div>
                             </motion.div>

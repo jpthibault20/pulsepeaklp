@@ -32,8 +32,8 @@ export async function POST(request: Request) {
         `;
 
         const data = await resend.emails.send({
-            from: 'PulsePeak Survey <onboarding@resend.dev>', // Utilise ton domaine si tu l'as configuré, sinon garde onboarding@resend.dev
-            to: ['thibault@jp-developpement.com'], 
+            from: 'PulsePeak Survey <contact@aeroconnect.fr>', // Utilise ton domaine si tu l'as configuré, sinon garde onboarding@resend.dev
+            to: ['tjeanpierre757@gmail.com'], 
             subject: '🎯 Nouveau Feedback Utilisateur (Sondage V1)',
             html: htmlContent,
         });
