@@ -1,7 +1,7 @@
 // app/page.tsx
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, Brain, Heart, Zap, ArrowRight, Users, Target } from 'lucide-react'; // Ajout de nouvelles icônes
+import { Calendar, Brain, Heart, Zap, ArrowRight, Users, Target, BrainCircuit } from 'lucide-react'; // Ajout de nouvelles icônes
 import BackgroundEffect from './components/BackgroundEffect';
 
 export default function Home() {
@@ -96,10 +96,13 @@ export default function Home() {
 
           {/* Carte "Pas juste de la tech" */}
           <div className="p-10 rounded-4xl bg-linear-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/20 backdrop-blur-md">
-            <Users className="text-cyan-400 mb-6" size={40} />
-            <h3 className="text-2xl font-bold text-white mb-4">Plus qu&apos;une App</h3>
+            {/* Changement d'icône pour évoquer l'intelligence et la conception */}
+            <BrainCircuit className="text-cyan-400 mb-6" size={40} />
+
+            <h3 className="text-2xl font-bold text-white mb-4">Pensée pour le Terrain</h3>
+
             <p className="text-slate-300">
-              C&apos;est une communauté d&apos;athlètes qui refusent le &quot;standard&quot;. On parle vélo, sueur et data, pas juste code.
+              L&apos;IA calcule, mais l&apos;expérience guide. L&apos;application est calibrée sur la réalité du sport : gérer la fatigue, les imprévus et la &quot;vraie vie&quot;, pas juste des chiffres.
             </p>
           </div>
         </div>
@@ -169,11 +172,7 @@ export default function Home() {
             <div className="relative group p-4 bg-slate-900 border border-slate-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
               <div className="absolute inset-0 bg-linear-to-r from-primary/10 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative rounded-2xl overflow-hidden rotate-1 hover:rotate-0 transition-transform duration-500">
-                {/* Remplacer src par le chemin réel de tes images uploadées dans /public */}
-                {/* <Image src="/images/agenda.png" alt="Agenda PulsePeak" width={800} height={500} className="object-cover" /> */}
-                <div className="aspect-16/10 bg-slate-800 flex items-center justify-center text-slate-500">
-                  <span className="text-sm">Image 1: Agenda PulsePeak</span>
-                </div>
+                <Image src="/screen_calendar.png" alt="Agenda PulsePeak" width={800} height={500} className="object-cover" />
               </div>
               <p className="text-center text-slate-400 text-sm mt-4">Votre saison, optimisée jour après jour.</p>
             </div>
@@ -182,22 +181,16 @@ export default function Home() {
             <div className="relative group p-4 bg-slate-900 border border-slate-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
               <div className="absolute inset-0 bg-linear-to-r from-cyan-500/10 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative rounded-2xl overflow-hidden -rotate-1 hover:rotate-0 transition-transform duration-500">
-                {/* <Image src="/images/velo-triathlon.jpg" alt="Vélo de triathlon en action" width={800} height={500} className="object-cover" /> */}
-                <div className="aspect-16/10 bg-slate-800 flex items-center justify-center text-slate-500">
-                  <span className="text-sm">Image 2: Vélo de Triathlon</span>
-                </div>
+                <Image src="/Screen_IA.png" alt="L&apos;IA au service de votre passion." width={800} height={500} className="object-cover" />
               </div>
-              <p className="text-center text-slate-400 text-sm mt-4">La passion du deux-roues, au service de vos objectifs.</p>
+              <p className="text-center text-slate-400 text-sm mt-4">L&apos;IA au service de votre passion.</p>
             </div>
 
             {/* Image de l'App - Profil */}
             <div className="relative group p-4 bg-slate-900 border border-slate-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 col-span-full md:col-span-1">
               <div className="absolute inset-0 bg-linear-to-r from-secondary/10 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative rounded-2xl overflow-hidden rotate-2 hover:rotate-0 transition-transform duration-500">
-                {/* <Image src="/images/profil.png" alt="Profil Athlète PulsePeak" width={800} height={500} className="object-cover" /> */}
-                <div className="aspect-16/10 bg-slate-800 flex items-center justify-center text-slate-500">
-                  <span className="text-sm">Image 3: Profil Athlète PulsePeak</span>
-                </div>
+                <Image src="/screen_profile.png" alt="Profil Athlète PulsePeak" width={800} height={500} className="object-cover" />
               </div>
               <p className="text-center text-slate-400 text-sm mt-4">Votre profil, vos données, votre évolution.</p>
             </div>
@@ -206,10 +199,7 @@ export default function Home() {
             <div className="relative group p-4 bg-slate-900 border border-slate-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 col-span-full md:col-span-1">
               <div className="absolute inset-0 bg-linear-to-r from-cyan-500/10 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative rounded-2xl overflow-hidden -rotate-2 hover:rotate-0 transition-transform duration-500">
-                {/* <Image src="/images/stats.png" alt="Statistiques de performance" width={800} height={500} className="object-cover" /> */}
-                <div className="aspect-16/10 bg-slate-800 flex items-center justify-center text-slate-500">
-                  <span className="text-sm">Image 4: Stats de Performance</span>
-                </div>
+                <Image src="/Screen_stats.png" alt="Statistiques de performance" width={800} height={500} className="object-cover" />
               </div>
               <p className="text-center text-slate-400 text-sm mt-4">Chaque donnée compte pour votre progression.</p>
             </div>
