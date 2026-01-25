@@ -81,7 +81,7 @@ export default function Home() {
             <div className="mt-8 pt-8 border-t border-white/5 flex items-center gap-4">
               <div className="flex -space-x-4">
                 <Image
-                  src="/profile.png"
+                  src="/Profile.png"
                   alt="Photo Fondateur 1"
                   width={100}
                   height={100}
