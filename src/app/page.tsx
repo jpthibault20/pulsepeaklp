@@ -23,7 +23,7 @@ export default function Home() {
             <span className="font-bold text-xl tracking-tight text-white">PulsePeak</span>
           </div>
           <Link
-            href="/sondage"
+            href="https://app.pulsepeak.fr"
             className="
     relative px-6 py-2 
     bg-cyan-400 text-slate-950 
@@ -35,7 +35,7 @@ export default function Home() {
     transition-all duration-200 active:translate-y-0.5 active:border-b-0
   "
           >
-            Contribuer
+            Lancer l'application
           </Link>
         </div>
       </nav>
