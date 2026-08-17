@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import LandingBackground from "../components/LandingBackground";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import LegalPlaceholder from "../components/LegalPlaceholder";
 import LegalToc from "../components/LegalToc";
 
 export const metadata: Metadata = {
@@ -44,7 +43,7 @@ export default function CguPage() {
           <h2 id="objet" className={h2}>1. Objet</h2>
           <p className={p}>
             Les présentes conditions générales d&apos;utilisation (CGU) régissent l&apos;accès et l&apos;usage du
-            site pulsepeak.fr et de l&apos;application PulsePeak (app.pulsepeak.fr), édités par JEANPIERRE Thibaut
+            site pulsepeak.fr et de l&apos;application PulsePeak (app.pulsepeak.fr), édités par JEANPIERRE Thibault
             (voir les{" "}
             <a href="/mentions-legales" className="font-medium text-blue-600 hover:underline">
               mentions légales
@@ -55,7 +54,7 @@ export default function CguPage() {
 
           <h2 id="description" className={h2}>2. Description du service</h2>
           <p className={p}>
-            PulsePeak est un service de coaching cycliste assisté par intelligence artificielle : génération de
+            PulsePeak est un service de coaching triathlon assisté par intelligence artificielle : génération de
             plans d&apos;entraînement personnalisés, analyse de performance et suivi de forme à partir des données
             fournies par l&apos;utilisateur.
           </p>
@@ -80,8 +79,8 @@ export default function CguPage() {
               page Tarifs
             </a>
             . L&apos;abonnement est renouvelé automatiquement pour la même durée, sauf résiliation par
-            l&apos;utilisateur avant la date de renouvellement selon les modalités{" "}
-            <LegalPlaceholder>à préciser lors de la mise en place du paiement</LegalPlaceholder>.
+            l&apos;utilisateur au moins 48 heures avant la date de renouvellement, directement depuis son espace
+            compte.
           </p>
 
           <h2 id="responsabilite" className={h2}>5. Responsabilité</h2>

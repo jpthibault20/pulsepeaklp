@@ -41,7 +41,7 @@ export default function MentionsLegalesPage() {
 
           <h2 id="editeur" className={h2}>1. Éditeur du site</h2>
           <p className={p}>
-            Le site PulsePeak est édité par JEANPIERRE Thibaut, entreprise individuelle en cours
+            Le site PulsePeak est édité par JEANPIERRE Thibault, entreprise individuelle en cours
             d&apos;immatriculation (numéro SIRET en attente d&apos;attribution), domiciliée à Saverne (67700),
             France.
           </p>
@@ -54,7 +54,7 @@ export default function MentionsLegalesPage() {
           </p>
 
           <h2 id="publication" className={h2}>2. Directeur de la publication</h2>
-          <p className={p}>JEANPIERRE Thibaut.</p>
+          <p className={p}>JEANPIERRE Thibault.</p>
 
           <h2 id="hebergement" className={h2}>3. Hébergement</h2>
           <p className={p}>
@@ -85,6 +85,11 @@ export default function MentionsLegalesPage() {
             <li>
               <a href="/cgu" className="font-medium text-blue-600 hover:underline">
                 Conditions générales d&apos;utilisation
+              </a>
+            </li>
+            <li>
+              <a href="/cgv" className="font-medium text-blue-600 hover:underline">
+                Conditions générales de vente
               </a>
             </li>
             <li>

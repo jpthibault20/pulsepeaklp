@@ -6,6 +6,7 @@ const legalLinks = [
     { href: "/contact", label: "Contact" },
     { href: "/mentions-legales", label: "Mentions légales" },
     { href: "/cgu", label: "CGU" },
+    { href: "/cgv", label: "CGV" },
     { href: "/confidentialite", label: "Confidentialité" },
 ];
 
@@ -15,14 +16,21 @@ export default function Footer() {
             <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
                 <div className="flex flex-col items-center gap-3 md:flex-row">
                     <Image
+                        src="/logoBlack.png"
+                        alt="Logo PulsePeak"
+                        width={100}
+                        height={100}
+                        className="h-6 w-6 shrink-0 dark:hidden"
+                    />
+                    <Image
                         src="/logoWhite.png"
                         alt="Logo PulsePeak"
                         width={100}
                         height={100}
-                        className="h-6 w-6 shrink-0 rounded-full bg-slate-900 p-1 dark:bg-transparent"
+                        className="hidden h-6 w-6 shrink-0 dark:block"
                     />
                     <p className="text-sm text-slate-500 dark:text-slate-500">
-                        {"© 2026 PulsePeak. L'IA au service de votre passion pour le cyclisme."}
+                        {"© 2026 PulsePeak. L'IA au service de votre passion pour le triathlon."}
                     </p>
                 </div>
                 <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">

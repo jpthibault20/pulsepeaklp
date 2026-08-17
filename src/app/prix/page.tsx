@@ -9,7 +9,7 @@ import Badge from "../components/Badge";
 
 export const metadata: Metadata = {
   title: "Tarifs — PulsePeak",
-  description: "Un tarif simple pour un coach cycliste IA. Offre de lancement à 5€/mois jusqu'au 31 décembre 2026.",
+  description: "Un tarif simple pour un coach triathlon IA. Offre de lancement à 5€/mois jusqu'au 31 décembre 2026.",
 };
 
 const card =
@@ -25,7 +25,7 @@ const included = [
 const faqs: { q: string; a: React.ReactNode }[] = [
   {
     q: "Puis-je résilier à tout moment ?",
-    a: "Oui. Comme précisé dans nos CGU, vous pouvez résilier votre compte à tout moment.",
+    a: "Oui. Comme précisé dans nos CGV, vous pouvez résilier votre abonnement à tout moment ; la résiliation prend effet à la fin de la période en cours.",
   },
   {
     q: "Le tarif à 5€/mois est-il garanti indéfiniment ?",

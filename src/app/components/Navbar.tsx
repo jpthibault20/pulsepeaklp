@@ -21,11 +21,18 @@ export default function Navbar() {
             <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
                 <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
                     <Image
+                        src="/logoBlack.png"
+                        alt="Logo PulsePeak"
+                        width={100}
+                        height={100}
+                        className="h-8 w-8 dark:hidden"
+                    />
+                    <Image
                         src="/logoWhite.png"
                         alt="Logo PulsePeak"
                         width={100}
                         height={100}
-                        className="h-8 w-8 rounded-full bg-slate-900 p-1 dark:bg-transparent"
+                        className="hidden h-8 w-8 dark:block"
                     />
                     <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
                         PulsePeak

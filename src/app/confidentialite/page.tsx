@@ -43,7 +43,7 @@ export default function ConfidentialitePage() {
 
           <h2 id="responsable" className={h2}>1. Responsable du traitement</h2>
           <p className={p}>
-            Le responsable du traitement des données collectées sur ce site est JEANPIERRE Thibaut (voir les{" "}
+            Le responsable du traitement des données collectées sur ce site est JEANPIERRE Thibault (voir les{" "}
             <a href="/mentions-legales" className="font-medium text-blue-600 hover:underline">
               mentions légales
             </a>

@@ -1,7 +1,7 @@
 // app/page.tsx
 import Image from "next/image";
 import {
-  Bike,
+  Waves,
   Brain,
   Gauge,
   Calendar,
@@ -25,37 +25,68 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative px-4 pb-16 pt-32 text-center">
-        <div className="mx-auto max-w-5xl">
-          <Badge text="Coach cycliste intelligent" icon={Bike} color="blue" className="mb-6" />
+      <section className="relative px-4 pb-16 pt-32">
+        <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+          {/* Texte */}
+          <div className="text-center lg:text-left">
+            <Badge text="Coach triathlon intelligent" icon={Waves} color="blue" className="mb-6" />
 
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-blue-600">PulsePeak</p>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-blue-600">PulsePeak</p>
 
-          <h1 className="mx-auto mb-8 max-w-4xl text-4xl font-black leading-[1.05] tracking-tighter text-slate-900 md:text-6xl dark:text-white">
-            {"Un coach cycliste IA qui s'adapte à votre semaine, pas l'inverse."}
-          </h1>
+            <h1 className="mx-auto mb-8 max-w-2xl text-4xl font-black leading-[1.05] tracking-tighter text-slate-900 md:text-6xl lg:mx-0 lg:text-5xl xl:text-6xl dark:text-white">
+              {"Un coach triathlon IA qui s'adapte à votre semaine, pas l'inverse."}
+            </h1>
 
-          <p className="mx-auto mb-6 max-w-2xl text-xl leading-relaxed text-slate-600 md:text-2xl dark:text-slate-400">
-            {"Planification personnalisée, analyse de performance et suivi de forme pour progresser à vélo."}
-          </p>
+            <p className="mx-auto mb-6 max-w-2xl text-xl leading-relaxed text-slate-600 md:text-2xl lg:mx-0 dark:text-slate-400">
+              {"Planification personnalisée, analyse de performance et suivi de forme pour progresser en natation, vélo et course à pied."}
+            </p>
 
-          <p className="mb-10 text-sm font-semibold text-blue-600">
-            {"Dès 5€/mois — offre de lancement jusqu'au 31 décembre 2026"}
-          </p>
+            <p className="mb-10 text-sm font-semibold text-blue-600">
+              {"Dès 5€/mois — offre de lancement jusqu'au 31 décembre 2026"}
+            </p>
 
-          <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
-            <PrimaryButton
-              text="Essayer PulsePeak"
-              href="https://app.pulsepeak.fr"
-              icon={ArrowRight}
-              size="lg"
-            />
-            <PrimaryButton
-              text="Voir les tarifs"
-              href="/prix"
-              variant="outline"
-              size="lg"
-            />
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+              <PrimaryButton
+                text="Essayer PulsePeak"
+                href="https://app.pulsepeak.fr"
+                icon={ArrowRight}
+                size="lg"
+              />
+              <PrimaryButton
+                text="Voir les tarifs"
+                href="/prix"
+                variant="outline"
+                size="lg"
+              />
+            </div>
+          </div>
+
+          {/* Visuel produit */}
+          <div className="relative mx-auto w-56 sm:w-64 lg:mx-0 lg:w-72">
+            {/* Glow d'ambiance */}
+            <div className="absolute left-1/2 top-1/2 -z-10 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/25 blur-[80px] dark:bg-blue-500/20" />
+
+            {/* Boutons du châssis */}
+            <div className="absolute -left-[3px] top-16 h-6 w-[3px] rounded-l bg-slate-800 dark:bg-slate-700" />
+            <div className="absolute -left-[3px] top-24 h-10 w-[3px] rounded-l bg-slate-800 dark:bg-slate-700" />
+            <div className="absolute -right-[3px] top-24 h-12 w-[3px] rounded-r bg-slate-800 dark:bg-slate-700" />
+
+            {/* Châssis téléphone */}
+            <div className="relative overflow-hidden rounded-[2.75rem] border-[3px] border-slate-800 bg-slate-900 shadow-2xl shadow-slate-900/30 ring-1 ring-white/10 dark:border-slate-700">
+              <div className="relative flex h-7 items-center justify-center bg-white">
+                <div className="h-5 w-24 rounded-full bg-slate-950" />
+              </div>
+              <div className="relative aspect-[682/1488]">
+                <Image
+                  src="/screen_calendar_phone.png"
+                  alt="Agenda d'entraînement PulsePeak sur mobile"
+                  fill
+                  sizes="(min-width: 1024px) 288px, 256px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -94,7 +125,7 @@ export default function Home() {
               </h3>
               <p className="leading-relaxed text-slate-600 dark:text-slate-400">
                 {
-                  "Que vous prépariez votre première sortie longue ou une cyclosportive exigeante, l'algorithme ajuste la charge et l'intensité en fonction de votre historique réel, de vos zones de puissance/FC et de vos ambitions."
+                  "Que vous prépariez votre premier triathlon ou un Ironman exigeant, l'algorithme ajuste la charge et l'intensité sur les trois disciplines en fonction de votre historique réel, de vos zones de puissance/FC et de vos ambitions."
                 }
               </p>
             </div>
@@ -147,13 +178,13 @@ export default function Home() {
 
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div className={`p-4 ${card}`}>
-              <div className="overflow-hidden rounded-lg md:rounded-xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
                 <Image
-                  src="/screen_calendar.png"
+                  src="/screen_calendar_pc.png"
                   alt="Agenda PulsePeak"
-                  width={800}
-                  height={500}
-                  className="object-cover"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-contain p-3"
                 />
               </div>
               <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
@@ -162,47 +193,77 @@ export default function Home() {
             </div>
 
             <div className={`p-4 ${card}`}>
-              <div className="overflow-hidden rounded-lg md:rounded-xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
                 <Image
-                  src="/Screen_IA.png"
-                  alt="L'IA au service de votre passion"
-                  width={800}
-                  height={500}
-                  className="object-cover"
+                  src="/screen_generate_week_w_IA.png"
+                  alt="L'IA génère votre semaine d'entraînement"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-contain p-3"
                 />
               </div>
               <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
-                {"L'IA au service de votre passion."}
+                {"L'IA ajuste votre semaine selon votre forme et vos disponibilités."}
               </p>
             </div>
 
             <div className={`col-span-full p-4 md:col-span-1 ${card}`}>
-              <div className="overflow-hidden rounded-lg md:rounded-xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
                 <Image
-                  src="/screen_profile.png"
-                  alt="Profil athlète PulsePeak"
-                  width={800}
-                  height={500}
-                  className="object-cover"
+                  src="/Screen_plan.png"
+                  alt="Plan d'entraînement structuré en blocs"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-contain object-top p-3"
                 />
               </div>
               <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
-                Votre profil, vos données, votre évolution.
+                Votre saison structurée en blocs de progression.
               </p>
             </div>
 
             <div className={`col-span-full p-4 md:col-span-1 ${card}`}>
-              <div className="overflow-hidden rounded-lg md:rounded-xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
                 <Image
-                  src="/Screen_stats.png"
+                  src="/Screen_stats_v2.png"
                   alt="Statistiques de performance"
-                  width={800}
-                  height={500}
-                  className="object-cover"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-contain p-3"
                 />
               </div>
               <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
                 Chaque donnée compte pour votre progression.
+              </p>
+            </div>
+
+            <div className={`p-4 ${card}`}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
+                <Image
+                  src="/workout_planned.png"
+                  alt="Détail d'une séance planifiée par l'IA"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-contain p-3"
+                />
+              </div>
+              <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
+                Chaque séance expliquée : quoi, combien, pourquoi.
+              </p>
+            </div>
+
+            <div className={`p-4 ${card}`}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
+                <Image
+                  src="/workout.png"
+                  alt="Analyse détaillée d'une séance réalisée"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-contain p-3"
+                />
+              </div>
+              <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
+                Et analysée en détail une fois la séance terminée.
               </p>
             </div>
           </div>
@@ -219,7 +280,7 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Notre vision</h2>
               <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
                 {
-                  "Nous avons créé PulsePeak parce que les plans d'entraînement statiques sont les ennemis de la progression à vélo. Nous voulons offrir à chaque cycliste la précision d'un coach pro, boostée par une IA capable d'analyser chaque sortie."
+                  "Nous avons créé PulsePeak parce que les plans d'entraînement statiques sont les ennemis de la progression en triathlon. Nous voulons offrir à chaque triathlète la précision d'un coach pro, boostée par une IA capable d'analyser chaque séance."
                 }
               </p>
             </div>
@@ -232,7 +293,7 @@ export default function Home() {
                 className="h-16 w-16 rounded-full border-2 border-white bg-slate-200 dark:border-slate-900 dark:bg-slate-800"
               />
               <p className="text-sm font-bold text-slate-900 dark:text-white">
-                JEANPIERRE Thibaut, <span className="text-blue-600">Fondateur</span>
+                JEANPIERRE Thibault, <span className="text-blue-600">Fondateur</span>
               </p>
             </div>
           </div>
@@ -245,7 +306,7 @@ export default function Home() {
             </h3>
             <p className="text-slate-600 dark:text-slate-300">
               {
-                "L'IA calcule, mais l'expérience guide. L'application est calibrée sur la réalité du cyclisme : gérer la fatigue, les imprévus et la « vraie vie », pas juste des chiffres."
+                "L'IA calcule, mais l'expérience guide. L'application est calibrée sur la réalité du triathlon : gérer la fatigue, les imprévus et la « vraie vie », pas juste des chiffres."
               }
             </p>
           </div>
@@ -259,7 +320,7 @@ export default function Home() {
             {"Prêt à transformer votre entraînement ?"}
           </h2>
           <p className="text-lg text-blue-100 md:text-xl">
-            {"Profitez du tarif de lancement à 5€/mois jusqu'au 31 décembre 2026 et donnez un coach IA à votre vélo."}
+            {"Profitez du tarif de lancement à 5€/mois jusqu'au 31 décembre 2026 et donnez un coach IA à votre entraînement."}
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <PrimaryButton
