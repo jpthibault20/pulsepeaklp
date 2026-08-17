@@ -1,4 +1,4 @@
-// app/confidentialite/page.tsx
+// app/privacy-policy/page.tsx
 import type { Metadata } from "next";
 import LandingBackground from "../components/LandingBackground";
 import Navbar from "../components/Navbar";
@@ -26,7 +26,7 @@ const toc = [
   { id: "securite", label: "Sécurité" },
 ];
 
-export default function ConfidentialitePage() {
+export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen overflow-x-hidden text-slate-900 selection:bg-blue-600 selection:text-white dark:text-slate-200">
       <LandingBackground />
@@ -44,7 +44,7 @@ export default function ConfidentialitePage() {
           <h2 id="responsable" className={h2}>1. Responsable du traitement</h2>
           <p className={p}>
             Le responsable du traitement des données collectées sur ce site est JEANPIERRE Thibault (voir les{" "}
-            <a href="/mentions-legales" className="font-medium text-blue-600 hover:underline">
+            <a href="/legal-notices" className="font-medium text-blue-600 hover:underline">
               mentions légales
             </a>
             ).

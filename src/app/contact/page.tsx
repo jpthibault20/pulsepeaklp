@@ -31,7 +31,7 @@ export default function ContactPage() {
 
           <p className="mt-6 text-center text-sm text-slate-500 dark:text-slate-500">
             Vous cherchez juste nos tarifs ?{" "}
-            <a href="/prix" className="font-medium text-blue-600 hover:underline">
+            <a href="/pricing" className="font-medium text-blue-600 hover:underline">
               Consultez la page Tarifs
             </a>
             .

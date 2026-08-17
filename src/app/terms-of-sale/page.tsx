@@ -28,7 +28,7 @@ const toc = [
   { id: "droit", label: "Droit applicable" },
 ];
 
-export default function CgvPage() {
+export default function TermsOfSalePage() {
   return (
     <main className="min-h-screen overflow-x-hidden text-slate-900 selection:bg-blue-600 selection:text-white dark:text-slate-200">
       <LandingBackground />
@@ -48,7 +48,7 @@ export default function CgvPage() {
             Les présentes conditions générales de vente (CGV) régissent la vente à distance des abonnements au
             service PulsePeak, proposés sur app.pulsepeak.fr, entre l&apos;éditeur (voir article 2) et tout
             consommateur ou professionnel souscrivant un abonnement (« le client »). Elles complètent les{" "}
-            <a href="/cgu" className="font-medium text-blue-600 hover:underline">
+            <a href="/terms-of-use" className="font-medium text-blue-600 hover:underline">
               conditions générales d&apos;utilisation
             </a>{" "}
             (CGU), qui régissent l&apos;usage du service, et priment sur celles-ci pour tout ce qui concerne la
@@ -58,7 +58,7 @@ export default function CgvPage() {
           <h2 id="vendeur" className={h2}>2. Identification du vendeur</h2>
           <p className={p}>
             Le service PulsePeak est vendu par JEANPIERRE Thibault, dont l&apos;identité complète figure dans les{" "}
-            <a href="/mentions-legales" className="font-medium text-blue-600 hover:underline">
+            <a href="/legal-notices" className="font-medium text-blue-600 hover:underline">
               mentions légales
             </a>
             . Toute question relative à une commande peut être adressée via le{" "}
@@ -71,7 +71,7 @@ export default function CgvPage() {
           <h2 id="services" className={h2}>3. Services et prix</h2>
           <p className={p}>
             Les caractéristiques et tarifs des abonnements (mensuel et annuel) sont détaillés sur la{" "}
-            <a href="/prix" className="font-medium text-blue-600 hover:underline">
+            <a href="/pricing" className="font-medium text-blue-600 hover:underline">
               page Tarifs
             </a>
             , dans leur version en vigueur au moment de la souscription. Les prix affichés sont exprimés en euros,
@@ -149,17 +149,17 @@ export default function CgvPage() {
           <h2 id="documents" className={h2}>Documents complémentaires</h2>
           <ul className={ul}>
             <li>
-              <a href="/cgu" className="font-medium text-blue-600 hover:underline">
+              <a href="/terms-of-use" className="font-medium text-blue-600 hover:underline">
                 Conditions générales d&apos;utilisation
               </a>
             </li>
             <li>
-              <a href="/mentions-legales" className="font-medium text-blue-600 hover:underline">
+              <a href="/legal-notices" className="font-medium text-blue-600 hover:underline">
                 Mentions légales
               </a>
             </li>
             <li>
-              <a href="/confidentialite" className="font-medium text-blue-600 hover:underline">
+              <a href="/privacy-policy" className="font-medium text-blue-600 hover:underline">
                 Politique de confidentialité
               </a>
             </li>

@@ -1,4 +1,4 @@
-// app/mentions-legales/page.tsx
+// app/legal-notices/page.tsx
 import type { Metadata } from "next";
 import LandingBackground from "../components/LandingBackground";
 import Navbar from "../components/Navbar";
@@ -24,7 +24,7 @@ const toc = [
   { id: "documents", label: "Documents complémentaires" },
 ];
 
-export default function MentionsLegalesPage() {
+export default function LegalNoticesPage() {
   return (
     <main className="min-h-screen overflow-x-hidden text-slate-900 selection:bg-blue-600 selection:text-white dark:text-slate-200">
       <LandingBackground />
@@ -83,17 +83,17 @@ export default function MentionsLegalesPage() {
           <h2 id="documents" className={h2}>7. Documents complémentaires</h2>
           <ul className={ul}>
             <li>
-              <a href="/cgu" className="font-medium text-blue-600 hover:underline">
+              <a href="/terms-of-use" className="font-medium text-blue-600 hover:underline">
                 Conditions générales d&apos;utilisation
               </a>
             </li>
             <li>
-              <a href="/cgv" className="font-medium text-blue-600 hover:underline">
+              <a href="/terms-of-sale" className="font-medium text-blue-600 hover:underline">
                 Conditions générales de vente
               </a>
             </li>
             <li>
-              <a href="/confidentialite" className="font-medium text-blue-600 hover:underline">
+              <a href="/privacy-policy" className="font-medium text-blue-600 hover:underline">
                 Politique de confidentialité
               </a>
             </li>

@@ -65,7 +65,7 @@ export default function Home() {
               />
               <PrimaryButton
                 text="Voir les tarifs"
-                href="/prix"
+                href="/pricing"
                 variant="outline"
                 size="lg"
               />
@@ -168,7 +168,7 @@ export default function Home() {
               Puis 9€/mois. Résiliable à tout moment.
             </p>
           </div>
-          <PrimaryButton text="Voir les tarifs" href="/prix" icon={ArrowRight} className="shrink-0" />
+          <PrimaryButton text="Voir les tarifs" href="/pricing" icon={ArrowRight} className="shrink-0" />
         </div>
       </section>
 
@@ -343,7 +343,7 @@ export default function Home() {
             />
             <PrimaryButton
               text="Voir les tarifs"
-              href="/prix"
+              href="/pricing"
               variant="outline-light"
               size="lg"
             />

@@ -9,7 +9,7 @@ import ThemeToggle from "./ThemeToggle";
 import PrimaryButton from "./PrimaryButton";
 
 const links = [
-    { href: "/prix", label: "Tarifs" },
+    { href: "/pricing", label: "Tarifs" },
     { href: "/contact", label: "Contact" },
 ];
 

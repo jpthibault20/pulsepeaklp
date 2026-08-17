@@ -25,7 +25,7 @@ const toc = [
   { id: "droit", label: "Droit applicable" },
 ];
 
-export default function CguPage() {
+export default function TermsOfUsePage() {
   return (
     <main className="min-h-screen overflow-x-hidden text-slate-900 selection:bg-blue-600 selection:text-white dark:text-slate-200">
       <LandingBackground />
@@ -45,7 +45,7 @@ export default function CguPage() {
             Les présentes conditions générales d&apos;utilisation (CGU) régissent l&apos;accès et l&apos;usage du
             site pulsepeak.fr et de l&apos;application PulsePeak (app.pulsepeak.fr), édités par JEANPIERRE Thibault
             (voir les{" "}
-            <a href="/mentions-legales" className="font-medium text-blue-600 hover:underline">
+            <a href="/legal-notices" className="font-medium text-blue-600 hover:underline">
               mentions légales
             </a>
             ). En créant un compte ou en utilisant le service, l&apos;utilisateur accepte sans réserve les
@@ -76,7 +76,7 @@ export default function CguPage() {
           <h2 id="abonnement" className={h2}>4. Abonnement et tarifs</h2>
           <p className={p}>
             L&apos;accès complet au service est payant selon les tarifs affichés sur la{" "}
-            <a href="/prix" className="font-medium text-blue-600 hover:underline">
+            <a href="/pricing" className="font-medium text-blue-600 hover:underline">
               page Tarifs
             </a>
             . L&apos;abonnement est renouvelé automatiquement pour la même durée, sauf résiliation par

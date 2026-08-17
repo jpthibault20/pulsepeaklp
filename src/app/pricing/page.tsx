@@ -40,7 +40,7 @@ const faqs: { q: string; a: React.ReactNode }[] = [
     a: (
       <>
         Elles sont traitées conformément à notre{" "}
-        <a href="/confidentialite" className="font-medium text-blue-600 hover:underline">
+        <a href="/privacy-policy" className="font-medium text-blue-600 hover:underline">
           politique de confidentialité
         </a>
         .

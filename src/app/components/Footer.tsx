@@ -4,10 +4,10 @@ import Link from "next/link";
 
 const legalLinks = [
     { href: "/contact", label: "Contact" },
-    { href: "/mentions-legales", label: "Mentions légales" },
-    { href: "/cgu", label: "CGU" },
-    { href: "/cgv", label: "CGV" },
-    { href: "/confidentialite", label: "Confidentialité" },
+    { href: "/legal-notices", label: "Mentions légales" },
+    { href: "/terms-of-use", label: "CGU" },
+    { href: "/terms-of-sale", label: "CGV" },
+    { href: "/privacy-policy", label: "Confidentialité" },
 ];
 
 export default function Footer() {
