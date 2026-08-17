@@ -21,8 +21,8 @@ export async function POST(request: Request) {
         `;
 
         const data = await resend.emails.send({
-            from: "PulsePeak Contact <contact@aeroconnect.fr>",
-            to: ["tjeanpierre757@gmail.com"],
+            from: "PulsePeak Contact <thibault@jp-developpement.com>",
+            to: ["thibault@jp-developpement.com"],
             replyTo: email,
             subject: `📩 Nouveau message de ${name}`,
             html: htmlContent,
