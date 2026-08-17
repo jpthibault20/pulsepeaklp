@@ -1,239 +1,357 @@
 // app/page.tsx
-import Image from 'next/image';
-import Link from 'next/link';
-import { Calendar, Brain, Heart, Zap, ArrowRight, Users, Target, BrainCircuit } from 'lucide-react'; // Ajout de nouvelles icônes
-import BackgroundEffect from './components/BackgroundEffect';
+import Image from "next/image";
+import {
+  Waves,
+  Bike,
+  Footprints,
+  Brain,
+  Gauge,
+  Calendar,
+  ArrowRight,
+  Target,
+  BrainCircuit,
+} from "lucide-react";
+import LandingBackground from "./components/LandingBackground";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import PrimaryButton from "./components/PrimaryButton";
+import Badge from "./components/Badge";
+
+const card =
+  "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
 export default function Home() {
   return (
-    <main className="min-h-screen  text-slate-200 overflow-x-hidden selection:bg-primary selection:text-black">
-      <BackgroundEffect />
-      {/* Navbar simplifiée */}
-      <nav className="fixed top-0 w-full z-50  backdrop-blur-md border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/logoWhite.png"
-              alt="PulsePeak Logo"
-              width={100}
-              height={100}
-              className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-black"
-            />
-            {/* <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center font-bold text-black">P</div> */}
-            <span className="font-bold text-xl tracking-tight text-white">PulsePeak</span>
-          </div>
-          <Link
-            href="https://app.pulsepeak.fr"
-            className="
-    relative px-6 py-2 
-    bg-cyan-400 text-slate-950 
-    text-sm font-black uppercase tracking-tight 
-    rounded-full border-b-2 border-cyan-600
-    shadow-[0_0_15px_rgba(34,211,238,0.4)] 
-    hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] 
-    hover:bg-white hover:scale-105
-    transition-all duration-200 active:translate-y-0.5 active:border-b-0
-  "
-          >
-            Lancer l'application
-          </Link>
-        </div>
-      </nav>
+    <main className="min-h-screen overflow-x-hidden text-slate-900 selection:bg-blue-600 selection:text-white dark:text-slate-200">
+      <LandingBackground />
+      <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 text-center">
-        <div className="max-w-5xl mx-auto">
-          {/* Badge animé */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-8 animate-bounce">
-            <Zap size={14} /> L&apos;IA qui vit votre entraînement
-          </div>
+      <section className="relative px-4 pb-16 pt-32">
+        <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+          {/* Texte */}
+          <div className="text-center lg:text-left">
+            <Badge text="Coach IA multisport" icon={Waves} color="blue" className="mb-6" />
 
-          <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter mb-8 leading-[0.9]">
-            PULSE<span className="text-cyan-400">PEAK</span>
-          </h1>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-blue-600">PulsePeak</p>
 
-          <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Le premier coach IA pour triathlètes qui ne dort jamais. <span className="text-white">Adaptatif. Radical. Performant.</span>
-          </p>
+            <h1 className="mx-auto mb-8 max-w-2xl text-4xl font-black leading-[1.05] tracking-tighter text-slate-900 md:text-6xl lg:mx-0 lg:text-5xl xl:text-6xl dark:text-white">
+              {"Un coach IA qui s'adapte à votre semaine, pas l'inverse."}
+            </h1>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <Link href="/sondage" className="group relative px-10 py-5 bg-cyan-400 text-slate-950 font-black text-xl rounded-2xl shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:shadow-[0_0_50px_rgba(34,211,238,0.7)] transition-all border-b-4 border-cyan-600 active:border-b-0 active:translate-y-1 flex items-center gap-3">
-              PARTICIPER AU DÉVELOPPEMENT
-              <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </div>
-      </section>
+            <p className="mx-auto mb-6 max-w-2xl text-xl leading-relaxed text-slate-600 md:text-2xl lg:mx-0 dark:text-slate-400">
+              {"Planification personnalisée, analyse de performance et suivi de forme, sur la ou les disciplines de votre choix."}
+            </p>
 
-      {/* Section 'Vision des fondateurs' */}
-      <section className="py-24 px-4 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-          {/* Carte Vision (Large) */}
-          <div className="md:col-span-2 p-10 rounded-4xl bg-slate-900/40 border border-white/5 backdrop-blur-md flex flex-col justify-between">
-            <div className="space-y-4">
-              <Target className="text-cyan-400" size={40} />
-              <h2 className="text-3xl font-bold text-white">Notre Vision</h2>
-              <p className="text-slate-400 text-lg leading-relaxed">
-                &quot;Nous avons créé PulsePeak parce que les plans d&apos;entraînement statiques sont les ennemis de la progression. Nous voulons offrir à chaque amateur la précision d&apos;un coach pro, boostée par une IA capable d&apos;analyser chaque battement de cœur.&quot;
-              </p>
+            <div className="mb-6 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+              <Badge text="Natation" icon={Waves} color="cyan" />
+              <Badge text="Vélo" icon={Bike} color="blue" />
+              <Badge text="Course à pied" icon={Footprints} color="orange" />
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-500">
+                seule, combinées, ou en triathlon complet
+              </span>
             </div>
-            <div className="mt-8 pt-8 border-t border-white/5 flex items-center gap-4">
-              <div className="flex -space-x-4">
+
+            <p className="mb-10 text-sm font-semibold text-blue-600">
+              {"Dès 5€/mois — offre de lancement jusqu'au 31 décembre 2026"}
+            </p>
+
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+              <PrimaryButton
+                text="Essayer PulsePeak"
+                href="https://app.pulsepeak.fr"
+                icon={ArrowRight}
+                size="lg"
+              />
+              <PrimaryButton
+                text="Voir les tarifs"
+                href="/prix"
+                variant="outline"
+                size="lg"
+              />
+            </div>
+          </div>
+
+          {/* Visuel produit */}
+          <div className="relative mx-auto w-56 sm:w-64 lg:mx-0 lg:w-72">
+            {/* Glow d'ambiance */}
+            <div className="absolute left-1/2 top-1/2 -z-10 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/25 blur-[80px] dark:bg-blue-500/20" />
+
+            {/* Boutons du châssis */}
+            <div className="absolute -left-[3px] top-16 h-6 w-[3px] rounded-l bg-slate-800 dark:bg-slate-700" />
+            <div className="absolute -left-[3px] top-24 h-10 w-[3px] rounded-l bg-slate-800 dark:bg-slate-700" />
+            <div className="absolute -right-[3px] top-24 h-12 w-[3px] rounded-r bg-slate-800 dark:bg-slate-700" />
+
+            {/* Châssis téléphone */}
+            <div className="relative overflow-hidden rounded-[2.75rem] border-[3px] border-slate-800 bg-slate-900 shadow-2xl shadow-slate-900/30 ring-1 ring-white/10 dark:border-slate-700">
+              <div className="relative flex h-7 items-center justify-center bg-white">
+                <div className="h-5 w-24 rounded-full bg-slate-950" />
+              </div>
+              <div className="relative aspect-[682/1488]">
                 <Image
-                  src="/Profile.png"
-                  alt="Photo Fondateur 1"
-                  width={100}
-                  height={100}
-                  className="w-16 h-16 rounded-full border-2 border-background bg-slate-800"
+                  src="/screen_calendar_phone.png"
+                  alt="Agenda d'entraînement PulsePeak sur mobile"
+                  fill
+                  sizes="(min-width: 1024px) 288px, 256px"
+                  className="object-cover"
+                  priority
                 />
-                {/* <div className="w-12 h-12 rounded-full border-2 border-[#050A14] bg-slate-800" /> Photo Fondateur 1 */}
-                {/* <div className="w-12 h-12 rounded-full border-2 border-[#050A14] bg-slate-800" /> Photo Fondateur 2 */}
               </div>
-              <p className="text-sm font-bold text-white">JEANPIERRE Thibaut, <span className="text-cyan-400">Fondateurs</span></p>
             </div>
-          </div>
-
-          {/* Carte "Pas juste de la tech" */}
-          <div className="p-10 rounded-4xl bg-linear-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/20 backdrop-blur-md">
-            {/* Changement d'icône pour évoquer l'intelligence et la conception */}
-            <BrainCircuit className="text-cyan-400 mb-6" size={40} />
-
-            <h3 className="text-2xl font-bold text-white mb-4">Pensée pour le Terrain</h3>
-
-            <p className="text-slate-300">
-              L&apos;IA calcule, mais l&apos;expérience guide. L&apos;application est calibrée sur la réalité du sport : gérer la fatigue, les imprévus et la &quot;vraie vie&quot;, pas juste des chiffres.
-            </p>
           </div>
         </div>
       </section>
 
-
-      {/* Section Présentation Détaillée - Mise en avant de l'IA et de l'humain */}
-      <section className="py-24 px-4 bg-linear-to-b from-surface to-background">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Le coaching, réinventé.</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-              PulsePeak ne se contente pas de générer un plan. Il vit l&apos;entraînement avec vous.
+      {/* Section Présentation détaillée — value prop d'abord */}
+      <section className="px-4 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 text-center">
+            <h2 className="mb-6 text-3xl font-bold text-slate-900 md:text-5xl dark:text-white">
+              Le coaching, réinventé.
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
+              {"PulsePeak ne se contente pas de générer un plan. Il vit l'entraînement avec vous, sortie après sortie."}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Pilier 1 : Ultra-Adaptatif */}
-            <div className="p-8 rounded-3xl bg-slate-900/50 border border-white/5 hover:border-primary/50 transition-colors group">
-              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition-all">
-                <Brain size={28} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4">L&apos;IA qui vous connaît</h3>
-              <p className="text-slate-400 leading-relaxed">
-                Une réunion qui finit tard ? Une mauvaise nuit ? L&apos;IA recalcule instantanément votre semaine pour optimiser votre récupération sans sacrifier vos objectifs. Fini le stress de ne pas suivre le plan.
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {/* Pilier 1 : Ultra-adaptatif */}
+            <div className={`p-8 ${card}`}>
+              <Badge text="Adaptatif" icon={Brain} color="blue" className="mb-6" />
+              <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-white">
+                {"L'IA qui vous connaît"}
+              </h3>
+              <p className="leading-relaxed text-slate-600 dark:text-slate-400">
+                {
+                  "Une réunion qui finit tard ? Une mauvaise nuit ? L'IA recalcule instantanément votre semaine pour optimiser votre récupération sans sacrifier vos objectifs. Fini le stress de ne pas suivre le plan."
+                }
               </p>
             </div>
 
-            {/* Pilier 2 : Pour Tous les Niveaux */}
-            <div className="p-8 rounded-3xl bg-slate-900/50 border border-white/5 hover:border-secondary/50 transition-colors group">
-              <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-black transition-all">
-                <Heart size={28} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4">Du Débutant à l&apos;Élite</h3>
-              <p className="text-slate-400 leading-relaxed">
-                Que vous prépariez votre premier S ou un format XXL, l&apos;algorithme ajuste la charge (TSS) et l&apos;intensité en fonction de votre historique réel, de vos zones de puissance/FC et de vos ambitions.
+            {/* Pilier 2 : Pour tous les niveaux */}
+            <div className={`p-8 ${card}`}>
+              <Badge text="Endurance" icon={Gauge} color="emerald" className="mb-6" />
+              <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-white">
+                {"Du loisir à la compétition"}
+              </h3>
+              <p className="leading-relaxed text-slate-600 dark:text-slate-400">
+                {
+                  "Que vous prépariez un 10 km, une sortie longue à vélo, un objectif natation ou un triathlon complet, l'algorithme ajuste la charge et l'intensité sur la ou les disciplines choisies, en fonction de votre historique réel, de vos zones de puissance/FC et de vos ambitions."
+                }
               </p>
             </div>
 
-            {/* Pilier 3 : La Méthodologie */}
-            <div className="p-8 rounded-3xl bg-slate-900/50 border border-white/5 hover:border-cyan-500/50 transition-colors group">
-              <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500 group-hover:text-black transition-all">
-                <Calendar size={28} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4">L&apos;Art du Cycle</h3>
-              <p className="text-slate-400 leading-relaxed">
-                Fini la routine. L&apos;IA structure votre saison en blocs thématiques (Force, Seuil, Endurance critique) pour garantir une progression constante et éviter la stagnation. Une approche scientifique et éprouvée.
+            {/* Pilier 3 : Méthodologie */}
+            <div className={`p-8 ${card}`}>
+              <Badge text="VO2max" icon={Calendar} color="violet" className="mb-6" />
+              <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-white">
+                {"L'art du cycle"}
+              </h3>
+              <p className="leading-relaxed text-slate-600 dark:text-slate-400">
+                {
+                  "Fini la routine. L'IA structure votre saison en blocs thématiques (Force, Seuil, Endurance critique) pour garantir une progression constante et éviter la stagnation. Une approche scientifique et éprouvée."
+                }
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section Visuels (Screenshots + Vélos) */}
-      <section className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-primary text-sm font-semibold uppercase tracking-wide mb-3">L&apos;Expérience PulsePeak</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Visualisez votre succès.</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-lg">
+      {/* Bandeau de conversion intermédiaire — évite d'avoir à scroller jusqu'en bas */}
+      <section className="px-4 pb-4">
+        <div className={`mx-auto flex max-w-4xl flex-col items-center justify-between gap-5 border-blue-200/60 bg-blue-50/60 px-6 py-6 text-center dark:border-blue-500/20 dark:bg-blue-500/5 sm:flex-row sm:text-left ${card}`}>
+          <div>
+            <p className="font-semibold text-slate-900 dark:text-white">
+              {"Offre de lancement : 5€/mois jusqu'au 31 décembre 2026."}
+            </p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+              Puis 9€/mois. Résiliable à tout moment.
+            </p>
+          </div>
+          <PrimaryButton text="Voir les tarifs" href="/prix" icon={ArrowRight} className="shrink-0" />
+        </div>
+      </section>
+
+      {/* Section Visuels — preuve */}
+      <section className="px-4 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-blue-600">
+              {"L'expérience PulsePeak"}
+            </p>
+            <h2 className="mb-6 text-3xl font-bold text-slate-900 md:text-5xl dark:text-white">
+              Visualisez votre succès.
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
               Une interface intuitive pour un suivi précis et une motivation constante.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Image de l'App - Calendrier */}
-            <div className="relative group p-4 bg-slate-900 border border-slate-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
-              <div className="absolute inset-0 bg-linear-to-r from-primary/10 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative rounded-2xl overflow-hidden rotate-1 hover:rotate-0 transition-transform duration-500">
-                <Image src="/screen_calendar.png" alt="Agenda PulsePeak" width={800} height={500} className="object-cover" />
+          <div className="grid items-center gap-8 md:grid-cols-2">
+            <div className={`p-4 ${card}`}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
+                <Image
+                  src="/screen_calendar_pc.png"
+                  alt="Agenda PulsePeak"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-contain p-3"
+                />
               </div>
-              <p className="text-center text-slate-400 text-sm mt-4">Votre saison, optimisée jour après jour.</p>
+              <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
+                Votre saison, optimisée sortie après sortie.
+              </p>
             </div>
 
-            {/* Image de Vélo (pour l'aspect sportif et non trop tech) */}
-            <div className="relative group p-4 bg-slate-900 border border-slate-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
-              <div className="absolute inset-0 bg-linear-to-r from-cyan-500/10 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative rounded-2xl overflow-hidden -rotate-1 hover:rotate-0 transition-transform duration-500">
-                <Image src="/Screen_IA.png" alt="L&apos;IA au service de votre passion." width={800} height={500} className="object-cover" />
+            <div className={`p-4 ${card}`}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
+                <Image
+                  src="/screen_generate_week_w_IA.png"
+                  alt="L'IA génère votre semaine d'entraînement"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-contain p-3"
+                />
               </div>
-              <p className="text-center text-slate-400 text-sm mt-4">L&apos;IA au service de votre passion.</p>
+              <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
+                {"L'IA ajuste votre semaine selon votre forme et vos disponibilités."}
+              </p>
             </div>
 
-            {/* Image de l'App - Profil */}
-            <div className="relative group p-4 bg-slate-900 border border-slate-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 col-span-full md:col-span-1">
-              <div className="absolute inset-0 bg-linear-to-r from-secondary/10 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative rounded-2xl overflow-hidden rotate-2 hover:rotate-0 transition-transform duration-500">
-                <Image src="/screen_profile.png" alt="Profil Athlète PulsePeak" width={800} height={500} className="object-cover" />
+            <div className={`col-span-full p-4 md:col-span-1 ${card}`}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
+                <Image
+                  src="/Screen_plan.png"
+                  alt="Plan d'entraînement structuré en blocs"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-contain object-top p-3"
+                />
               </div>
-              <p className="text-center text-slate-400 text-sm mt-4">Votre profil, vos données, votre évolution.</p>
+              <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
+                Votre saison structurée en blocs de progression.
+              </p>
             </div>
 
-            {/* Image de l'App - Stats / Mobile */}
-            <div className="relative group p-4 bg-slate-900 border border-slate-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 col-span-full md:col-span-1">
-              <div className="absolute inset-0 bg-linear-to-r from-cyan-500/10 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative rounded-2xl overflow-hidden -rotate-2 hover:rotate-0 transition-transform duration-500">
-                <Image src="/Screen_stats.png" alt="Statistiques de performance" width={800} height={500} className="object-cover" />
+            <div className={`col-span-full p-4 md:col-span-1 ${card}`}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
+                <Image
+                  src="/Screen_stats_v2.png"
+                  alt="Statistiques de performance"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-contain p-3"
+                />
               </div>
-              <p className="text-center text-slate-400 text-sm mt-4">Chaque donnée compte pour votre progression.</p>
+              <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
+                Chaque donnée compte pour votre progression.
+              </p>
+            </div>
+
+            <div className={`p-4 ${card}`}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
+                <Image
+                  src="/workout_planned.png"
+                  alt="Détail d'une séance planifiée par l'IA"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-contain p-3"
+                />
+              </div>
+              <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
+                Chaque séance expliquée : quoi, combien, pourquoi.
+              </p>
+            </div>
+
+            <div className={`p-4 ${card}`}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
+                <Image
+                  src="/workout.png"
+                  alt="Analyse détaillée d'une séance réalisée"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-contain p-3"
+                />
+              </div>
+              <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
+                Et analysée en détail une fois la séance terminée.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action Final */}
-      <section className="py-20 px-4 text-center bg-linear-to-t from-background to-surface">
-        <div className="max-w-3xl mx-auto space-y-8">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">
-            Prêt à transformer votre entraînement ?
-          </h2>
-          <p className="text-lg md:text-xl text-slate-400">
-            Rejoignez la communauté PulsePeak et participez à la construction du futur du coaching Triathlon. Votre avis est précieux.
-          </p>
-          <Link
-            href="/sondage"
-            className="group relative w-full md:w-auto px-10 py-5 bg-cyan-400 text-slate-950 font-black text-xl rounded-2xl 
-                   transition-all duration-300 transform hover:scale-105 active:scale-95
-                   shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:shadow-[0_0_50px_rgba(34,211,238,0.7)]
-                   border-b-4 border-cyan-600 flex items-center justify-center gap-3"
-          >
-            <span className="relative z-10">Participer au sondage maintenant</span>
-            <div className="absolute inset-0 rounded-xl bg-linear-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          </Link>
+      {/* Section Vision — trust/humain, juste avant la conversion finale */}
+      <section className="mx-auto max-w-7xl px-4 py-24">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {/* Carte Vision (large) */}
+          <div className={`md:col-span-2 flex flex-col justify-between p-10 ${card}`}>
+            <div className="space-y-4">
+              <Target className="text-blue-600" size={40} />
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Notre vision</h2>
+              <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+                {
+                  "Nous avons créé PulsePeak parce que les plans d'entraînement statiques sont les ennemis de la progression sportive. Nous voulons offrir à chaque nageur, cycliste, coureur ou triathlète la précision d'un coach pro, boostée par une IA capable d'analyser chaque séance."
+                }
+              </p>
+            </div>
+            <div className="mt-8 flex items-center gap-4 border-t border-slate-200/80 pt-8 dark:border-slate-800">
+              <Image
+                src="/Profile.png"
+                alt="Photo du fondateur"
+                width={100}
+                height={100}
+                className="h-16 w-16 rounded-full border-2 border-white bg-slate-200 dark:border-slate-900 dark:bg-slate-800"
+              />
+              <p className="text-sm font-bold text-slate-900 dark:text-white">
+                JEANPIERRE Thibault, <span className="text-blue-600">Fondateur</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Carte "Pensé pour la route" */}
+          <div className={`p-10 ${card}`}>
+            <BrainCircuit className="mb-6 text-blue-600" size={40} />
+            <h3 className="mb-4 text-2xl font-bold text-slate-900 dark:text-white">
+              Pensé pour la route
+            </h3>
+            <p className="text-slate-600 dark:text-slate-300">
+              {
+                "L'IA calcule, mais l'expérience guide. L'application est calibrée sur la réalité de l'entraînement — natation, vélo, course à pied ou triathlon : gérer la fatigue, les imprévus et la « vraie vie », pas juste des chiffres."
+              }
+            </p>
+          </div>
         </div>
       </section>
 
+      {/* Call to Action final */}
+      <section className="px-4 py-20 text-center">
+        <div className="mx-auto max-w-3xl space-y-8 rounded-2xl bg-blue-600 px-6 py-16 shadow-lg shadow-blue-900/20 md:px-16">
+          <h2 className="text-3xl font-extrabold leading-tight text-white md:text-5xl">
+            {"Prêt à transformer votre entraînement ?"}
+          </h2>
+          <p className="text-lg text-blue-100 md:text-xl">
+            {"Profitez du tarif de lancement à 5€/mois jusqu'au 31 décembre 2026 et donnez un coach IA à votre entraînement."}
+          </p>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <PrimaryButton
+              text="Essayer PulsePeak"
+              href="https://app.pulsepeak.fr"
+              icon={ArrowRight}
+              variant="secondary"
+              size="lg"
+            />
+            <PrimaryButton
+              text="Voir les tarifs"
+              href="/prix"
+              variant="outline-light"
+              size="lg"
+            />
+          </div>
+        </div>
+      </section>
 
-      {/* Footer */}
-      <footer className="py-8 text-center text-slate-600 text-sm border-t border-white/5 bg-background">
-        <p>© 2026 PulsePeak. L&apos;IA au service de votre passion pour le Triathlon.</p>
-      </footer>
+      <Footer />
     </main>
   );
 }

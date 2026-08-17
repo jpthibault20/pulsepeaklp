@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Dark mode piloté par data-theme="dark" sur <html>, pas uniquement prefers-color-scheme */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 /* Configuration du thème et des animations pour Tailwind v4 */
 @theme {
   --color-background: #050A14;
@@ -49,7 +52,7 @@
   body {
     background-color: var(--color-background);
     color: #e2e8f0; /* slate-200 */
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), 'Inter', sans-serif;
   }
 }
 
