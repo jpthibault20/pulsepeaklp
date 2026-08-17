@@ -2,6 +2,8 @@
 import Image from "next/image";
 import {
   Waves,
+  Bike,
+  Footprints,
   Brain,
   Gauge,
   Calendar,
@@ -29,17 +31,26 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           {/* Texte */}
           <div className="text-center lg:text-left">
-            <Badge text="Coach triathlon intelligent" icon={Waves} color="blue" className="mb-6" />
+            <Badge text="Coach IA multisport" icon={Waves} color="blue" className="mb-6" />
 
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-blue-600">PulsePeak</p>
 
             <h1 className="mx-auto mb-8 max-w-2xl text-4xl font-black leading-[1.05] tracking-tighter text-slate-900 md:text-6xl lg:mx-0 lg:text-5xl xl:text-6xl dark:text-white">
-              {"Un coach triathlon IA qui s'adapte à votre semaine, pas l'inverse."}
+              {"Un coach IA qui s'adapte à votre semaine, pas l'inverse."}
             </h1>
 
             <p className="mx-auto mb-6 max-w-2xl text-xl leading-relaxed text-slate-600 md:text-2xl lg:mx-0 dark:text-slate-400">
-              {"Planification personnalisée, analyse de performance et suivi de forme pour progresser en natation, vélo et course à pied."}
+              {"Planification personnalisée, analyse de performance et suivi de forme, sur la ou les disciplines de votre choix."}
             </p>
+
+            <div className="mb-6 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+              <Badge text="Natation" icon={Waves} color="cyan" />
+              <Badge text="Vélo" icon={Bike} color="blue" />
+              <Badge text="Course à pied" icon={Footprints} color="orange" />
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-500">
+                seule, combinées, ou en triathlon complet
+              </span>
+            </div>
 
             <p className="mb-10 text-sm font-semibold text-blue-600">
               {"Dès 5€/mois — offre de lancement jusqu'au 31 décembre 2026"}
@@ -125,7 +136,7 @@ export default function Home() {
               </h3>
               <p className="leading-relaxed text-slate-600 dark:text-slate-400">
                 {
-                  "Que vous prépariez votre premier triathlon ou un Ironman exigeant, l'algorithme ajuste la charge et l'intensité sur les trois disciplines en fonction de votre historique réel, de vos zones de puissance/FC et de vos ambitions."
+                  "Que vous prépariez un 10 km, une sortie longue à vélo, un objectif natation ou un triathlon complet, l'algorithme ajuste la charge et l'intensité sur la ou les disciplines choisies, en fonction de votre historique réel, de vos zones de puissance/FC et de vos ambitions."
                 }
               </p>
             </div>
@@ -280,7 +291,7 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Notre vision</h2>
               <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
                 {
-                  "Nous avons créé PulsePeak parce que les plans d'entraînement statiques sont les ennemis de la progression en triathlon. Nous voulons offrir à chaque triathlète la précision d'un coach pro, boostée par une IA capable d'analyser chaque séance."
+                  "Nous avons créé PulsePeak parce que les plans d'entraînement statiques sont les ennemis de la progression sportive. Nous voulons offrir à chaque nageur, cycliste, coureur ou triathlète la précision d'un coach pro, boostée par une IA capable d'analyser chaque séance."
                 }
               </p>
             </div>
@@ -306,7 +317,7 @@ export default function Home() {
             </h3>
             <p className="text-slate-600 dark:text-slate-300">
               {
-                "L'IA calcule, mais l'expérience guide. L'application est calibrée sur la réalité du triathlon : gérer la fatigue, les imprévus et la « vraie vie », pas juste des chiffres."
+                "L'IA calcule, mais l'expérience guide. L'application est calibrée sur la réalité de l'entraînement — natation, vélo, course à pied ou triathlon : gérer la fatigue, les imprévus et la « vraie vie », pas juste des chiffres."
               }
             </p>
           </div>

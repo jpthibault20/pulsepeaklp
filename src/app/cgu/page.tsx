@@ -54,7 +54,8 @@ export default function CguPage() {
 
           <h2 id="description" className={h2}>2. Description du service</h2>
           <p className={p}>
-            PulsePeak est un service de coaching triathlon assisté par intelligence artificielle : génération de
+            PulsePeak est un service de coaching sportif (natation, vélo, course à pied, seul ou en triathlon)
+            assisté par intelligence artificielle : génération de
             plans d&apos;entraînement personnalisés, analyse de performance et suivi de forme à partir des données
             fournies par l&apos;utilisateur.
           </p>

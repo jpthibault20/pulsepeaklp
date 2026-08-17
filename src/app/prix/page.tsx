@@ -9,7 +9,7 @@ import Badge from "../components/Badge";
 
 export const metadata: Metadata = {
   title: "Tarifs — PulsePeak",
-  description: "Un tarif simple pour un coach triathlon IA. Offre de lancement à 5€/mois jusqu'au 31 décembre 2026.",
+  description: "Un tarif simple pour un coach IA natation, vélo, course à pied. Offre de lancement à 5€/mois jusqu'au 31 décembre 2026.",
 };
 
 const card =

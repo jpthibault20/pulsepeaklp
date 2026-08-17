@@ -30,7 +30,7 @@ export default function Footer() {
                         className="hidden h-6 w-6 shrink-0 dark:block"
                     />
                     <p className="text-sm text-slate-500 dark:text-slate-500">
-                        {"© 2026 PulsePeak. L'IA au service de votre passion pour le triathlon."}
+                        {"© 2026 PulsePeak. L'IA au service de votre passion : natation, vélo, course à pied."}
                     </p>
                 </div>
                 <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">

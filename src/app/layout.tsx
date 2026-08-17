@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PulsePeak — Coach triathlon intelligent",
+  title: "PulsePeak — Coach IA natation, vélo, course à pied",
   description:
     "Planification personnalisée, analyse de performance et suivi de forme pour progresser.",
 };
