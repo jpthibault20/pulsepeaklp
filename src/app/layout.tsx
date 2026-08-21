@@ -8,6 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.pulsepeak.fr"),
   title: "PulsePeak — Coach IA natation, vélo, course à pied",
   description:
     "Planification personnalisée, analyse de performance et suivi de forme pour progresser.",
