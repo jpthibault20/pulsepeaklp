@@ -4,6 +4,7 @@
 import { useMemo, useRef, useState } from "react";
 import { Upload, FileUp, Mountain, ArrowUp, ArrowDown, Ruler } from "lucide-react";
 import Badge from "../../components/Badge";
+import LeadCapture from "../../components/LeadCapture";
 import ElevationChart from "./ElevationChart";
 import {
     parseGpx,
@@ -231,10 +232,18 @@ export default function GpxAnalyzer() {
                         )}
 
                         {estimation ? (
-                            <div className="flex flex-wrap items-center gap-3">
-                                <Badge text={`Temps estimé : ${formatDuration(estimation.timeMin)}`} color="blue" />
-                                {estimation.extra && <Badge text={estimation.extra} color="slate" />}
-                            </div>
+                            <>
+                                <div className="flex flex-wrap items-center gap-3">
+                                    <Badge text={`Temps estimé : ${formatDuration(estimation.timeMin)}`} color="blue" />
+                                    {estimation.extra && <Badge text={estimation.extra} color="slate" />}
+                                </div>
+                                <div className="mt-6">
+                                    <LeadCapture
+                                        tool="Analyseur GPX"
+                                        summary={`Distance : ${stats.distanceKm.toFixed(1)} km — D+ ${Math.round(stats.gainM)} m — D- ${Math.round(stats.lossM)} m\nTemps estimé (${discipline}) : ${formatDuration(estimation.timeMin)}${estimation.extra ? ` — ${estimation.extra}` : ""}`}
+                                    />
+                                </div>
+                            </>
                         ) : (
                             <p className="text-sm text-slate-500 dark:text-slate-400">
                                 Renseignez les valeurs demandées pour estimer votre temps sur ce parcours.

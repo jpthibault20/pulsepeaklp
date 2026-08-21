@@ -2,10 +2,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Zap } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { Zap, Link2, Check } from "lucide-react";
 import Badge from "../../../components/Badge";
 import type { BadgeColor } from "../../../components/Badge";
 import ZoneTable, { type ZoneRow } from "../components/ZoneTable";
+import LeadCapture from "../../../components/LeadCapture";
 
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
@@ -36,15 +38,20 @@ function powerZones(ftp: number): ZoneRow[] {
 }
 
 export default function PowerZonesCalculator() {
-    const [method, setMethod] = useState<Method>("20");
+    const searchParams = useSearchParams();
+    const initialMethod = (searchParams.get("method") as Method) || "20";
+    const validMethod: Method = ["20", "8", "5", "combine"].includes(initialMethod) ? initialMethod : "20";
 
-    const [singlePower, setSinglePower] = useState("280");
-    const [weightInput, setWeightInput] = useState("70");
+    const [method, setMethod] = useState<Method>(validMethod);
+    const [copied, setCopied] = useState(false);
 
-    const [t1, setT1] = useState("5");
-    const [p1, setP1] = useState("330");
-    const [t2, setT2] = useState("20");
-    const [p2, setP2] = useState("266");
+    const [singlePower, setSinglePower] = useState(() => searchParams.get("power") || "280");
+    const [weightInput, setWeightInput] = useState(() => searchParams.get("weight") || "70");
+
+    const [t1, setT1] = useState(() => searchParams.get("t1") || "5");
+    const [p1, setP1] = useState(() => searchParams.get("p1") || "330");
+    const [t2, setT2] = useState(() => searchParams.get("t2") || "20");
+    const [p2, setP2] = useState(() => searchParams.get("p2") || "266");
 
     const weight = parseFloat(weightInput);
     const validWeight = Number.isFinite(weight) && weight > 0;
@@ -83,6 +90,26 @@ export default function PowerZonesCalculator() {
 
     const zones = ftp !== null ? powerZones(ftp) : [];
     const wPerKg = ftp !== null && validWeight ? ftp / weight : null;
+
+    const handleCopyLink = () => {
+        const params = new URLSearchParams();
+        params.set("method", method);
+        if (method === "combine") {
+            params.set("t1", t1);
+            params.set("p1", p1);
+            params.set("t2", t2);
+            params.set("p2", p2);
+        } else {
+            params.set("power", singlePower);
+        }
+        if (weightInput) params.set("weight", weightInput);
+
+        const url = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        navigator.clipboard.writeText(url).then(() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        });
+    };
 
     return (
         <div className="space-y-8">
@@ -200,8 +227,22 @@ export default function PowerZonesCalculator() {
             </div>
 
             <div className={`p-6 md:p-8 ${card}`}>
-                <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Vos zones de puissance</h3>
-                <p className="mb-5 text-sm text-slate-500 dark:text-slate-400">Modèle 7 zones (Coggan).</p>
+                <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                        <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Vos zones de puissance</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">Modèle 7 zones (Coggan).</p>
+                    </div>
+                    {ftp !== null && (
+                        <button
+                            type="button"
+                            onClick={handleCopyLink}
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800"
+                        >
+                            {copied ? <Check size={14} className="text-emerald-600" /> : <Link2 size={14} />}
+                            {copied ? "Lien copié" : "Copier le lien"}
+                        </button>
+                    )}
+                </div>
 
                 {ftp !== null ? (
                     <>
@@ -226,6 +267,12 @@ export default function PowerZonesCalculator() {
                             )}
                         </div>
                         <ZoneTable zones={zones} unit="Watts" />
+                        <div className="mt-6">
+                            <LeadCapture
+                                tool="Zones de puissance"
+                                summary={`FTP estimée : ${Math.round(ftp)} W${wPerKg !== null ? ` (${wPerKg.toFixed(2)} W/kg)` : ""}\n\nZones de puissance :\n${zones.map((z) => `Z${z.n} ${z.name} : ${z.range} W`).join("\n")}`}
+                            />
+                        </div>
                     </>
                 ) : (
                     <p className="text-sm text-slate-500 dark:text-slate-400">

@@ -10,6 +10,7 @@ import PrimaryButton from "./PrimaryButton";
 
 const links = [
     { href: "/pricing", label: "Tarifs" },
+    { href: "/telecharger", label: "Application" },
     { href: "/outils", label: "Outils" },
     { href: "/contact", label: "Contact" },
 ];

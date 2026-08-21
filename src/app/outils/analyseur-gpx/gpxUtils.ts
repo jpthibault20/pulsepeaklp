@@ -47,6 +47,31 @@ export function parseGpx(xmlText: string): RawPoint[] {
     return points;
 }
 
+// Parcours vallonné procédural (fonction pure, sans dépendance navigateur) utilisé
+// comme exemple pré-chargé sur la page, pour qu'elle affiche un résultat concret
+// même sans fichier importé.
+export function generateDemoTrack(): RawPoint[] {
+    const totalKm = 18;
+    const stepKm = 0.025;
+    const numPoints = Math.round(totalKm / stepKm);
+    const startLat = 45.5;
+    const startLon = 5.5;
+    const kmPerDegLat = 111.32;
+
+    const points: RawPoint[] = [];
+    for (let i = 0; i <= numPoints; i++) {
+        const distKm = i * stepKm;
+        const lat = startLat + distKm / kmPerDegLat;
+        const ele =
+            220 +
+            90 * Math.sin((distKm / totalKm) * Math.PI * 2.4) +
+            35 * Math.sin((distKm / totalKm) * Math.PI * 7) +
+            8 * Math.sin(distKm * 3);
+        points.push({ lat, lon: startLon, ele });
+    }
+    return points;
+}
+
 export function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
     const R = 6371;
     const dLat = ((lat2 - lat1) * Math.PI) / 180;

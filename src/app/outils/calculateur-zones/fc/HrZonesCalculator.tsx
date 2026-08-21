@@ -2,9 +2,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { HeartPulse } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { HeartPulse, Link2, Check } from "lucide-react";
 import Badge from "../../../components/Badge";
 import ZoneTable, { type ZoneRow } from "../components/ZoneTable";
+import LeadCapture from "../../../components/LeadCapture";
 
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
@@ -25,10 +27,12 @@ function hrZones(rest: number, max: number): ZoneRow[] {
 }
 
 export default function HrZonesCalculator() {
-    const [restInput, setRestInput] = useState("55");
-    const [knowsMax, setKnowsMax] = useState(true);
-    const [maxInput, setMaxInput] = useState("185");
-    const [ageInput, setAgeInput] = useState("30");
+    const searchParams = useSearchParams();
+    const [restInput, setRestInput] = useState(() => searchParams.get("rest") || "55");
+    const [knowsMax, setKnowsMax] = useState(() => searchParams.get("age") === null);
+    const [maxInput, setMaxInput] = useState(() => searchParams.get("max") || "185");
+    const [ageInput, setAgeInput] = useState(() => searchParams.get("age") || "30");
+    const [copied, setCopied] = useState(false);
 
     const rest = parseFloat(restInput);
     const validRest = Number.isFinite(rest) && rest > 0;
@@ -140,10 +144,35 @@ export default function HrZonesCalculator() {
             </div>
 
             <div className={`p-6 md:p-8 ${card}`}>
-                <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Vos zones de fréquence cardiaque</h3>
-                <p className="mb-5 text-sm text-slate-500 dark:text-slate-400">
-                    Modèle de Karvonen (% de réserve cardiaque — HRR).
-                </p>
+                <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                        <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Vos zones de fréquence cardiaque</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">
+                            Modèle de Karvonen (% de réserve cardiaque — HRR).
+                        </p>
+                    </div>
+                    {zones.length > 0 && (
+                        <button
+                            type="button"
+                            onClick={() => {
+                                const params = new URLSearchParams();
+                                params.set("rest", restInput);
+                                if (knowsMax) params.set("max", maxInput);
+                                else params.set("age", ageInput);
+                                navigator.clipboard
+                                    .writeText(`${window.location.origin}${window.location.pathname}?${params.toString()}`)
+                                    .then(() => {
+                                        setCopied(true);
+                                        setTimeout(() => setCopied(false), 2000);
+                                    });
+                            }}
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800"
+                        >
+                            {copied ? <Check size={14} className="text-emerald-600" /> : <Link2 size={14} />}
+                            {copied ? "Lien copié" : "Copier le lien"}
+                        </button>
+                    )}
+                </div>
 
                 {zones.length > 0 ? (
                     <>
@@ -152,6 +181,12 @@ export default function HrZonesCalculator() {
                             <Badge text={`FC max : ${Math.round(max as number)} bpm`} color="slate" />
                         </div>
                         <ZoneTable zones={zones} unit="bpm" />
+                        <div className="mt-6">
+                            <LeadCapture
+                                tool="Zones de fréquence cardiaque"
+                                summary={`FC repos : ${Math.round(rest)} bpm — FC max : ${Math.round(max as number)} bpm\n\nZones de FC :\n${zones.map((z) => `Z${z.n} ${z.name} : ${z.range} bpm`).join("\n")}`}
+                            />
+                        </div>
                     </>
                 ) : (
                     <p className="text-sm text-slate-500 dark:text-slate-400">

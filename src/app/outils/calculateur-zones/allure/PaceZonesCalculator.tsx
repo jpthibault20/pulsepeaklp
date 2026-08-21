@@ -2,8 +2,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Footprints } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { Footprints, Link2, Check } from "lucide-react";
 import ZoneTable, { type ZoneRow } from "../components/ZoneTable";
+import LeadCapture from "../../../components/LeadCapture";
 
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
@@ -54,17 +56,22 @@ function paceZones(vma: number): ZoneRow[] {
 }
 
 export default function PaceZonesCalculator() {
-    const [method, setMethod] = useState<Method>("vma");
+    const searchParams = useSearchParams();
+    const initialMethod = (searchParams.get("method") as Method) || "vma";
+    const validMethod: Method = ["vma", "race", "threshold"].includes(initialMethod) ? initialMethod : "vma";
 
-    const [vmaInput, setVmaInput] = useState("16");
+    const [method, setMethod] = useState<Method>(validMethod);
+    const [copied, setCopied] = useState(false);
 
-    const [raceKey, setRaceKey] = useState("10000");
-    const [h, setH] = useState("0");
-    const [m, setM] = useState("42");
-    const [s, setS] = useState("0");
+    const [vmaInput, setVmaInput] = useState(() => searchParams.get("vma") || "16");
 
-    const [thresholdMin, setThresholdMin] = useState("4");
-    const [thresholdSec, setThresholdSec] = useState("30");
+    const [raceKey, setRaceKey] = useState(() => searchParams.get("race") || "10000");
+    const [h, setH] = useState(() => searchParams.get("h") || "0");
+    const [m, setM] = useState(() => searchParams.get("m") || "42");
+    const [s, setS] = useState(() => searchParams.get("s") || "0");
+
+    const [thresholdMin, setThresholdMin] = useState(() => searchParams.get("tmin") || "4");
+    const [thresholdSec, setThresholdSec] = useState(() => searchParams.get("tsec") || "30");
 
     const vma = useMemo(() => {
         if (method === "vma") {
@@ -208,8 +215,41 @@ export default function PaceZonesCalculator() {
             </div>
 
             <div className={`p-6 md:p-8 ${card}`}>
-                <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Vos zones d&apos;allure</h3>
-                <p className="mb-5 text-sm text-slate-500 dark:text-slate-400">En % de la VMA.</p>
+                <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                        <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Vos zones d&apos;allure</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">En % de la VMA.</p>
+                    </div>
+                    {vma !== null && (
+                        <button
+                            type="button"
+                            onClick={() => {
+                                const params = new URLSearchParams();
+                                params.set("method", method);
+                                if (method === "vma") params.set("vma", vmaInput);
+                                else if (method === "race") {
+                                    params.set("race", raceKey);
+                                    params.set("h", h);
+                                    params.set("m", m);
+                                    params.set("s", s);
+                                } else {
+                                    params.set("tmin", thresholdMin);
+                                    params.set("tsec", thresholdSec);
+                                }
+                                navigator.clipboard
+                                    .writeText(`${window.location.origin}${window.location.pathname}?${params.toString()}`)
+                                    .then(() => {
+                                        setCopied(true);
+                                        setTimeout(() => setCopied(false), 2000);
+                                    });
+                            }}
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800"
+                        >
+                            {copied ? <Check size={14} className="text-emerald-600" /> : <Link2 size={14} />}
+                            {copied ? "Lien copié" : "Copier le lien"}
+                        </button>
+                    )}
+                </div>
 
                 {vma !== null ? (
                     <>
@@ -220,6 +260,12 @@ export default function PaceZonesCalculator() {
                             </p>
                         </div>
                         <ZoneTable zones={zones} unit="min/km" />
+                        <div className="mt-6">
+                            <LeadCapture
+                                tool="Zones d'allure"
+                                summary={`VMA ${method !== "vma" ? "estimée" : ""} : ${vma.toFixed(1)} km/h\n\nZones d'allure :\n${zones.map((z) => `Z${z.n} ${z.name} : ${z.range} /km`).join("\n")}`}
+                            />
+                        </div>
                     </>
                 ) : (
                     <p className="text-sm text-slate-500 dark:text-slate-400">

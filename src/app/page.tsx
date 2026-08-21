@@ -17,6 +17,7 @@ import Footer from "./components/Footer";
 import PrimaryButton from "./components/PrimaryButton";
 import Badge from "./components/Badge";
 import Testimonials from "./components/Testimonials";
+import InstallAppBanner from "./components/InstallAppBanner";
 
 const card =
   "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
@@ -282,8 +283,10 @@ export default function Home() {
         </div>
       </section>
 
+      <InstallAppBanner />
+
       {/* Section Vision — trust/humain, juste avant la conversion finale */}
-      <section className="mx-auto max-w-7xl px-4 py-24">
+      <section id="vision" className="mx-auto max-w-7xl px-4 py-24 scroll-mt-20">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {/* Carte Vision (large) */}
           <div className={`md:col-span-2 flex flex-col justify-between p-10 ${card}`}>

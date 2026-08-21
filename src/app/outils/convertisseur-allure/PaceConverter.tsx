@@ -2,7 +2,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Timer } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { Timer, Link2, Check } from "lucide-react";
 
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
@@ -45,8 +46,10 @@ function formatPace(minutesPerKm: number): string {
 }
 
 export default function PaceConverter() {
-    const [paceMin, setPaceMin] = useState("5");
-    const [paceSec, setPaceSec] = useState("0");
+    const searchParams = useSearchParams();
+    const [paceMin, setPaceMin] = useState(() => searchParams.get("pmin") || "5");
+    const [paceSec, setPaceSec] = useState(() => searchParams.get("psec") || "0");
+    const [copied, setCopied] = useState(false);
 
     const paceMinPerKm = (parseFloat(paceMin) || 0) + (parseFloat(paceSec) || 0) / 60;
     const valid = paceMinPerKm > 0;
@@ -63,9 +66,31 @@ export default function PaceConverter() {
 
     return (
         <div className={`p-6 md:p-8 ${card}`}>
-            <div className="mb-6 flex items-center gap-2">
-                <Timer size={18} className="text-blue-600" />
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white">Convertisseur d&apos;allure</h3>
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                    <Timer size={18} className="text-blue-600" />
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">Convertisseur d&apos;allure</h3>
+                </div>
+                {kmh !== null && (
+                    <button
+                        type="button"
+                        onClick={() => {
+                            const params = new URLSearchParams();
+                            params.set("pmin", paceMin);
+                            params.set("psec", paceSec);
+                            navigator.clipboard
+                                .writeText(`${window.location.origin}${window.location.pathname}?${params.toString()}`)
+                                .then(() => {
+                                    setCopied(true);
+                                    setTimeout(() => setCopied(false), 2000);
+                                });
+                        }}
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800"
+                    >
+                        {copied ? <Check size={14} className="text-emerald-600" /> : <Link2 size={14} />}
+                        {copied ? "Lien copié" : "Copier le lien"}
+                    </button>
+                )}
             </div>
 
             <div className="mb-6 max-w-xs">

@@ -2,8 +2,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Wheat, Droplets, FlaskConical } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { Wheat, Droplets, FlaskConical, Link2, Check } from "lucide-react";
 import Badge from "../../components/Badge";
+import LeadCapture from "../../components/LeadCapture";
 
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
@@ -42,10 +44,18 @@ function clamp(v: number, min: number, max: number) {
 }
 
 export default function NutritionCalculator() {
-    const [hInput, setHInput] = useState("3");
-    const [mInput, setMInput] = useState("0");
-    const [intensity, setIntensity] = useState<Intensity>("moderee");
-    const [temp, setTemp] = useState<Temp>("moderee");
+    const searchParams = useSearchParams();
+    const [hInput, setHInput] = useState(() => searchParams.get("h") || "3");
+    const [mInput, setMInput] = useState(() => searchParams.get("m") || "0");
+    const [intensity, setIntensity] = useState<Intensity>(() => {
+        const v = searchParams.get("intensite");
+        return v === "facile" || v === "moderee" || v === "soutenue" ? v : "moderee";
+    });
+    const [temp, setTemp] = useState<Temp>(() => {
+        const v = searchParams.get("temp");
+        return v === "fraiche" || v === "moderee" || v === "chaude" ? v : "moderee";
+    });
+    const [copied, setCopied] = useState(false);
 
     const h = parseFloat(hInput) || 0;
     const m = parseFloat(mInput) || 0;
@@ -154,10 +164,36 @@ export default function NutritionCalculator() {
             </div>
 
             <div className={`p-6 md:p-8 ${card}`}>
-                <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Vos besoins estimés</h3>
-                <p className="mb-6 text-sm text-slate-500 dark:text-slate-400">
-                    Pour {h > 0 ? `${h}h` : ""}{m > 0 ? `${m}min` : h === 0 ? "0min" : ""} d&apos;effort en intensité {intensityOptions.find((o) => o.key === intensity)?.label.toLowerCase()}.
-                </p>
+                <div className="mb-6 flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                        <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Vos besoins estimés</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">
+                            Pour {h > 0 ? `${h}h` : ""}{m > 0 ? `${m}min` : h === 0 ? "0min" : ""} d&apos;effort en intensité {intensityOptions.find((o) => o.key === intensity)?.label.toLowerCase()}.
+                        </p>
+                    </div>
+                    {result !== null && (
+                        <button
+                            type="button"
+                            onClick={() => {
+                                const params = new URLSearchParams();
+                                params.set("h", hInput);
+                                params.set("m", mInput);
+                                params.set("intensite", intensity);
+                                params.set("temp", temp);
+                                navigator.clipboard
+                                    .writeText(`${window.location.origin}${window.location.pathname}?${params.toString()}`)
+                                    .then(() => {
+                                        setCopied(true);
+                                        setTimeout(() => setCopied(false), 2000);
+                                    });
+                            }}
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800"
+                        >
+                            {copied ? <Check size={14} className="text-emerald-600" /> : <Link2 size={14} />}
+                            {copied ? "Lien copié" : "Copier le lien"}
+                        </button>
+                    )}
+                </div>
 
                 {result === null ? (
                     <p className="text-sm text-slate-500 dark:text-slate-400">Renseignez une durée pour afficher vos besoins.</p>
@@ -209,6 +245,15 @@ export default function NutritionCalculator() {
                 <p className="mt-6 text-xs text-slate-500 dark:text-slate-500">
                     {"Ces repères sont des recommandations générales issues de la littérature en nutrition sportive (30 à 90 g/h de glucides, 400 à 800+ mL/h de liquides selon l'intensité et la chaleur). Ajustez selon votre tolérance digestive, votre taux de sudation personnel et vos sensations — testez toujours vos apports à l'entraînement avant une compétition."}
                 </p>
+
+                {result !== null && durationMin >= 45 && (
+                    <div className="mt-6">
+                        <LeadCapture
+                            tool="Nutrition de sortie longue"
+                            summary={`Glucides : ${result.carbsPerH} g/h (≈ ${Math.round(result.totalCarbs)} g au total)\nLiquides : ${result.fluidPerH} mL/h (≈ ${(result.totalFluid / 1000).toFixed(1)} L au total)\nSodium : ${result.sodiumPerH} mg/h (≈ ${Math.round(result.totalSodium)} mg au total)`}
+                        />
+                    </div>
+                )}
             </div>
         </div>
     );

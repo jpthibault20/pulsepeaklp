@@ -5,6 +5,7 @@ import { useMemo, useRef, useState } from "react";
 import { Upload, Activity } from "lucide-react";
 import Badge from "../../components/Badge";
 import type { BadgeColor } from "../../components/Badge";
+import LeadCapture from "../../components/LeadCapture";
 import PmcChart from "./PmcChart";
 import { parseCsv, detectDateColumn, detectLoadColumn, buildDailyLoad, computePmc } from "./pmcUtils";
 
@@ -174,6 +175,12 @@ export default function PmcCalculator() {
                         <p className="mt-6 text-xs text-slate-500 dark:text-slate-500">
                             {"CTL = moyenne mobile exponentielle sur 42 jours de votre charge quotidienne. ATL = idem sur 7 jours. TSB = CTL − ATL de la veille. Les premières semaines du graphique sous-estiment votre CTL/ATL réelles, le temps que le modèle \"monte en charge\" à partir de zéro."}
                         </p>
+                        <div className="mt-6">
+                            <LeadCapture
+                                tool="CTL / ATL / TSB"
+                                summary={`CTL (fitness) : ${latest.ctl.toFixed(1)}\nATL (fatigue) : ${latest.atl.toFixed(1)}\nTSB (forme) : ${latest.tsb.toFixed(1)} — ${interpretation.label}`}
+                            />
+                        </div>
                     </div>
                 </>
             )}

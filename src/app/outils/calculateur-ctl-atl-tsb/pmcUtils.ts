@@ -121,6 +121,25 @@ export function buildDailyLoad(rows: string[][], dateIdx: number, loadIdx: numbe
     return daily;
 }
 
+// Charge quotidienne synthétique (fonction pure) utilisée comme exemple pré-calculé
+// sur la page, pour qu'elle affiche un résultat concret même sans import de fichier.
+export function generateDemoDailyLoad(endDate: Date): Map<string, number> {
+    const daily = new Map<string, number>();
+    const totalDays = 90;
+
+    for (let i = 0; i < totalDays; i++) {
+        if (i % 4 === 3) continue; // jour de repos
+
+        const d = new Date(endDate);
+        d.setDate(d.getDate() - (totalDays - 1 - i));
+
+        const load = i >= totalDays - 7 ? 20 : 40 + (i % 28);
+        daily.set(toDateKey(d), load);
+    }
+
+    return daily;
+}
+
 export interface PmcPoint {
     date: string;
     tss: number;
