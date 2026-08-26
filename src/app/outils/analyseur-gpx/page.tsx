@@ -1,5 +1,6 @@
 // app/outils/analyseur-gpx/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Mountain, Ruler, ArrowUp, ArrowDown } from "lucide-react";
 import LandingBackground from "../../components/LandingBackground";
@@ -22,13 +23,17 @@ import {
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
+const title = "Analyseur de fichier GPX : dénivelé, profil et temps estimé — PulsePeak";
+const description =
+    "Importez un fichier GPX pour obtenir la distance, le dénivelé (D+/D-), le profil d'élévation et une estimation de temps ou de puissance sur le parcours.";
+
 export const metadata: Metadata = {
-    title: "Analyseur de fichier GPX : dénivelé, profil et temps estimé — PulsePeak",
-    description:
-        "Importez un fichier GPX pour obtenir la distance, le dénivelé (D+/D-), le profil d'élévation et une estimation de temps ou de puissance sur le parcours.",
+    title,
+    description,
     alternates: {
         canonical: "/outils/analyseur-gpx",
     },
+    ...pageOpenGraph({ title, description, path: "/outils/analyseur-gpx" }),
 };
 
 // Exemple calculé côté serveur (fonctions pures, sans DOMParser) pour que la page

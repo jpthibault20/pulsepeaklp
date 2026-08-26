@@ -1,5 +1,6 @@
 // app/outils/calculateur-ctl-atl-tsb/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, LineChart } from "lucide-react";
 import LandingBackground from "../../components/LandingBackground";
@@ -16,13 +17,17 @@ import { generateDemoDailyLoad, computePmc } from "./pmcUtils";
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
+const title = "Calculateur CTL / ATL / TSB à partir d'un export Strava — PulsePeak";
+const description =
+    "Importez votre export CSV Strava pour visualiser votre forme (CTL, ATL, TSB) dans le temps — le modèle de gestion de charge popularisé par Coggan et TrainingPeaks.";
+
 export const metadata: Metadata = {
-    title: "Calculateur CTL / ATL / TSB à partir d'un export Strava — PulsePeak",
-    description:
-        "Importez votre export CSV Strava pour visualiser votre forme (CTL, ATL, TSB) dans le temps — le modèle de gestion de charge popularisé par Coggan et TrainingPeaks.",
+    title,
+    description,
     alternates: {
         canonical: "/outils/calculateur-ctl-atl-tsb",
     },
+    ...pageOpenGraph({ title, description, path: "/outils/calculateur-ctl-atl-tsb" }),
 };
 
 // Exemple calculé côté serveur (fonctions pures) pour que la page affiche un

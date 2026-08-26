@@ -1,5 +1,6 @@
 // app/prix/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import { Check, Zap, ChevronDown } from "lucide-react";
 import LandingBackground from "../components/LandingBackground";
 import Navbar from "../components/Navbar";
@@ -7,9 +8,17 @@ import Footer from "../components/Footer";
 import PrimaryButton from "../components/PrimaryButton";
 import Badge from "../components/Badge";
 
+const title = "Tarifs — PulsePeak";
+const description =
+  "Un tarif simple pour un coach IA natation, vélo, course à pied. Offre de lancement à 5€/mois jusqu'au 31 décembre 2026.";
+
 export const metadata: Metadata = {
-  title: "Tarifs — PulsePeak",
-  description: "Un tarif simple pour un coach IA natation, vélo, course à pied. Offre de lancement à 5€/mois jusqu'au 31 décembre 2026.",
+  title,
+  description,
+  alternates: {
+    canonical: "/pricing",
+  },
+  ...pageOpenGraph({ title, description, path: "/pricing" }),
 };
 
 const card =

@@ -1,5 +1,6 @@
 // app/outils/calculateur-nutrition-sortie-longue/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Apple } from "lucide-react";
@@ -14,13 +15,17 @@ import NutritionCalculator from "./NutritionCalculator";
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
+const title = "Calculateur de nutrition de sortie longue — PulsePeak";
+const description =
+    "Calculez vos besoins en glucides, liquides et sodium pour une sortie longue à vélo ou en course à pied, selon la durée, l'intensité et la température.";
+
 export const metadata: Metadata = {
-    title: "Calculateur de nutrition de sortie longue — PulsePeak",
-    description:
-        "Calculez vos besoins en glucides, liquides et sodium pour une sortie longue à vélo ou en course à pied, selon la durée, l'intensité et la température.",
+    title,
+    description,
     alternates: {
         canonical: "/outils/calculateur-nutrition-sortie-longue",
     },
+    ...pageOpenGraph({ title, description, path: "/outils/calculateur-nutrition-sortie-longue" }),
 };
 
 const faqs = [

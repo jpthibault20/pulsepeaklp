@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { pageOpenGraph } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,11 +9,18 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const title = "PulsePeak — Coach IA natation, vélo, course à pied";
+const description =
+  "Planification personnalisée, analyse de performance et suivi de forme pour progresser.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://pulsepeak.fr"),
-  title: "PulsePeak — Coach IA natation, vélo, course à pied",
-  description:
-    "Planification personnalisée, analyse de performance et suivi de forme pour progresser.",
+  title,
+  description,
+  alternates: {
+    canonical: "/",
+  },
+  ...pageOpenGraph({ title, description, path: "/" }),
 };
 
 const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`;

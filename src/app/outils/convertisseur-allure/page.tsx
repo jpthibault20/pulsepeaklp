@@ -1,5 +1,6 @@
 // app/outils/convertisseur-allure/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Timer } from "lucide-react";
@@ -15,13 +16,17 @@ import RacePredictor from "./RacePredictor";
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
+const title = "Convertisseur d'allure & prédicteur de temps de course — PulsePeak";
+const description =
+    "Convertissez vos allures (min/km, min/mile, km/h) et prédisez votre temps sur une autre distance à partir d'un résultat de course récent (formule de Riegel).";
+
 export const metadata: Metadata = {
-    title: "Convertisseur d'allure & prédicteur de temps de course — PulsePeak",
-    description:
-        "Convertissez vos allures (min/km, min/mile, km/h) et prédisez votre temps sur une autre distance à partir d'un résultat de course récent (formule de Riegel).",
+    title,
+    description,
     alternates: {
         canonical: "/outils/convertisseur-allure",
     },
+    ...pageOpenGraph({ title, description, path: "/outils/convertisseur-allure" }),
 };
 
 const referenceTimes = [

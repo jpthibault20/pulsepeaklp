@@ -1,5 +1,6 @@
 // app/outils/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import {
     Gauge,
@@ -20,13 +21,17 @@ import Badge from "../components/Badge";
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
+const title = "Outils gratuits pour cyclistes, coureurs, nageurs et triathlètes — PulsePeak";
+const description =
+    "Calculateurs et outils gratuits d'entraînement : zones de puissance et FC, allure de course, analyse GPX, charge CTL/ATL/TSB, nutrition de sortie longue.";
+
 export const metadata: Metadata = {
-    title: "Outils gratuits pour cyclistes, coureurs, nageurs et triathlètes — PulsePeak",
-    description:
-        "Calculateurs et outils gratuits d'entraînement : zones de puissance et FC, allure de course, analyse GPX, charge CTL/ATL/TSB, nutrition de sortie longue.",
+    title,
+    description,
     alternates: {
         canonical: "/outils",
     },
+    ...pageOpenGraph({ title, description, path: "/outils" }),
 };
 
 interface Tool {

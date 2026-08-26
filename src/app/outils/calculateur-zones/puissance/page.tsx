@@ -1,5 +1,6 @@
 // app/outils/calculateur-zones/puissance/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Gauge } from "lucide-react";
@@ -16,13 +17,17 @@ import PowerDurationCurve from "./PowerDurationCurve";
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
+const title = "Calculateur de zones de puissance vélo (FTP) — PulsePeak";
+const description =
+    "Calculez vos zones de puissance à partir d'un test de 20, 8 ou 5 minutes, ou d'un test combiné (Critical Power). Modèle 7 zones utilisé en cyclisme et triathlon.";
+
 export const metadata: Metadata = {
-    title: "Calculateur de zones de puissance vélo (FTP) — PulsePeak",
-    description:
-        "Calculez vos zones de puissance à partir d'un test de 20, 8 ou 5 minutes, ou d'un test combiné (Critical Power). Modèle 7 zones utilisé en cyclisme et triathlon.",
+    title,
+    description,
     alternates: {
         canonical: "/outils/calculateur-zones/puissance",
     },
+    ...pageOpenGraph({ title, description, path: "/outils/calculateur-zones/puissance" }),
 };
 
 const wattsPerKgTable = [

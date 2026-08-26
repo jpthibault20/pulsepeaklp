@@ -1,13 +1,21 @@
 // app/legal-notices/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import LandingBackground from "../components/LandingBackground";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import LegalToc from "../components/LegalToc";
 
+const title = "Mentions légales — PulsePeak";
+const description = "Mentions légales du site PulsePeak.";
+
 export const metadata: Metadata = {
-  title: "Mentions légales — PulsePeak",
-  description: "Mentions légales du site PulsePeak.",
+  title,
+  description,
+  alternates: {
+    canonical: "/legal-notices",
+  },
+  ...pageOpenGraph({ title, description, path: "/legal-notices" }),
 };
 
 const h2 = "mt-10 mb-3 scroll-mt-24 text-xl font-bold text-slate-900 dark:text-white";

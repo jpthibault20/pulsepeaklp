@@ -1,13 +1,21 @@
 // app/cgu/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import LandingBackground from "../components/LandingBackground";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import LegalToc from "../components/LegalToc";
 
+const title = "CGU — PulsePeak";
+const description = "Conditions générales d'utilisation de PulsePeak.";
+
 export const metadata: Metadata = {
-  title: "CGU — PulsePeak",
-  description: "Conditions générales d'utilisation de PulsePeak.",
+  title,
+  description,
+  alternates: {
+    canonical: "/terms-of-use",
+  },
+  ...pageOpenGraph({ title, description, path: "/terms-of-use" }),
 };
 
 const h2 = "mt-10 mb-3 scroll-mt-24 text-xl font-bold text-slate-900 dark:text-white";

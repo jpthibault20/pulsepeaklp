@@ -1,5 +1,6 @@
 // app/outils/calculateur-zones/allure/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Footprints } from "lucide-react";
@@ -15,13 +16,17 @@ import PaceZonesCalculator from "./PaceZonesCalculator";
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
+const title = "Calculateur de zones d'allure course à pied (VMA) — PulsePeak";
+const description =
+    "Calculez vos zones d'allure course à pied à partir de votre VMA, d'un résultat de course récent ou de votre allure seuil. Récupération, endurance, seuil, VMA, fractionné.";
+
 export const metadata: Metadata = {
-    title: "Calculateur de zones d'allure course à pied (VMA) — PulsePeak",
-    description:
-        "Calculez vos zones d'allure course à pied à partir de votre VMA, d'un résultat de course récent ou de votre allure seuil. Récupération, endurance, seuil, VMA, fractionné.",
+    title,
+    description,
     alternates: {
         canonical: "/outils/calculateur-zones/allure",
     },
+    ...pageOpenGraph({ title, description, path: "/outils/calculateur-zones/allure" }),
 };
 
 const vmaTests = [

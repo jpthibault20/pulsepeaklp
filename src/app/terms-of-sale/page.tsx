@@ -1,14 +1,22 @@
 // app/cgv/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import LandingBackground from "../components/LandingBackground";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import LegalPlaceholder from "../components/LegalPlaceholder";
 import LegalToc from "../components/LegalToc";
 
+const title = "CGV — PulsePeak";
+const description = "Conditions générales de vente de PulsePeak.";
+
 export const metadata: Metadata = {
-  title: "CGV — PulsePeak",
-  description: "Conditions générales de vente de PulsePeak.",
+  title,
+  description,
+  alternates: {
+    canonical: "/terms-of-sale",
+  },
+  ...pageOpenGraph({ title, description, path: "/terms-of-sale" }),
 };
 
 const h2 = "mt-10 mb-3 scroll-mt-24 text-xl font-bold text-slate-900 dark:text-white";

@@ -1,5 +1,6 @@
 // app/telecharger/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import { ArrowRight, ChevronDown, Smartphone, Zap, RefreshCw, Laptop } from "lucide-react";
 import LandingBackground from "../components/LandingBackground";
 import Navbar from "../components/Navbar";
@@ -11,13 +12,17 @@ import InstallApp from "../components/InstallApp";
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
+const title = "Installer l'application PulsePeak — PulsePeak";
+const description =
+    "PulsePeak est une web app installable sur votre écran d'accueil en quelques secondes, sans passer par l'App Store ou le Google Play Store. Suivez le tuto iOS et Android.";
+
 export const metadata: Metadata = {
-    title: "Installer l'application PulsePeak — PulsePeak",
-    description:
-        "PulsePeak est une web app installable sur votre écran d'accueil en quelques secondes, sans passer par l'App Store ou le Google Play Store. Suivez le tuto iOS et Android.",
+    title,
+    description,
     alternates: {
         canonical: "/telecharger",
     },
+    ...pageOpenGraph({ title, description, path: "/telecharger" }),
 };
 
 const reasons = [

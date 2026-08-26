@@ -1,13 +1,21 @@
 // app/privacy-policy/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import LandingBackground from "../components/LandingBackground";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import LegalToc from "../components/LegalToc";
 
+const title = "Politique de confidentialité — PulsePeak";
+const description = "Comment PulsePeak collecte et protège vos données personnelles.";
+
 export const metadata: Metadata = {
-  title: "Politique de confidentialité — PulsePeak",
-  description: "Comment PulsePeak collecte et protège vos données personnelles.",
+  title,
+  description,
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+  ...pageOpenGraph({ title, description, path: "/privacy-policy" }),
 };
 
 const h2 = "mt-10 mb-3 scroll-mt-24 text-xl font-bold text-slate-900 dark:text-white";

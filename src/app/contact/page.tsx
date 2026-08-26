@@ -1,13 +1,21 @@
 // app/contact/page.tsx
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import LandingBackground from "../components/LandingBackground";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 
+const title = "Contact — PulsePeak";
+const description = "Une question sur PulsePeak ? Contactez-nous via ce formulaire.";
+
 export const metadata: Metadata = {
-  title: "Contact — PulsePeak",
-  description: "Une question sur PulsePeak ? Contactez-nous via ce formulaire.",
+  title,
+  description,
+  alternates: {
+    canonical: "/contact",
+  },
+  ...pageOpenGraph({ title, description, path: "/contact" }),
 };
 
 export default function ContactPage() {
