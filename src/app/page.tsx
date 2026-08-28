@@ -2,8 +2,6 @@
 import Image from "next/image";
 import {
   Waves,
-  Bike,
-  Footprints,
   Brain,
   Gauge,
   Calendar,
@@ -18,6 +16,12 @@ import PrimaryButton from "./components/PrimaryButton";
 import Badge from "./components/Badge";
 import Testimonials from "./components/Testimonials";
 import InstallAppBanner from "./components/InstallAppBanner";
+import MirrorSection from "./components/MirrorSection";
+import DisciplineProof from "./components/DisciplineProof";
+import CompetitorFaq from "./components/CompetitorFaq";
+import PhoneMockup from "./components/PhoneMockup";
+import PricingBanner from "./components/PricingBanner";
+import FinalCta from "./components/FinalCta";
 
 const card =
   "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
@@ -77,15 +81,6 @@ export default function Home() {
               {"Planification personnalisée, analyse de performance et suivi de forme, sur la ou les disciplines de votre choix."}
             </p>
 
-            <div className="mb-6 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
-              <Badge text="Natation" icon={Waves} color="cyan" />
-              <Badge text="Vélo" icon={Bike} color="blue" />
-              <Badge text="Course à pied" icon={Footprints} color="orange" />
-              <span className="text-xs font-medium text-slate-500 dark:text-slate-500">
-                seule, combinées, ou en triathlon complet
-              </span>
-            </div>
-
             <p className="mb-10 text-sm font-semibold text-blue-600">
               {"Dès 5€/mois — offre de lancement jusqu'au 31 décembre 2026"}
             </p>
@@ -106,35 +101,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Visuel produit */}
-          <div className="relative mx-auto w-56 sm:w-64 lg:mx-0 lg:w-72">
-            {/* Glow d'ambiance */}
-            <div className="absolute left-1/2 top-1/2 -z-10 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/25 blur-[80px] dark:bg-blue-500/20" />
-
-            {/* Boutons du châssis */}
-            <div className="absolute -left-[3px] top-16 h-6 w-[3px] rounded-l bg-slate-800 dark:bg-slate-700" />
-            <div className="absolute -left-[3px] top-24 h-10 w-[3px] rounded-l bg-slate-800 dark:bg-slate-700" />
-            <div className="absolute -right-[3px] top-24 h-12 w-[3px] rounded-r bg-slate-800 dark:bg-slate-700" />
-
-            {/* Châssis téléphone */}
-            <div className="relative overflow-hidden rounded-[2.75rem] border-[3px] border-slate-800 bg-slate-900 shadow-2xl shadow-slate-900/30 ring-1 ring-white/10 dark:border-slate-700">
-              <div className="relative flex h-7 items-center justify-center bg-white">
-                <div className="h-5 w-24 rounded-full bg-slate-950" />
-              </div>
-              <div className="relative aspect-[682/1488]">
-                <Image
-                  src="/screen_calendar_phone.png"
-                  alt="Agenda d'entraînement PulsePeak sur mobile"
-                  fill
-                  sizes="(min-width: 1024px) 288px, 256px"
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
+          <PhoneMockup
+            src="/screen_calendar_phone.png"
+            alt="Agenda d'entraînement PulsePeak sur mobile"
+            aspect="hero"
+            priority
+          />
         </div>
       </section>
+
+      <MirrorSection />
 
       {/* Section Présentation détaillée — value prop d'abord */}
       <section className="px-4 py-24">
@@ -191,20 +167,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bandeau de conversion intermédiaire — évite d'avoir à scroller jusqu'en bas */}
-      <section className="px-4 pb-4">
-        <div className={`mx-auto flex max-w-4xl flex-col items-center justify-between gap-5 border-blue-200/60 bg-blue-50/60 px-6 py-6 text-center dark:border-blue-500/20 dark:bg-blue-500/5 sm:flex-row sm:text-left ${card}`}>
-          <div>
-            <p className="font-semibold text-slate-900 dark:text-white">
-              {"Offre de lancement : 5€/mois jusqu'au 31 décembre 2026."}
-            </p>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
-              Puis 9€/mois. Résiliable à tout moment.
-            </p>
-          </div>
-          <PrimaryButton text="Voir les tarifs" href="/pricing" icon={ArrowRight} className="shrink-0" />
-        </div>
-      </section>
+      <PricingBanner />
 
       {/* Section Visuels — preuve */}
       <section className="px-4 py-24">
@@ -220,6 +183,8 @@ export default function Home() {
               Une interface intuitive pour un suivi précis et une motivation constante.
             </p>
           </div>
+
+          <DisciplineProof />
 
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div className={`p-4 ${card}`}>
@@ -362,32 +327,9 @@ export default function Home() {
 
       <Testimonials />
 
-      {/* Call to Action final */}
-      <section className="px-4 py-20 text-center">
-        <div className="mx-auto max-w-3xl space-y-8 rounded-2xl bg-blue-600 px-6 py-16 shadow-lg shadow-blue-900/20 md:px-16">
-          <h2 className="text-3xl font-extrabold leading-tight text-white md:text-5xl">
-            {"Prêt à transformer votre entraînement ?"}
-          </h2>
-          <p className="text-lg text-blue-100 md:text-xl">
-            {"Profitez du tarif de lancement à 5€/mois jusqu'au 31 décembre 2026 et donnez un coach IA à votre entraînement."}
-          </p>
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <PrimaryButton
-              text="Essayer PulsePeak"
-              href="https://app.pulsepeak.fr"
-              icon={ArrowRight}
-              variant="secondary"
-              size="lg"
-            />
-            <PrimaryButton
-              text="Voir les tarifs"
-              href="/pricing"
-              variant="outline-light"
-              size="lg"
-            />
-          </div>
-        </div>
-      </section>
+      <CompetitorFaq />
+
+      <FinalCta />
 
       <Footer />
     </main>
