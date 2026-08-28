@@ -58,7 +58,7 @@ const jsonLd = {
             description:
                 "Outil gratuit pour estimer ses besoins en glucides, liquides et sodium pendant une sortie longue à vélo, en course à pied ou en triathlon.",
             offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-            url: "https://www.pulsepeak.fr/outils/calculateur-nutrition-sortie-longue",
+            url: "https://pulsepeak.fr/outils/calculateur-nutrition-sortie-longue",
         },
         {
             "@type": "FAQPage",

@@ -67,7 +67,7 @@ const jsonLd = {
             description:
                 "Outil gratuit pour convertir une allure de course à pied entre unités et prédire un temps de course sur une autre distance.",
             offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-            url: "https://www.pulsepeak.fr/outils/convertisseur-allure",
+            url: "https://pulsepeak.fr/outils/convertisseur-allure",
         },
         {
             "@type": "FAQPage",

@@ -82,7 +82,7 @@ const jsonLd = {
             description:
                 "Outil gratuit pour analyser un fichier GPX : distance, dénivelé positif et négatif, profil d'élévation et estimation de temps ou de puissance.",
             offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-            url: "https://www.pulsepeak.fr/outils/analyseur-gpx",
+            url: "https://pulsepeak.fr/outils/analyseur-gpx",
         },
         {
             "@type": "FAQPage",

@@ -82,7 +82,7 @@ const jsonLd = {
             description:
                 "Outil gratuit pour calculer ses zones d'entraînement en puissance (FTP) à partir d'un test de 20, 8 ou 5 minutes, ou d'un test combiné Critical Power.",
             offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-            url: "https://www.pulsepeak.fr/outils/calculateur-zones/puissance",
+            url: "https://pulsepeak.fr/outils/calculateur-zones/puissance",
         },
         {
             "@type": "FAQPage",
