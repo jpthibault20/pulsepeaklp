@@ -16,7 +16,7 @@ export async function POST(request: Request) {
             <h1 style="color: #2563eb;">Vos résultats — ${tool}</h1>
             <p style="white-space: pre-wrap;">${summary}</p>
             <p style="margin-top: 24px; color: #64748b; font-size: 13px;">
-                Calculé avec l'outil gratuit PulsePeak — <a href="https://www.pulsepeak.fr/outils">retrouvez tous nos outils</a>.
+                Calculé avec l'outil gratuit PulsePeak — <a href="https://pulsepeak.fr/outils">retrouvez tous nos outils</a>.
             </p>
         </div>
         `;

@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.pulsepeak.fr" }],
+        destination: "https://pulsepeak.fr/:path*",
+        permanent: true,
+      },
+      {
         source: "/outils/calculateur-zones-fc-puissance",
         destination: "/outils/calculateur-zones/puissance",
         permanent: true,

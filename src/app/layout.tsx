@@ -9,9 +9,9 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const title = "PulsePeak — Coach IA natation, vélo, course à pied";
+const title = "PulsePeak — Coach IA vélo, course à pied, natation";
 const description =
-  "Planification personnalisée, analyse de performance et suivi de forme pour progresser.";
+  "Votre plan vélo, course à pied ou natation se recalcule sur vos séances réelles, pas sur ce qui était prévu. Connecté à Strava. Dès 9 €/mois.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pulsepeak.fr"),

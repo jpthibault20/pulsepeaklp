@@ -76,7 +76,7 @@ const jsonLd = {
             description:
                 "Outil gratuit pour visualiser sa charge d'entraînement et sa forme (CTL, ATL, TSB) à partir d'un export CSV Strava.",
             offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-            url: "https://www.pulsepeak.fr/outils/calculateur-ctl-atl-tsb",
+            url: "https://pulsepeak.fr/outils/calculateur-ctl-atl-tsb",
         },
         {
             "@type": "FAQPage",

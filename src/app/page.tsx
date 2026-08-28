@@ -289,10 +289,10 @@ export default function Home() {
           <div className={`md:col-span-2 flex flex-col justify-between p-10 ${card}`}>
             <div className="space-y-4">
               <Target className="text-blue-600" size={40} />
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Notre vision</h2>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Ma vision</h2>
               <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
                 {
-                  "Nous avons créé PulsePeak parce que les plans d'entraînement statiques sont les ennemis de la progression sportive. Nous voulons offrir à chaque nageur, cycliste, coureur ou triathlète la précision d'un coach pro, boostée par une IA capable d'analyser chaque séance."
+                  "J'ai créé PulsePeak parce que les plans d'entraînement statiques sont les ennemis de la progression sportive. Je veux offrir à chaque nageur, cycliste, coureur ou triathlète la précision d'un coach pro, boostée par une IA capable d'analyser chaque séance."
                 }
               </p>
             </div>

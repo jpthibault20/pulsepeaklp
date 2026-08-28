@@ -68,7 +68,7 @@ const jsonLd = {
             description:
                 "Outil gratuit pour calculer ses zones d'entraînement en fréquence cardiaque selon la méthode de Karvonen, à partir de la FC repos et de la FC max.",
             offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-            url: "https://www.pulsepeak.fr/outils/calculateur-zones/fc",
+            url: "https://pulsepeak.fr/outils/calculateur-zones/fc",
         },
         {
             "@type": "FAQPage",

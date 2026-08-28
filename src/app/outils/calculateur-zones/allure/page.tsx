@@ -82,7 +82,7 @@ const jsonLd = {
             description:
                 "Outil gratuit pour calculer ses zones d'allure course à pied à partir de sa VMA, d'un résultat de course ou de son allure seuil.",
             offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-            url: "https://www.pulsepeak.fr/outils/calculateur-zones/allure",
+            url: "https://pulsepeak.fr/outils/calculateur-zones/allure",
         },
         {
             "@type": "FAQPage",

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "PulsePeak — Coach IA natation, vélo, course à pied";
+export const alt = "PulsePeak — Coach IA vélo, course à pied, natation";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -32,7 +32,7 @@ export default async function Image() {
             color: "#bfdbfe",
           }}
         >
-          Coach IA natation, vélo, course à pied
+          Coach IA vélo, course à pied, natation
         </div>
       </div>
     ),
