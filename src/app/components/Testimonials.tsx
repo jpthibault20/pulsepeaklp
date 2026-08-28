@@ -1,51 +1,14 @@
 // app/components/Testimonials.tsx
-import { Star, Waves, Bike } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-import Badge from "./Badge";
-import type { BadgeColor } from "./Badge";
+import { Star } from "lucide-react";
+import { testimonials } from "@/lib/testimonials";
 
 const card =
     "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
-interface Testimonial {
-    name: string;
-    discipline: string;
-    icon: LucideIcon;
-    color: BadgeColor;
-    quote: string;
-}
-
-const testimonials: Testimonial[] = [
-    {
-        name: "Julien M.",
-        discipline: "Vélo",
-        icon: Bike,
-        color: "blue",
-        quote:
-            "Enfin un suivi de charge qui colle à mes vraies séances de puissance, pas une moyenne théorique. Les blocs Force / Seuil / Endurance m'ont fait progresser sans stagner.",
-    },
-    {
-        name: "Élodie B.",
-        discipline: "Natation",
-        icon: Waves,
-        color: "cyan",
-        quote:
-            "Je ne fais que de la natation et je craignais un outil pensé pour le triathlon. PulsePeak s'est concentré uniquement sur ma discipline, avec un plan cohérent séance après séance.",
-    },
-    {
-        name: "Thomas D.",
-        discipline: "Triathlon",
-        icon: Waves,
-        color: "violet",
-        quote:
-            "La répartition entre mes trois disciplines s'ajuste automatiquement selon ma forme du moment. C'est la première fois qu'un plan tient compte de la fatigue cumulée sur les trois sports.",
-    },
-];
-
 export default function Testimonials() {
     return (
         <section className="px-4 py-24">
-            <div className="mx-auto max-w-5xl">
+            <div className="mx-auto max-w-6xl">
                 <div className="mb-16 text-center">
                     <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-blue-600">
                         Ils s&apos;entraînent avec PulsePeak
@@ -58,11 +21,11 @@ export default function Testimonials() {
                     </p>
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-3">
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     {testimonials.map((t) => (
                         <div key={t.name} className={`relative flex flex-col p-6 ${card}`}>
                             <div className="mb-3 flex gap-0.5 text-yellow-500 dark:text-yellow-400">
-                                {Array.from({ length: 5 }).map((_, i) => (
+                                {Array.from({ length: t.rating }).map((_, i) => (
                                     <Star key={i} size={14} fill="currentColor" strokeWidth={0} />
                                 ))}
                             </div>
@@ -80,7 +43,9 @@ export default function Testimonials() {
                                 </div>
                                 <div>
                                     <p className="text-sm font-semibold text-slate-900 dark:text-white">{t.name}</p>
-                                    <Badge text={t.discipline} icon={t.icon} color={t.color} />
+                                    <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-500">
+                                        {t.disciplineLabel}
+                                    </p>
                                 </div>
                             </div>
                         </div>
