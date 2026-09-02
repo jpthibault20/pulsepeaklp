@@ -87,8 +87,9 @@ export default function TermsOfUsePage() {
             <a href="/pricing" className="font-medium text-blue-600 hover:underline">
               page Tarifs
             </a>
-            . Toute nouvelle inscription bénéficie d&apos;un premier mois offert, sans prélèvement ; le
-            premier paiement intervient à l&apos;issue de ce mois. L&apos;abonnement est ensuite renouvelé
+            . Toute nouvelle inscription à l&apos;abonnement mensuel bénéficie d&apos;un premier mois offert,
+            sans prélèvement ; le premier paiement intervient à l&apos;issue de ce mois. L&apos;abonnement annuel
+            n&apos;inclut pas de mois offert. L&apos;abonnement est renouvelé
             automatiquement pour la même durée, sauf résiliation par
             l&apos;utilisateur au moins 48 heures avant la date de renouvellement, directement depuis son espace
             compte.

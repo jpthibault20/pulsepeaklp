@@ -92,23 +92,24 @@ export default function TermsOfSalePage() {
           <p className={p}>
             Le paiement s&apos;effectue en ligne, par carte bancaire, via le prestataire de paiement sécurisé
             Stripe. L&apos;éditeur n&apos;a pas accès aux données bancaires du client, traitées exclusivement par ce
-            prestataire. Toute souscription débute par une période d&apos;essai gratuite d&apos;un mois offerte
-            à l&apos;inscription : aucun montant n&apos;est prélevé pendant cette période. À l&apos;issue de ce
-            mois offert, l&apos;abonnement est prélevé selon la périodicité choisie (mensuelle ou annuelle), sauf
-            résiliation intervenue avant cette échéance, puis à chaque échéance de renouvellement. Le mois offert
-            est réservé aux nouveaux clients, à raison d&apos;une seule période d&apos;essai par personne et par
-            compte.
+            prestataire. La souscription d&apos;un abonnement mensuel débute par une période d&apos;essai gratuite
+            d&apos;un mois offerte à l&apos;inscription : aucun montant n&apos;est prélevé pendant cette période,
+            et le premier prélèvement intervient à l&apos;issue de ce mois offert, sauf résiliation intervenue
+            avant cette échéance. L&apos;abonnement annuel ne comporte pas de mois offert : il est prélevé dès la
+            souscription. L&apos;abonnement est ensuite prélevé à chaque échéance de renouvellement selon la
+            périodicité choisie. Le mois offert est réservé aux nouveaux clients, à raison d&apos;une seule
+            période d&apos;essai par personne et par compte.
           </p>
 
           <h2 id="duree" className={h2}>5. Durée, renouvellement et résiliation</h2>
           <p className={p}>
-            À l&apos;issue du mois offert, l&apos;abonnement est souscrit pour la durée choisie (un mois ou un an) et renouvelé automatiquement
+            L&apos;abonnement est souscrit pour la durée choisie (un mois ou un an) et renouvelé automatiquement
             pour une durée identique, sauf résiliation par le client au moins 48 heures avant la date de
             renouvellement. La résiliation s&apos;effectue directement depuis l&apos;espace compte de
             l&apos;application et prend effet à la fin de la période en cours ; aucun remboursement au prorata n&apos;est effectué
-            pour la période déjà entamée, sauf exercice du droit de rétractation prévu à l&apos;article 6. Une
-            résiliation intervenant pendant le mois offert met fin à l&apos;accès au terme de celui-ci, sans
-            qu&apos;aucun montant ne soit prélevé.
+            pour la période déjà entamée, sauf exercice du droit de rétractation prévu à l&apos;article 6. Pour
+            l&apos;abonnement mensuel, une résiliation intervenant pendant le mois offert met fin à l&apos;accès
+            au terme de celui-ci, sans qu&apos;aucun montant ne soit prélevé.
           </p>
 
           <h2 id="retractation" className={h2}>6. Droit de rétractation</h2>
