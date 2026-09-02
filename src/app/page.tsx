@@ -82,7 +82,7 @@ export default function Home() {
             </p>
 
             <p className="mb-10 text-sm font-semibold text-blue-600">
-              {"Dès 5€/mois — offre de lancement jusqu'au 31 décembre 2026"}
+              {"1er mois offert, sans engagement — puis dès 5€/mois, offre de lancement jusqu'au 31 décembre 2026"}
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">

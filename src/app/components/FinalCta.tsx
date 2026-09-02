@@ -9,7 +9,7 @@ interface Props {
 
 export default function FinalCta({
   title = "Prêt à transformer votre entraînement ?",
-  subtitle = "Profitez du tarif de lancement à 5€/mois jusqu'au 31 décembre 2026 et donnez un coach IA à votre entraînement.",
+  subtitle = "Le premier mois est offert, puis 5€/mois avec le tarif de lancement jusqu'au 31 décembre 2026. Sans engagement, résiliable à tout moment.",
 }: Props) {
   return (
     <section className="px-4 py-20 text-center">

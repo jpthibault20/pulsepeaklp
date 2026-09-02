@@ -43,7 +43,7 @@ export default function DisciplineLandingPage({ discipline }: { discipline: Disc
             </p>
 
             <p className="mb-10 text-sm font-semibold text-blue-600">
-              {"Dès 5€/mois — offre de lancement jusqu'au 31 décembre 2026"}
+              {"1er mois offert, sans engagement — puis dès 5€/mois, offre de lancement jusqu'au 31 décembre 2026"}
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
@@ -94,7 +94,7 @@ export default function DisciplineLandingPage({ discipline }: { discipline: Disc
 
       <FinalCta
         title={`Prêt à transformer votre entraînement ${config.label.toLowerCase()} ?`}
-        subtitle="Profitez du tarif de lancement à 5€/mois jusqu'au 31 décembre 2026 et donnez un coach IA à votre entraînement."
+        subtitle="Le premier mois est offert, puis 5€/mois avec le tarif de lancement jusqu'au 31 décembre 2026. Sans engagement, résiliable à tout moment."
       />
 
       {/* Maillage interne — les autres disciplines, sans jamais donner l'impression que ce n'est "pas pour vous" */}
