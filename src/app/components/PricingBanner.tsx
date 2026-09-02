@@ -13,9 +13,9 @@ export default function PricingBanner() {
       >
         <div>
           <p className="font-semibold text-slate-900 dark:text-white">
-            {"Offre de lancement : 5€/mois jusqu'au 31 décembre 2026."}
+            {"1er mois offert, puis l'offre de lancement à 5€/mois jusqu'au 31 décembre 2026."}
           </p>
-          <p className="text-sm text-slate-600 dark:text-slate-400">Puis 9€/mois. Résiliable à tout moment.</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">Ensuite 9€/mois. Sans engagement, résiliable à tout moment.</p>
         </div>
         <PrimaryButton text="Voir les tarifs" href="/pricing" icon={ArrowRight} className="shrink-0" />
       </div>

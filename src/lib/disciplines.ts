@@ -47,7 +47,7 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
       "PulsePeak analyse votre charge réelle et restructure votre semaine en blocs Force / Seuil / Endurance, pour que la stagnation ne soit plus une fatalité.",
     metaTitle: "Coach IA pour cyclistes — plans vélo personnalisés | PulsePeak",
     metaDescription:
-      "Un coach IA dédié au vélo : plans de puissance, sorties longues et blocs de progression adaptés à votre semaine, dès 5€/mois.",
+      "Un coach IA dédié au vélo : plans de puissance, sorties longues et blocs de progression adaptés à votre semaine, 1er mois offert puis dès 5€/mois.",
     image: "/phoneCalendar_cycling.png",
     imageAlt: "Agenda d'entraînement vélo dans PulsePeak",
     week: [
@@ -74,7 +74,7 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
       "Une séance ratée n'est plus un échec : PulsePeak recalcule la semaine autour de vos disponibilités réelles, sans casser la progression.",
     metaTitle: "Coach IA course à pied — plans adaptés à votre semaine | PulsePeak",
     metaDescription:
-      "Un coach IA qui recalcule votre plan course à pied selon vos vraies disponibilités et votre forme du moment, dès 5€/mois.",
+      "Un coach IA qui recalcule votre plan course à pied selon vos vraies disponibilités et votre forme du moment, 1er mois offert puis dès 5€/mois.",
     image: "/phoneCalendar_run.png",
     imageAlt: "Agenda d'entraînement course à pied dans PulsePeak",
     week: [
@@ -101,7 +101,7 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
       "PulsePeak tient compte de la fatigue cumulée sur les trois disciplines pour décider quoi ajuster, plutôt que de vous laisser arbitrer seul.",
     metaTitle: "Coach IA triathlon — plans multisport personnalisés | PulsePeak",
     metaDescription:
-      "Un coach IA qui répartit vélo, course à pied et natation dans un seul plan cohérent, ajusté à votre fatigue réelle, dès 5€/mois.",
+      "Un coach IA qui répartit vélo, course à pied et natation dans un seul plan cohérent, ajusté à votre fatigue réelle, 1er mois offert puis dès 5€/mois.",
     image: "/phonecalendare_run&cycling.png",
     imageAlt: "Agenda d'entraînement multisport dans PulsePeak",
     week: [
@@ -127,7 +127,7 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
       "PulsePeak construit votre progression natation en blocs dédiés — technique, endurance, seuil — pour sortir de la routine sans y penser.",
     metaTitle: "Coach IA natation — plans piscine personnalisés | PulsePeak",
     metaDescription:
-      "Un coach IA dédié à la natation : séances technique, endurance et seuil qui évoluent avec votre progression, dès 5€/mois.",
+      "Un coach IA dédié à la natation : séances technique, endurance et seuil qui évoluent avec votre progression, 1er mois offert puis dès 5€/mois.",
     image: "/phoneCalendar_swim.png",
     imageAlt: "Agenda d'entraînement natation dans PulsePeak",
     week: [

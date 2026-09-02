@@ -44,7 +44,7 @@ export default function TermsOfUsePage() {
           <h1 className="mb-4 text-4xl font-black tracking-tighter text-slate-900 md:text-5xl dark:text-white">
             Conditions générales d&apos;utilisation
           </h1>
-          <p className="mb-10 text-sm text-slate-500 dark:text-slate-500">Dernière mise à jour : 16 août 2026</p>
+          <p className="mb-10 text-sm text-slate-500 dark:text-slate-500">Dernière mise à jour : 2 septembre 2026</p>
 
           <LegalToc items={toc} />
 
@@ -87,7 +87,9 @@ export default function TermsOfUsePage() {
             <a href="/pricing" className="font-medium text-blue-600 hover:underline">
               page Tarifs
             </a>
-            . L&apos;abonnement est renouvelé automatiquement pour la même durée, sauf résiliation par
+            . Toute nouvelle inscription bénéficie d&apos;un premier mois offert, sans prélèvement ; le
+            premier paiement intervient à l&apos;issue de ce mois. L&apos;abonnement est ensuite renouvelé
+            automatiquement pour la même durée, sauf résiliation par
             l&apos;utilisateur au moins 48 heures avant la date de renouvellement, directement depuis son espace
             compte.
           </p>

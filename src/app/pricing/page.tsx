@@ -1,7 +1,7 @@
 // app/prix/page.tsx
 import type { Metadata } from "next";
 import { pageOpenGraph } from "@/lib/seo";
-import { Check, Zap, ChevronDown } from "lucide-react";
+import { Check, Zap, ChevronDown, Gift } from "lucide-react";
 import LandingBackground from "../components/LandingBackground";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -10,7 +10,7 @@ import Badge from "../components/Badge";
 
 const title = "Tarifs — PulsePeak";
 const description =
-  "Un tarif simple pour un coach IA natation, vélo, course à pied. Offre de lancement à 5€/mois jusqu'au 31 décembre 2026.";
+  "Un tarif simple pour un coach IA natation, vélo, course à pied. 1er mois offert à l'inscription, puis 5€/mois avec l'offre de lancement jusqu'au 31 décembre 2026. Sans engagement.";
 
 export const metadata: Metadata = {
   title,
@@ -33,8 +33,12 @@ const included = [
 
 const faqs: { q: string; a: React.ReactNode }[] = [
   {
+    q: "Comment fonctionne le mois offert ?",
+    a: "À l'inscription, votre premier mois est offert : vous accédez à toutes les fonctionnalités sans être prélevé. Le premier paiement n'intervient qu'à la fin de ce mois, et vous pouvez résilier avant cette échéance si le service ne vous convient pas.",
+  },
+  {
     q: "Puis-je résilier à tout moment ?",
-    a: "Oui. Comme précisé dans nos CGV, vous pouvez résilier votre abonnement à tout moment ; la résiliation prend effet à la fin de la période en cours.",
+    a: "Oui, l'abonnement est sans engagement. Comme précisé dans nos CGV, vous pouvez résilier à tout moment — y compris pendant le mois offert ; la résiliation prend effet à la fin de la période en cours.",
   },
   {
     q: "Le tarif à 5€/mois est-il garanti indéfiniment ?",
@@ -66,12 +70,15 @@ export default function PrixPage() {
 
       <section className="relative px-4 pb-16 pt-32 text-center">
         <div className="mx-auto max-w-3xl">
-          <Badge text="Offre de lancement · -44%" icon={Zap} color="orange" className="mb-8" />
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
+            <Badge text="1er mois offert" icon={Gift} color="blue" />
+            <Badge text="Offre de lancement · -44%" icon={Zap} color="orange" />
+          </div>
           <h1 className="mb-6 text-4xl font-black tracking-tighter text-slate-900 md:text-6xl dark:text-white">
             Un tarif simple, sans surprise.
           </h1>
           <p className="mx-auto max-w-xl text-lg leading-relaxed text-slate-600 md:text-xl dark:text-slate-400">
-            {"Un seul abonnement, toutes les fonctionnalités. Économisez 44% jusqu'au 31 décembre 2026 avec le tarif de lancement à 5€/mois."}
+            {"Un seul abonnement, toutes les fonctionnalités. Le premier mois est offert à l'inscription, puis 5€/mois jusqu'au 31 décembre 2026 avec le tarif de lancement — sans engagement, résiliable à tout moment."}
           </p>
         </div>
       </section>
@@ -85,8 +92,9 @@ export default function PrixPage() {
               <span className="text-5xl font-black tracking-tight text-slate-900 dark:text-white">5€</span>
               <span className="pb-1 text-slate-500 dark:text-slate-400">/mois</span>
             </div>
-            <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-              <span className="line-through">9€/mois</span> jusqu&apos;au 31 décembre 2026, puis 9€/mois.
+            <p className="mt-3 text-sm font-semibold text-blue-600">1er mois offert à l&apos;inscription</p>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+              Puis 5€/mois au lieu de <span className="line-through">9€/mois</span> jusqu&apos;au 31 décembre 2026, ensuite 9€/mois.
             </p>
 
             <ul className="mt-8 space-y-3">
@@ -99,7 +107,7 @@ export default function PrixPage() {
             </ul>
 
             <PrimaryButton
-              text="Commencer à 5€/mois"
+              text="Commencer — 1er mois offert"
               href="https://app.pulsepeak.fr"
               variant="outline"
               size="lg"
@@ -115,8 +123,9 @@ export default function PrixPage() {
               <span className="text-5xl font-black tracking-tight text-slate-900 dark:text-white">90€</span>
               <span className="pb-1 text-slate-500 dark:text-slate-400">/an</span>
             </div>
-            <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-              Soit 7,50€/mois — l&apos;équivalent de 2 mois offerts.
+            <p className="mt-3 text-sm font-semibold text-blue-600">1er mois offert à l&apos;inscription</p>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+              Puis 90€/an, soit 7,50€/mois — l&apos;équivalent de 2 mois offerts.
             </p>
 
             <ul className="mt-8 space-y-3">
@@ -129,7 +138,7 @@ export default function PrixPage() {
             </ul>
 
             <PrimaryButton
-              text="Commencer à 90€/an"
+              text="Commencer — 1er mois offert"
               href="https://app.pulsepeak.fr"
               variant="primary"
               size="lg"
