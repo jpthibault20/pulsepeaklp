@@ -45,7 +45,7 @@ export default function DisciplineShowcase({ discipline, linkToPage = false }: P
           </ul>
         </div>
 
-        <div className={`p-6 ${card}`}>
+        <div className="border-l-2 border-blue-600 py-1 pl-4">
           <div className="mb-3 flex gap-0.5 text-yellow-500 dark:text-yellow-400">
             {Array.from({ length: testimonial.rating }).map((_, i) => (
               <Star key={i} size={14} fill="currentColor" strokeWidth={0} />
@@ -56,7 +56,7 @@ export default function DisciplineShowcase({ discipline, linkToPage = false }: P
           </p>
           <p className="text-sm font-semibold text-slate-900 dark:text-white">
             {testimonial.name}
-            <span className="ml-2 text-xs font-normal text-slate-500 dark:text-slate-500">
+            <span className="ml-2 text-xs font-normal text-slate-500 dark:text-slate-400">
               {testimonial.disciplineLabel}
             </span>
           </p>

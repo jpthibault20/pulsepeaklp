@@ -2,12 +2,18 @@
 // Source unique de contenu par discipline : hero, section miroir, preuve, SEO.
 // Réutilisée par la home (sélecteur de discipline) et les pages dédiées /velo, /course-a-pied, /triathlon, /natation.
 
-import { Bike, Footprints, Repeat, Waves } from "lucide-react";
+import { Bike, Footprints, Gauge, RefreshCw, Repeat, TrendingUp, Waves } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export type Discipline = "velo" | "course-a-pied" | "triathlon" | "natation";
 
 type DisciplineBadgeColor = "blue" | "orange" | "violet" | "cyan";
+
+export interface DisciplineBenefit {
+  icon: LucideIcon;
+  title: string;
+  text: string;
+}
 
 export interface DisciplineConfig {
   key: Discipline;
@@ -18,8 +24,17 @@ export interface DisciplineConfig {
   badgeText: string;
   h1: string;
   subtitle: string;
-  mirrorText: string;
+  /** Plusieurs irritants courts affichés en liste dans la section "Vous vous reconnaissez ?" */
+  mirrorPoints: string[];
   bridge: string;
+  /** Arguments concrets affichés juste avant le prix ; optionnel tant que non rédigés pour une discipline */
+  benefits?: DisciplineBenefit[];
+  /** Surcharge de la ligne de prix sous le CTA du hero ; sinon texte par défaut du composant */
+  heroPriceLine?: string;
+  /** Surcharge du sous-titre du CTA final ; sinon texte par défaut du composant */
+  finalCtaSubtitle?: string;
+  /** Question/réponse additionnelle affichée après le FAQ concurrentiel, pour traiter une objection propre à la discipline */
+  extraFaq?: { question: string; answer: string };
   metaTitle: string;
   metaDescription: string;
   image: string;
@@ -41,10 +56,40 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
     badgeText: "Coach IA vélo",
     h1: "Un coach IA pour cyclistes qui n'ont pas le temps de tout calculer eux-mêmes.",
     subtitle:
-      "Zones de puissance, charge d'entraînement, sorties longues : PulsePeak construit et ajuste votre plan vélo semaine après semaine, sans coach humain à 150€/mois.",
-    mirrorText: "Vous roulez 8h/semaine, vous avez un capteur de puissance, et vous stagnez depuis un an.",
+      "Zones de puissance, charge d'entraînement, sorties longues : PulsePeak construit et ajuste votre plan vélo semaine après semaine, pour que chaque sortie ait un objectif clair.",
+    mirrorPoints: [
+      "Vous roulez 8h par semaine, capteur de puissance au guidon, et vos watts ne bougent plus depuis un an.",
+      "Vous ne savez jamais si aujourd'hui c'est un jour d'endurance, de seuil ou de repos — alors vous roulez au feeling.",
+      "Vous avez déjà enchaîné deux grosses semaines sans savoir si c'était de la forme ou le début d'une blessure — et vous avez continué quand même.",
+    ],
     bridge:
       "PulsePeak analyse votre charge réelle et restructure votre semaine en blocs Force / Seuil / Endurance, pour que la stagnation ne soit plus une fatalité.",
+    heroPriceLine:
+      "1er mois offert, sans engagement — puis 5€/mois si vous démarrez avant le 31 décembre 2026 (9€/mois ensuite)",
+    finalCtaSubtitle:
+      "Le premier mois est offert, puis 5€/mois avec le tarif de lancement — encore valable jusqu'au 31 décembre 2026, après quoi ce sera 9€/mois pour les nouveaux inscrits. Sans engagement, résiliable à tout moment.",
+    extraFaq: {
+      question: "Une IA peut-elle vraiment remplacer un coach humain ?",
+      answer:
+        "Non — et ce n'est pas son rôle. Un coach humain suit plusieurs athlètes et ajuste votre plan une fois par semaine, s'il en a le temps. PulsePeak recalcule le vôtre à chaque signal — nuit courte, séance ratée, fatigue — et explique chaque décision : quoi, combien, pourquoi. C'est la rigueur d'un suivi structuré et disponible en continu, à un tarif qu'un coach humain ne propose pas.",
+    },
+    benefits: [
+      {
+        icon: Gauge,
+        title: "Vos zones, pas une formule générique",
+        text: "L'IA calibre vos zones de puissance sur votre FTP et votre historique réel, puis les recalibre au fil de vos progrès — pas sur un pourcentage théorique sorti d'un tableau.",
+      },
+      {
+        icon: RefreshCw,
+        title: "La semaine s'adapte à vous",
+        text: "Nuit courte, jambes lourdes, séance ratée : le plan recalcule votre charge dans la foulée pour protéger votre progression, au lieu de vous laisser deviner quoi faire à la place.",
+      },
+      {
+        icon: TrendingUp,
+        title: "Une saison qui progresse, pas qui se répète",
+        text: "Vos sorties s'enchaînent en blocs Force, Seuil et Endurance pensés pour casser un plateau — pas en semaines identiques qui vous maintiennent au même niveau.",
+      },
+    ],
     metaTitle: "Coach IA pour cyclistes — plans vélo personnalisés | PulsePeak",
     metaDescription:
       "Un coach IA dédié au vélo : plans de puissance, sorties longues et blocs de progression adaptés à votre semaine, 1er mois offert puis dès 5€/mois.",
@@ -68,8 +113,9 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
     h1: "Un coach IA qui adapte votre plan course à pied à votre vraie semaine.",
     subtitle:
       "Fractionné, sortie longue, récupération : le plan bouge avec votre emploi du temps, pas l'inverse.",
-    mirrorText:
+    mirrorPoints: [
       "Vos contraintes pro et familiales décalent la moitié de vos séances, et votre plan ne s'en aperçoit jamais.",
+    ],
     bridge:
       "Une séance ratée n'est plus un échec : PulsePeak recalcule la semaine autour de vos disponibilités réelles, sans casser la progression.",
     metaTitle: "Coach IA course à pied — plans adaptés à votre semaine | PulsePeak",
@@ -95,8 +141,9 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
     h1: "Un coach IA qui répartit vélo, course à pied et natation sans que vous ayez à choisir.",
     subtitle:
       "Un seul plan pour vos trois disciplines, qui arbitre la charge entre elles selon votre forme réelle de la semaine.",
-    mirrorText:
+    mirrorPoints: [
       "Vous jonglez plusieurs sports et vous ne savez jamais lequel sacrifier quand la semaine déraille.",
+    ],
     bridge:
       "PulsePeak tient compte de la fatigue cumulée sur les trois disciplines pour décider quoi ajuster, plutôt que de vous laisser arbitrer seul.",
     metaTitle: "Coach IA triathlon — plans multisport personnalisés | PulsePeak",
@@ -122,7 +169,7 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
     h1: "Un coach IA pensé pour les nageurs, pas seulement pour les triathlètes.",
     subtitle:
       "Technique, endurance, séances seuil : un plan piscine complet, sans devoir vous fondre dans un plan pensé pour le vélo.",
-    mirrorText: "Vous nagez seul le midi et vous refaites la même séance depuis six mois.",
+    mirrorPoints: ["Vous nagez seul le midi et vous refaites la même séance depuis six mois."],
     bridge:
       "PulsePeak construit votre progression natation en blocs dédiés — technique, endurance, seuil — pour sortir de la routine sans y penser.",
     metaTitle: "Coach IA natation — plans piscine personnalisés | PulsePeak",

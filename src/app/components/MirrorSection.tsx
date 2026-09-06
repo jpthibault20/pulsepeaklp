@@ -31,7 +31,7 @@ export default function MirrorSection() {
                 </span>
                 <div className="flex-1">
                   <p className="text-base leading-relaxed text-slate-700 dark:text-slate-300">
-                    {config.mirrorText}
+                    {config.mirrorPoints[0]}
                   </p>
                   <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400">
                     {`Voir le coaching ${config.label.toLowerCase()}`}
