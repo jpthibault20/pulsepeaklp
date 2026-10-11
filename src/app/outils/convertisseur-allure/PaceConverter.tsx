@@ -148,7 +148,7 @@ export default function PaceConverter() {
                     </div>
                 </>
             ) : (
-                <p className="text-sm text-slate-500 dark:text-slate-400">Renseignez une allure pour voir les conversions.</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">Renseigne une allure pour voir les conversions.</p>
             )}
         </div>
     );

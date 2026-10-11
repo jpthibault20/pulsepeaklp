@@ -22,6 +22,7 @@ import CompetitorFaq from "./components/CompetitorFaq";
 import PhoneMockup from "./components/PhoneMockup";
 import PricingBanner from "./components/PricingBanner";
 import FinalCta from "./components/FinalCta";
+import ProductFilm from "./components/ProductFilm";
 
 const card =
   "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
@@ -74,11 +75,11 @@ export default function Home() {
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-blue-600">PulsePeak</p>
 
             <h1 className="mx-auto mb-8 max-w-2xl text-4xl font-black leading-[1.05] tracking-tighter text-slate-900 md:text-6xl lg:mx-0 lg:text-5xl xl:text-6xl dark:text-white">
-              {"Un coach IA qui s'adapte à votre semaine, pas l'inverse."}
+              {"Un coach IA qui s'adapte à ta semaine, pas l'inverse."}
             </h1>
 
             <p className="mx-auto mb-6 max-w-2xl text-xl leading-relaxed text-slate-600 md:text-2xl lg:mx-0 dark:text-slate-400">
-              {"Planification personnalisée, analyse de performance et suivi de forme, sur la ou les disciplines de votre choix."}
+              {"Planification personnalisée, analyse de performance et suivi de forme, sur la ou les disciplines de ton choix."}
             </p>
 
             <p className="mb-10 text-sm font-semibold text-blue-600">
@@ -112,6 +113,9 @@ export default function Home() {
 
       <MirrorSection />
 
+      {/* Film de présentation — prend le relais du « Tu te reconnais ? » */}
+      <ProductFilm />
+
       {/* Section Présentation détaillée — value prop d'abord */}
       <section className="px-4 py-24">
         <div className="mx-auto max-w-7xl">
@@ -120,7 +124,7 @@ export default function Home() {
               Le coaching, réinventé.
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
-              {"PulsePeak ne se contente pas de générer un plan. Il vit l'entraînement avec vous, sortie après sortie."}
+              {"PulsePeak ne se contente pas de générer un plan. Il vit l'entraînement avec toi, sortie après sortie."}
             </p>
           </div>
 
@@ -129,11 +133,11 @@ export default function Home() {
             <div className={`p-8 ${card}`}>
               <Badge text="Adaptatif" icon={Brain} color="blue" className="mb-6" />
               <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-white">
-                {"L'IA qui vous connaît"}
+                {"L'IA qui te connaît"}
               </h3>
               <p className="leading-relaxed text-slate-600 dark:text-slate-400">
                 {
-                  "Une réunion qui finit tard ? Une mauvaise nuit ? L'IA recalcule instantanément votre semaine pour optimiser votre récupération sans sacrifier vos objectifs. Fini le stress de ne pas suivre le plan."
+                  "Une réunion qui finit tard ? Une mauvaise nuit ? L'IA recalcule instantanément ta semaine pour optimiser ta récupération sans sacrifier tes objectifs. Fini le stress de ne pas suivre le plan."
                 }
               </p>
             </div>
@@ -146,7 +150,7 @@ export default function Home() {
               </h3>
               <p className="leading-relaxed text-slate-600 dark:text-slate-400">
                 {
-                  "Que vous prépariez un 10 km, une sortie longue à vélo, un objectif natation ou un triathlon complet, l'algorithme ajuste la charge et l'intensité sur la ou les disciplines choisies, en fonction de votre historique réel, de vos zones de puissance/FC et de vos ambitions."
+                  "Que tu prépares un 10 km, une sortie longue à vélo, un objectif natation ou un triathlon complet, l'algorithme ajuste la charge et l'intensité sur la ou les disciplines choisies, en fonction de ton historique réel, de tes zones de puissance/FC et de tes ambitions."
                 }
               </p>
             </div>
@@ -159,7 +163,7 @@ export default function Home() {
               </h3>
               <p className="leading-relaxed text-slate-600 dark:text-slate-400">
                 {
-                  "Fini la routine. L'IA structure votre saison en blocs thématiques (Force, Seuil, Endurance critique) pour garantir une progression constante et éviter la stagnation. Une approche scientifique et éprouvée."
+                  "Fini la routine. L'IA structure ta saison en blocs thématiques (Force, Seuil, Endurance critique) pour garantir une progression constante et éviter la stagnation. Une approche scientifique et éprouvée."
                 }
               </p>
             </div>
@@ -177,7 +181,7 @@ export default function Home() {
               {"L'expérience PulsePeak"}
             </p>
             <h2 className="mb-6 text-3xl font-bold text-slate-900 md:text-5xl dark:text-white">
-              Visualisez votre succès.
+              Visualise ton succès.
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
               Une interface intuitive pour un suivi précis et une motivation constante.
@@ -198,7 +202,7 @@ export default function Home() {
                 />
               </div>
               <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
-                Votre saison, optimisée sortie après sortie.
+                Ta saison, optimisée sortie après sortie.
               </p>
             </div>
 
@@ -206,14 +210,14 @@ export default function Home() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-950 md:rounded-xl">
                 <Image
                   src="/screen_generate_week_w_IA.png"
-                  alt="L'IA génère votre semaine d'entraînement"
+                  alt="L'IA génère ta semaine d'entraînement"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-contain p-3"
                 />
               </div>
               <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
-                {"L'IA ajuste votre semaine selon votre forme et vos disponibilités."}
+                {"L'IA ajuste ta semaine selon ta forme et tes disponibilités."}
               </p>
             </div>
 
@@ -228,7 +232,7 @@ export default function Home() {
                 />
               </div>
               <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
-                Votre saison structurée en blocs de progression.
+                Ta saison structurée en blocs de progression.
               </p>
             </div>
 
@@ -243,7 +247,7 @@ export default function Home() {
                 />
               </div>
               <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
-                Chaque donnée compte pour votre progression.
+                Chaque donnée compte pour ta progression.
               </p>
             </div>
 

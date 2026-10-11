@@ -217,7 +217,7 @@ export default function PaceZonesCalculator() {
             <div className={`p-6 md:p-8 ${card}`}>
                 <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
                     <div>
-                        <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Vos zones d&apos;allure</h3>
+                        <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Tes zones d&apos;allure</h3>
                         <p className="text-sm text-slate-500 dark:text-slate-400">En % de la VMA.</p>
                     </div>
                     {vma !== null && (
@@ -269,7 +269,7 @@ export default function PaceZonesCalculator() {
                     </>
                 ) : (
                     <p className="text-sm text-slate-500 dark:text-slate-400">
-                        Renseignez les valeurs demandées pour afficher vos zones d&apos;allure.
+                        Renseigne les valeurs demandées pour afficher tes zones d&apos;allure.
                     </p>
                 )}
             </div>

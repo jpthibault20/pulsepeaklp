@@ -36,7 +36,7 @@ export default function CompetitorFaq({ extraItems = [] }: Props) {
             </div>
             <p className="leading-relaxed text-slate-600 dark:text-slate-400">{item.answer}</p>
           </div>
-        ))}
+            "Ces plans embarqués suivent un calendrier figé : ils ne savent pas que ta nuit a été mauvaise, que ta semaine a basculé, ou que tu cours et roules la même semaine. PulsePeak réadapte ton plan sur ta fatigue réelle, combine plusieurs disciplines dans une même logique de charge, et tient compte de tes contraintes de vie — ce qu'un plan livré avec une montre ne fait pas."
       </div>
     </section>
   );

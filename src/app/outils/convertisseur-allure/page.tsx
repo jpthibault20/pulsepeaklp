@@ -18,7 +18,7 @@ const card =
 
 const title = "Convertisseur d'allure & prédicteur de temps de course — PulsePeak";
 const description =
-    "Convertissez vos allures (min/km, min/mile, km/h) et prédisez votre temps sur une autre distance à partir d'un résultat de course récent (formule de Riegel).";
+    "Convertis tes allures (min/km, min/mile, km/h) et prédis ton temps sur une autre distance à partir d'un résultat de course récent (formule de Riegel).";
 
 export const metadata: Metadata = {
     title,
@@ -44,15 +44,15 @@ const referenceTimes = [
 const faqs = [
     {
         q: "Quelle est la différence entre le convertisseur et le prédicteur ?",
-        a: "Le convertisseur transforme une allure donnée (min/km) en d'autres unités et en temps sur des distances standards, en supposant une vitesse constante. Le prédicteur, lui, part d'un résultat de course réel pour estimer votre temps sur une autre distance, en tenant compte du fait qu'on ne court pas un marathon à l'allure d'un 5 km.",
+        a: "Le convertisseur transforme une allure donnée (min/km) en d'autres unités et en temps sur des distances standards, en supposant une vitesse constante. Le prédicteur, lui, part d'un résultat de course réel pour estimer ton temps sur une autre distance, en tenant compte du fait qu'on ne court pas un marathon à l'allure d'un 5 km.",
     },
     {
         q: "Pourquoi la formule de Riegel plutôt qu'une simple règle de trois ?",
-        a: "Une règle de trois suppose une vitesse constante quelle que soit la distance, ce qui surestime largement vos temps sur les longues distances. La formule de Riegel (exposant 1.06) modélise la baisse naturelle de vitesse avec l'augmentation de la distance, validée empiriquement sur de nombreuses courses.",
+        a: "Une règle de trois suppose une vitesse constante quelle que soit la distance, ce qui surestime largement tes temps sur les longues distances. La formule de Riegel (exposant 1.06) modélise la baisse naturelle de vitesse avec l'augmentation de la distance, validée empiriquement sur de nombreuses courses.",
     },
     {
         q: "La prédiction est-elle fiable pour passer du 5 km au marathon ?",
-        a: "C'est l'écart où la formule est la moins précise : le marathon dépend beaucoup plus de votre endurance spécifique (fond, gestion de l'allure, nutrition) que de votre seule vitesse sur 5 km. Utilisez plutôt un résultat sur 10 km ou semi-marathon comme référence pour une prédiction marathon plus fiable.",
+        a: "C'est l'écart où la formule est la moins précise : le marathon dépend beaucoup plus de ton endurance spécifique (fond, gestion de l'allure, nutrition) que de ta seule vitesse sur 5 km. Utilise plutôt un résultat sur 10 km ou semi-marathon comme référence pour une prédiction marathon plus fiable.",
     },
 ];
 
@@ -97,7 +97,7 @@ export default function ConvertisseurAllurePage() {
                         Convertisseur d&apos;allure course à pied & prédicteur de temps
                     </h1>
                     <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl dark:text-slate-400">
-                        {"Convertissez une allure entre unités, ou prédisez votre temps sur une autre distance à partir d'un résultat de course récent."}
+                        {"Convertis une allure entre unités, ou prédis ton temps sur une autre distance à partir d'un résultat de course récent."}
                     </p>
                 </div>
             </section>
@@ -160,17 +160,17 @@ export default function ConvertisseurAllurePage() {
                             Allure plate vs allure ajustée à la pente
                         </h2>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Toutes les conversions de cette page supposent un terrain plat et des conditions stables. Sur un parcours vallonné, la même allure « objectif » ne demande pas le même effort en montée qu'en descente — une pente de 5% peut ralentir votre allure de 20 à 30 secondes par kilomètre pour un coût énergétique équivalent au plat. Si vous préparez une course sur un parcours accidenté ou que vous voulez estimer un temps réaliste à partir d'un profil GPX, notre "}
+                            {"Toutes les conversions de cette page supposent un terrain plat et des conditions stables. Sur un parcours vallonné, la même allure « objectif » ne demande pas le même effort en montée qu'en descente — une pente de 5% peut ralentir ton allure de 20 à 30 secondes par kilomètre pour un coût énergétique équivalent au plat. Si tu prépares une course sur un parcours accidenté ou que tu veux estimer un temps réaliste à partir d'un profil GPX, notre "}
                             <Link href="/outils/analyseur-gpx" className="font-medium text-blue-600 hover:underline">
                                 analyseur de fichier GPX
                             </Link>
-                            {" applique un modèle d'allure ajustée à la pente (GAP) à partir de votre allure plate de référence."}
+                            {" applique un modèle d'allure ajustée à la pente (GAP) à partir de ton allure plate de référence."}
                         </p>
                     </div>
 
                     <div>
                         <p className="mb-4 leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Convertir une allure ou prédire un temps de course donne un repère utile, mais ne remplace pas un plan construit à partir de vos données réelles. PulsePeak recalcule vos allures cibles en continu à partir de vos séances et de vos courses, sur la ou les disciplines de votre choix — course à pied, mais aussi vélo et natation."}
+                            {"Convertir une allure ou prédire un temps de course donne un repère utile, mais ne remplace pas un plan construit à partir de tes données réelles. PulsePeak recalcule tes allures cibles en continu à partir de tes séances et de tes courses, sur la ou les disciplines de ton choix — course à pied, mais aussi vélo et natation."}
                         </p>
                         <PrimaryButton text="Essayer PulsePeak" href="https://app.pulsepeak.fr" icon={ArrowRight} />
                     </div>

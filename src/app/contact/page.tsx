@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 
 const title = "Contact — PulsePeak";
-const description = "Une question sur PulsePeak ? Contactez-nous via ce formulaire.";
+const description = "Une question sur PulsePeak ? Contacte-nous via ce formulaire.";
 
 export const metadata: Metadata = {
   title,
@@ -28,19 +28,19 @@ export default function ContactPage() {
         <div className="mx-auto max-w-xl">
           <div className="mb-10 text-center">
             <h1 className="mb-4 text-4xl font-black tracking-tighter text-slate-900 md:text-5xl dark:text-white">
-              Contactez-nous
+              Contacte-nous
             </h1>
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              Une question, une suggestion ? Écrivez-nous, nous vous répondrons rapidement.
+              Une question, une suggestion ? Écris-nous, on te répond rapidement.
             </p>
           </div>
 
           <ContactForm />
 
           <p className="mt-6 text-center text-sm text-slate-500 dark:text-slate-500">
-            Vous cherchez juste nos tarifs ?{" "}
+            Tu cherches juste nos tarifs ?{" "}
             <a href="/pricing" className="font-medium text-blue-600 hover:underline">
-              Consultez la page Tarifs
+              Consulte la page Tarifs
             </a>
             .
           </p>

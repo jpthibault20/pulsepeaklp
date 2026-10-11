@@ -12,7 +12,7 @@ export default function MirrorSection() {
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl dark:text-white">
-            Vous vous reconnaissez ?
+            Tu te reconnais ?
           </h2>
         </div>
 

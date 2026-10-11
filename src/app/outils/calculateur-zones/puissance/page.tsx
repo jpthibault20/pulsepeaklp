@@ -19,7 +19,7 @@ const card =
 
 const title = "Calculateur de zones de puissance vélo (FTP) — PulsePeak";
 const description =
-    "Calculez vos zones de puissance à partir d'un test de 20, 8 ou 5 minutes, ou d'un test combiné (Critical Power). Modèle 7 zones utilisé en cyclisme et triathlon.";
+    "Calcule tes zones de puissance à partir d'un test de 20, 8 ou 5 minutes, ou d'un test combiné (Critical Power). Modèle 7 zones utilisé en cyclisme et triathlon.";
 
 export const metadata: Metadata = {
     title,
@@ -55,15 +55,15 @@ const faqs = [
     },
     {
         q: "Qu'est-ce que le test combiné (Critical Power) ?",
-        a: "Il s'agit de réaliser deux efforts maximaux de durées différentes (par exemple 5 et 20 minutes) et d'en déduire mathématiquement votre Critical Power (CP), une approximation de la FTP, ainsi que votre W' (réserve anaérobie). Plus les deux durées sont espacées, plus le modèle est fiable.",
+        a: "Il s'agit de réaliser deux efforts maximaux de durées différentes (par exemple 5 et 20 minutes) et d'en déduire mathématiquement ta Critical Power (CP), une approximation de la FTP, ainsi que ton W' (réserve anaérobie). Plus les deux durées sont espacées, plus le modèle est fiable.",
     },
     {
         q: "Pourquoi mes différentes méthodes donnent des FTP légèrement différentes ?",
-        a: "Chaque protocole a sa propre marge d'erreur et sollicite des filières énergétiques légèrement différentes. Une FTP mesurée via un test de 20 min un jour de fraîcheur ne sera jamais identique à une estimation issue d'un test de 5 min. L'important est de garder la même méthode dans le temps pour suivre votre progression.",
+        a: "Chaque protocole a sa propre marge d'erreur et sollicite des filières énergétiques légèrement différentes. Une FTP mesurée via un test de 20 min un jour de fraîcheur ne sera jamais identique à une estimation issue d'un test de 5 min. L'important est de garder la même méthode dans le temps pour suivre ta progression.",
     },
     {
         q: "À quelle fréquence retester sa FTP ?",
-        a: "Toutes les 4 à 8 semaines en période de progression, ou après un bloc d'entraînement ciblé (Seuil, VO2max). PulsePeak met à jour votre FTP en continu à partir de vos séances réelles, sans avoir besoin de refaire un test dédié à chaque fois.",
+        a: "Toutes les 4 à 8 semaines en période de progression, ou après un bloc d'entraînement ciblé (Seuil, VO2max). PulsePeak met à jour ta FTP en continu à partir de tes séances réelles, sans avoir besoin de refaire un test dédié à chaque fois.",
     },
     {
         q: "Mon FTP en W/kg est-il bon pour mon niveau ?",
@@ -112,7 +112,7 @@ export default function PuissanceZonesPage() {
                         Calculateur FTP et zones de puissance vélo
                     </h1>
                     <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl dark:text-slate-400">
-                        {"Choisissez votre protocole de test pour estimer votre FTP et obtenir vos 7 zones d'entraînement en watts."}
+                        {"Choisis ton protocole de test pour estimer ta FTP et obtenir tes 7 zones d'entraînement en watts."}
                     </p>
                 </div>
             </section>
@@ -146,7 +146,7 @@ export default function PuissanceZonesPage() {
                             </li>
                             <li>
                                 <span className="font-semibold text-slate-800 dark:text-slate-200">Effort d&apos;ouverture (5 min)</span> —
-                                {" un bloc proche du seuil pour finir de vous mettre en jambes, suivi de 10 minutes de récupération très facile."}
+                                {" un bloc proche du seuil pour finir de te mettre en jambes, suivi de 10 minutes de récupération très facile."}
                             </li>
                             <li>
                                 <span className="font-semibold text-slate-800 dark:text-slate-200">Le test (20 min)</span> —
@@ -162,7 +162,7 @@ export default function PuissanceZonesPage() {
                             </li>
                         </ol>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Quelques conditions à respecter pour un résultat fiable : un parcours plat ou en faux-plat régulier, sans vent fort ni interruptions (feux, intersections), et un état de fraîcheur correct — évitez de tester après une grosse séance ou un manque de sommeil. Pour comparer vos résultats dans le temps, refaites le test dans des conditions aussi proches que possible d'une fois sur l'autre."}
+                            {"Quelques conditions à respecter pour un résultat fiable : un parcours plat ou en faux-plat régulier, sans vent fort ni interruptions (feux, intersections), et un état de fraîcheur correct — évite de tester après une grosse séance ou un manque de sommeil. Pour comparer tes résultats dans le temps, refais le test dans des conditions aussi proches que possible d'une fois sur l'autre."}
                         </p>
                     </div>
 
@@ -192,7 +192,7 @@ export default function PuissanceZonesPage() {
                             <p className="font-mono text-sm font-semibold text-blue-600">CP = (P1 × t1 − P2 × t2) / (t1 − t2)</p>
                             <p className="mt-2 font-mono text-sm font-semibold text-blue-600">W&apos; = (P1 − CP) × t1</p>
                             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-                                {"P1/t1 et P2/t2 sont la puissance moyenne et la durée (en secondes) de vos deux efforts maximaux. CP (Critical Power) approxime votre FTP ; W' représente votre réserve anaérobie, en joules."}
+                                {"P1/t1 et P2/t2 sont la puissance moyenne et la durée (en secondes) de tes deux efforts maximaux. CP (Critical Power) approxime ta FTP ; W' représente ta réserve anaérobie, en joules."}
                             </p>
                         </div>
                     </div>
@@ -228,7 +228,7 @@ export default function PuissanceZonesPage() {
                     <div className="space-y-4">
                         <h2 className="text-2xl font-bold text-slate-900 dark:text-white">La courbe puissance-durée</h2>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Votre puissance maximale soutenable diminue à mesure que la durée de l'effort augmente, jusqu'à se stabiliser autour de votre Critical Power. Cette relation, illustrée schématiquement ci-dessous, est la base théorique commune à toutes les méthodes d'estimation de la FTP : plus le test est court, plus il se situe loin de l'asymptote et plus le coefficient correcteur doit être important."}
+                            {"Ta puissance maximale soutenable diminue à mesure que la durée de l'effort augmente, jusqu'à se stabiliser autour de ta Critical Power. Cette relation, illustrée schématiquement ci-dessous, est la base théorique commune à toutes les méthodes d'estimation de la FTP : plus le test est court, plus il se situe loin de l'asymptote et plus le coefficient correcteur doit être important."}
                         </p>
                         <PowerDurationCurve />
                     </div>
@@ -264,7 +264,7 @@ export default function PuissanceZonesPage() {
 
                     <div>
                         <p className="mb-4 leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"PulsePeak recalcule votre FTP en continu à partir de vos séances de vélo réelles — pas seulement lors d'un test dédié — et l'utilise pour structurer vos blocs d'entraînement (Force, Seuil, Endurance critique), en tenant compte de votre charge sur les autres disciplines si vous pratiquez aussi la natation ou la course à pied."}
+                            {"PulsePeak recalcule ta FTP en continu à partir de tes séances de vélo réelles — pas seulement lors d'un test dédié — et l'utilise pour structurer tes blocs d'entraînement (Force, Seuil, Endurance critique), en tenant compte de ta charge sur les autres disciplines si tu pratiques aussi la natation ou la course à pied."}
                         </p>
                         <PrimaryButton text="Essayer PulsePeak" href="https://app.pulsepeak.fr" icon={ArrowRight} />
                     </div>

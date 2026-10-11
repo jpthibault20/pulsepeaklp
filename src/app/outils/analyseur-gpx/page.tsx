@@ -25,7 +25,7 @@ const card =
 
 const title = "Analyseur de fichier GPX : dénivelé, profil et temps estimé — PulsePeak";
 const description =
-    "Importez un fichier GPX pour obtenir la distance, le dénivelé (D+/D-), le profil d'élévation et une estimation de temps ou de puissance sur le parcours.";
+    "Importe un fichier GPX pour obtenir la distance, le dénivelé (D+/D-), le profil d'élévation et une estimation de temps ou de puissance sur le parcours.";
 
 export const metadata: Metadata = {
     title,
@@ -59,7 +59,7 @@ const faqs = [
     },
     {
         q: "Mes données GPX sont-elles envoyées sur un serveur ?",
-        a: "Non. Le fichier est lu et analysé entièrement dans votre navigateur — il n'est jamais transmis ni stocké ailleurs.",
+        a: "Non. Le fichier est lu et analysé entièrement dans ton navigateur — il n'est jamais transmis ni stocké ailleurs.",
     },
     {
         q: "Pourquoi mon D+ diffère-t-il de celui affiché par mon application habituelle ?",
@@ -67,7 +67,7 @@ const faqs = [
     },
     {
         q: "Comment fonctionne l'estimation de temps ?",
-        a: "En course à pied, elle utilise le modèle de coût énergétique de Minetti (2002), qui traduit chaque pente en un « équivalent plat » à partir de votre allure de référence. À vélo, elle simule la puissance nécessaire pente par pente (gravité, résistance au roulement, aérodynamisme) pour atteindre la puissance cible que vous indiquez. Dans les deux cas, il s'agit d'une estimation physique, pas d'une mesure — la météo, la fatigue ou le revêtement ne sont pas pris en compte.",
+        a: "En course à pied, elle utilise le modèle de coût énergétique de Minetti (2002), qui traduit chaque pente en un « équivalent plat » à partir de ton allure de référence. À vélo, elle simule la puissance nécessaire pente par pente (gravité, résistance au roulement, aérodynamisme) pour atteindre la puissance cible que tu indiques. Dans les deux cas, il s'agit d'une estimation physique, pas d'une mesure — la météo, la fatigue ou le revêtement ne sont pas pris en compte.",
     },
 ];
 
@@ -112,7 +112,7 @@ export default function AnalyseurGpxPage() {
                         Analyseur de fichier GPX : dénivelé, profil et temps estimé
                     </h1>
                     <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl dark:text-slate-400">
-                        {"Importez un fichier GPX pour obtenir la distance, le dénivelé, le profil d'élévation et une estimation de temps sur votre parcours."}
+                        {"Importe un fichier GPX pour obtenir la distance, le dénivelé, le profil d'élévation et une estimation de temps sur ton parcours."}
                     </p>
                 </div>
             </section>
@@ -163,7 +163,7 @@ export default function AnalyseurGpxPage() {
                     </div>
 
                     <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
-                        Importez votre propre fichier ci-dessous pour remplacer cet exemple par votre parcours.
+                        Importe ton propre fichier ci-dessous pour remplacer cet exemple par ton parcours.
                     </p>
                 </div>
             </section>
@@ -198,7 +198,7 @@ export default function AnalyseurGpxPage() {
                             </p>
                         </div>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Pour chaque segment du parcours, l'outil compare ce coût à celui du plat (C(0) = 3,6 J/kg/m) pour obtenir une « distance équivalent plat », puis applique votre allure de référence à cette distance équivalente plutôt qu'à la distance réelle. C'est le même principe que l'allure ajustée à la pente (GAP) utilisée par les montres et applications de course modernes."}
+                            {"Pour chaque segment du parcours, l'outil compare ce coût à celui du plat (C(0) = 3,6 J/kg/m) pour obtenir une « distance équivalent plat », puis applique ton allure de référence à cette distance équivalente plutôt qu'à la distance réelle. C'est le même principe que l'allure ajustée à la pente (GAP) utilisée par les montres et applications de course modernes."}
                         </p>
                     </div>
 
@@ -207,7 +207,7 @@ export default function AnalyseurGpxPage() {
                             Le modèle physique vélo expliqué
                         </h2>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"À vélo, l'estimation résout, pente par pente, la vitesse qui équilibre votre puissance cible avec les forces qui s'opposent à l'avancement : la gravité (fonction de la pente et de votre poids total), la résistance au roulement, et la traînée aérodynamique — qui domine largement à haute vitesse :"}
+                            {"À vélo, l'estimation résout, pente par pente, la vitesse qui équilibre ta puissance cible avec les forces qui s'opposent à l'avancement : la gravité (fonction de la pente et de ton poids total), la résistance au roulement, et la traînée aérodynamique — qui domine largement à haute vitesse :"}
                         </p>
                         <div className="overflow-x-auto rounded-xl border border-slate-200/80 p-4 dark:border-slate-800">
                             <p className="whitespace-nowrap font-mono text-sm font-semibold text-blue-600">
@@ -215,20 +215,20 @@ export default function AnalyseurGpxPage() {
                             </p>
                         </div>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"m étant votre poids total (vélo + vous), θ l'angle de la pente, Crr le coefficient de résistance au roulement, ρ la densité de l'air et SCx votre surface frontale effective (traînée). Cette équation est résolue numériquement pour chaque groupe de pentes similaires du parcours, puis les temps de chaque segment sont sommés. Les valeurs par défaut (Crr ≈ 0,005, SCx ≈ 0,32 m²) correspondent à une position route classique — un résultat indicatif, sensible à la météo, aux pneus et à la position réelle sur le vélo."}
+                            {"m étant ton poids total (vélo + toi), θ l'angle de la pente, Crr le coefficient de résistance au roulement, ρ la densité de l'air et SCx ta surface frontale effective (traînée). Cette équation est résolue numériquement pour chaque groupe de pentes similaires du parcours, puis les temps de chaque segment sont sommés. Les valeurs par défaut (Crr ≈ 0,005, SCx ≈ 0,32 m²) correspondent à une position route classique — un résultat indicatif, sensible à la météo, aux pneus et à la position réelle sur le vélo."}
                         </p>
                     </div>
 
                     <div className="space-y-4">
                         <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Limites de l&apos;analyse</h2>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Ces estimations reposent uniquement sur la géométrie du parcours et les paramètres que vous renseignez : elles ne tiennent compte ni du vent, ni de la température, ni du revêtement, ni de votre fatigue du jour. Un fichier GPX de mauvaise qualité (points épars, altimètre imprécis) dégrade aussi la fiabilité du D+ et du profil affichés. Utilisez ces chiffres comme un repère de préparation, pas comme une prédiction exacte de votre temps de course."}
+                            {"Ces estimations reposent uniquement sur la géométrie du parcours et les paramètres que tu renseignes : elles ne tiennent compte ni du vent, ni de la température, ni du revêtement, ni de ta fatigue du jour. Un fichier GPX de mauvaise qualité (points épars, altimètre imprécis) dégrade aussi la fiabilité du D+ et du profil affichés. Utilise ces chiffres comme un repère de préparation, pas comme une prédiction exacte de ton temps de course."}
                         </p>
                     </div>
 
                     <div>
                         <p className="mb-4 leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Connaître le dénivelé et le profil d'un parcours avant de s'engager permet d'ajuster son allure, sa stratégie de ravitaillement ou son choix de développement. Dans PulsePeak, ce type de contrainte est pris en compte pour ajuster votre plan et vos zones cibles, sur la ou les disciplines que vous pratiquez — natation, vélo, course à pied."}
+                            {"Connaître le dénivelé et le profil d'un parcours avant de s'engager permet d'ajuster son allure, sa stratégie de ravitaillement ou son choix de développement. Dans PulsePeak, ce type de contrainte est pris en compte pour ajuster ton plan et tes zones cibles, sur la ou les disciplines que tu pratiques — natation, vélo, course à pied."}
                         </p>
                         <PrimaryButton text="Essayer PulsePeak" href="https://app.pulsepeak.fr" icon={ArrowRight} />
                     </div>

@@ -82,7 +82,7 @@ export default function PowerZonesCalculator() {
         const wp = (w1 - cp) * s1;
 
         if (!Number.isFinite(cp) || cp <= 0) {
-            return { ftp: null, wPrime: null, error: "Impossible de calculer un résultat cohérent avec ces valeurs — vérifiez vos efforts." };
+            return { ftp: null, wPrime: null, error: "Impossible de calculer un résultat cohérent avec ces valeurs — vérifie tes efforts." };
         }
 
         return { ftp: cp, wPrime: wp, error: null };
@@ -204,7 +204,7 @@ export default function PowerZonesCalculator() {
                             </div>
                         </div>
                         <p className="text-xs text-slate-500 dark:text-slate-400">
-                            {"Choisissez deux efforts maximaux de durées différentes (ex. 5 et 20 min), idéalement espacées d'au moins 5 à 10 minutes pour un modèle fiable. La FTP est approchée par la « Critical Power » (Monod & Scherrer)."}
+                            {"Choisis deux efforts maximaux de durées différentes (ex. 5 et 20 min), idéalement espacées d'au moins 5 à 10 minutes pour un modèle fiable. La FTP est approchée par la « Critical Power » (Monod & Scherrer)."}
                         </p>
                         <div className="max-w-xs">
                             <label htmlFor="weight2" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300">
@@ -229,7 +229,7 @@ export default function PowerZonesCalculator() {
             <div className={`p-6 md:p-8 ${card}`}>
                 <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
                     <div>
-                        <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Vos zones de puissance</h3>
+                        <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Tes zones de puissance</h3>
                         <p className="text-sm text-slate-500 dark:text-slate-400">Modèle 7 zones (Coggan).</p>
                     </div>
                     {ftp !== null && (
@@ -276,7 +276,7 @@ export default function PowerZonesCalculator() {
                     </>
                 ) : (
                     <p className="text-sm text-slate-500 dark:text-slate-400">
-                        Renseignez les valeurs de votre test pour afficher vos zones.
+                        Renseigne les valeurs de ton test pour afficher tes zones.
                     </p>
                 )}
             </div>

@@ -44,25 +44,25 @@ interface Tool {
 const tools: Tool[] = [
     {
         title: "Calculateur de zones de puissance",
-        description: "Votre FTP et vos 7 zones de puissance à partir d'un test de 20, 8, 5 min ou combiné.",
+        description: "Ta FTP et tes 7 zones de puissance à partir d'un test de 20, 8, 5 min ou combiné.",
         icon: Gauge,
         href: "/outils/calculateur-zones/puissance",
     },
     {
         title: "Calculateur de zones de fréquence cardiaque",
-        description: "Vos zones cardiaques (méthode de Karvonen) à partir de votre FC repos et FC max.",
+        description: "Tes zones cardiaques (méthode de Karvonen) à partir de ta FC repos et FC max.",
         icon: HeartPulse,
         href: "/outils/calculateur-zones/fc",
     },
     {
         title: "Calculateur de zones d'allure",
-        description: "Vos zones d'allure course à pied à partir de votre VMA ou d'un résultat de course.",
+        description: "Tes zones d'allure course à pied à partir de ta VMA ou d'un résultat de course.",
         icon: Footprints,
         href: "/outils/calculateur-zones/allure",
     },
     {
         title: "Convertisseur d'allure & prédicteur de temps",
-        description: "Convertissez vos allures course et estimez votre temps sur une autre distance.",
+        description: "Convertis tes allures course et estime ton temps sur une autre distance.",
         icon: Timer,
         href: "/outils/convertisseur-allure",
     },
@@ -74,13 +74,13 @@ const tools: Tool[] = [
     },
     {
         title: "Calculateur CTL / ATL / TSB",
-        description: "Suivez votre charge d'entraînement et votre forme à partir d'un export Strava.",
+        description: "Suis ta charge d'entraînement et ta forme à partir d'un export Strava.",
         icon: LineChart,
         href: "/outils/calculateur-ctl-atl-tsb",
     },
     {
         title: "Calculateur de nutrition de sortie longue",
-        description: "Vos besoins en glucides, liquides et sodium selon la durée et l'intensité de la sortie.",
+        description: "Tes besoins en glucides, liquides et sodium selon la durée et l'intensité de la sortie.",
         icon: Apple,
         href: "/outils/calculateur-nutrition-sortie-longue",
     },
@@ -96,7 +96,7 @@ export default function OutilsPage() {
                 <div className="mx-auto max-w-3xl">
                     <Badge text="Outils gratuits" color="blue" className="mb-6" />
                     <h1 className="mb-6 text-4xl font-black tracking-tighter text-slate-900 md:text-6xl dark:text-white">
-                        Des outils gratuits pour votre entraînement.
+                        Des outils gratuits pour ton entraînement.
                     </h1>
                     <p className="mx-auto max-w-xl text-lg leading-relaxed text-slate-600 md:text-xl dark:text-slate-400">
                         {"Des calculateurs simples, sans compte à créer, pour la natation, le vélo, la course à pied ou le triathlon."}

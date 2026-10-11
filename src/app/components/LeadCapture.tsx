@@ -50,7 +50,7 @@ export default function LeadCapture({ tool, summary }: { tool: string; summary: 
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="vous@exemple.com"
+                    placeholder="toi@exemple.com"
                     className={inputClass}
                 />
                 <button

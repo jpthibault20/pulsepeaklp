@@ -72,7 +72,7 @@ export default function HrZonesCalculator() {
                             className={inputClass}
                         />
                         <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-                            Mesurée idéalement au réveil, avant de vous lever.
+                            Mesurée idéalement au réveil, avant de te lever.
                         </p>
                     </div>
 
@@ -146,7 +146,7 @@ export default function HrZonesCalculator() {
             <div className={`p-6 md:p-8 ${card}`}>
                 <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
                     <div>
-                        <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Vos zones de fréquence cardiaque</h3>
+                        <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Tes zones de fréquence cardiaque</h3>
                         <p className="text-sm text-slate-500 dark:text-slate-400">
                             Modèle de Karvonen (% de réserve cardiaque — HRR).
                         </p>
@@ -190,7 +190,7 @@ export default function HrZonesCalculator() {
                     </>
                 ) : (
                     <p className="text-sm text-slate-500 dark:text-slate-400">
-                        Renseignez votre FC repos et votre FC max (ou votre âge) pour afficher vos zones.
+                        Renseigne ta FC repos et ta FC max (ou ton âge) pour afficher tes zones.
                     </p>
                 )}
             </div>

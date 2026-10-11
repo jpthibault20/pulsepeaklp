@@ -18,7 +18,7 @@ const card =
 
 const title = "Calculateur de zones de fréquence cardiaque — PulsePeak";
 const description =
-    "Calculez vos zones d'entraînement en fréquence cardiaque (méthode de Karvonen) à partir de votre FC repos et de votre FC max, mesurée ou estimée selon votre âge.";
+    "Calcule tes zones d'entraînement en fréquence cardiaque (méthode de Karvonen) à partir de ta FC repos et de ta FC max, mesurée ou estimée selon ton âge.";
 
 export const metadata: Metadata = {
     title,
@@ -41,11 +41,11 @@ const tanakaTable = [
 const faqs = [
     {
         q: "Pourquoi utiliser la FC repos et la FC max plutôt qu'un pourcentage de FC max seul ?",
-        a: "La méthode de Karvonen (% de réserve cardiaque, ou HRR) tient compte de votre FC repos, un indicateur individuel de votre niveau de forme cardiovasculaire. Deux athlètes avec la même FC max mais des FC repos très différentes n'ont pas les mêmes zones réelles — Karvonen corrige cet écart, contrairement à un simple pourcentage de FC max.",
+        a: "La méthode de Karvonen (% de réserve cardiaque, ou HRR) tient compte de ta FC repos, un indicateur individuel de ton niveau de forme cardiovasculaire. Deux athlètes avec la même FC max mais des FC repos très différentes n'ont pas les mêmes zones réelles — Karvonen corrige cet écart, contrairement à un simple pourcentage de FC max.",
     },
     {
         q: "Comment mesurer sa FC repos ?",
-        a: "Idéalement au réveil, avant de vous lever, pendant 3 jours consécutifs, puis en prenant la moyenne. Une montre ou un tracker d'activité qui mesure le sommeil donne aussi une bonne estimation.",
+        a: "Idéalement au réveil, avant de te lever, pendant 3 jours consécutifs, puis en prenant la moyenne. Une montre ou un tracker d'activité qui mesure le sommeil donne aussi une bonne estimation.",
     },
     {
         q: "Comment mesurer sa FC max sans test en laboratoire ?",
@@ -53,7 +53,7 @@ const faqs = [
     },
     {
         q: "La formule par l'âge est-elle fiable ?",
-        a: "La formule de Tanaka (208 − 0,7 × âge) est plus précise que l'ancienne formule 220 − âge, mais reste une moyenne de population avec un écart-type de plusieurs battements par minute selon les individus. Utilisez-la comme point de départ, à affiner avec un test terrain si possible.",
+        a: "La formule de Tanaka (208 − 0,7 × âge) est plus précise que l'ancienne formule 220 − âge, mais reste une moyenne de population avec un écart-type de plusieurs battements par minute selon les individus. Utilise-la comme point de départ, à affiner avec un test terrain si possible.",
     },
 ];
 
@@ -98,7 +98,7 @@ export default function FcZonesPage() {
                         Calculateur de zones de fréquence cardiaque (méthode de Karvonen)
                     </h1>
                     <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl dark:text-slate-400">
-                        {"Entrez votre FC repos et votre FC max (mesurée ou estimée selon votre âge) pour obtenir vos 5 zones d'entraînement, selon la méthode de Karvonen."}
+                        {"Entre ta FC repos et ta FC max (mesurée ou estimée selon ton âge) pour obtenir tes 5 zones d'entraînement, selon la méthode de Karvonen."}
                     </p>
                 </div>
             </section>
@@ -125,12 +125,12 @@ export default function FcZonesPage() {
                             {"La FC repos est le paramètre le plus facile à mesurer, et pourtant souvent négligé. Pour une valeur fiable :"}
                         </p>
                         <ol className="ml-5 list-decimal space-y-2 text-slate-600 dark:text-slate-400">
-                            <li>Mesurez-la au réveil, avant même de vous lever ou de consulter votre téléphone.</li>
-                            <li>Répétez la mesure sur 3 jours consécutifs, dans des conditions similaires (pas de soirée arrosée ou de nuit trop courte la veille).</li>
-                            <li>Prenez la moyenne des 3 mesures plutôt qu&apos;une valeur isolée, qui peut varier de quelques battements d&apos;un jour à l&apos;autre.</li>
+                            <li>Mesure-la au réveil, avant même de te lever ou de consulter ton téléphone.</li>
+                            <li>Répète la mesure sur 3 jours consécutifs, dans des conditions similaires (pas de soirée arrosée ou de nuit trop courte la veille).</li>
+                            <li>Prends la moyenne des 3 mesures plutôt qu&apos;une valeur isolée, qui peut varier de quelques battements d&apos;un jour à l&apos;autre.</li>
                         </ol>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Une montre connectée qui mesure votre FC pendant le sommeil donne aussi une estimation fiable, généralement légèrement plus basse qu'une mesure au réveil actif."}
+                            {"Une montre connectée qui mesure ta FC pendant le sommeil donne aussi une estimation fiable, généralement légèrement plus basse qu'une mesure au réveil actif."}
                         </p>
                     </div>
 
@@ -139,10 +139,10 @@ export default function FcZonesPage() {
                             Comment tester sa FC max sur le terrain
                         </h2>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"La FC max mesurée est toujours plus fiable qu'une formule d'estimation. Un protocole courant : après un échauffement complet de 20 minutes incluant quelques accélérations, enchaînez 2 à 3 répétitions de 3 minutes en côte à intensité quasi-maximale, avec 3 minutes de récupération entre chaque, puis terminez la dernière répétition par un sprint de 15 à 20 secondes. La valeur la plus haute observée sur votre cardiofréquencemètre est une bonne approximation de votre FC max."}
+                            {"La FC max mesurée est toujours plus fiable qu'une formule d'estimation. Un protocole courant : après un échauffement complet de 20 minutes incluant quelques accélérations, enchaîne 2 à 3 répétitions de 3 minutes en côte à intensité quasi-maximale, avec 3 minutes de récupération entre chaque, puis termine la dernière répétition par un sprint de 15 à 20 secondes. La valeur la plus haute observée sur ton cardiofréquencemètre est une bonne approximation de ta FC max."}
                         </p>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Ce type de test est exigeant physiquement : s'il est nouveau pour vous ou si vous reprenez une activité après une pause prolongée, prenez l'avis d'un médecin avant de le réaliser."}
+                            {"Ce type de test est exigeant physiquement : s'il est nouveau pour toi ou si tu reprends une activité après une pause prolongée, prends l'avis d'un médecin avant de le réaliser."}
                         </p>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
                             {"À défaut de test terrain, la formule de Tanaka (208 − 0,7 × âge) donne une estimation plus fiable statistiquement que l'ancienne formule 220 − âge :"}
@@ -197,13 +197,13 @@ export default function FcZonesPage() {
                             {"Une même personne n'atteint généralement pas la même FC max selon la discipline. À l'effort maximal, la course à pied sollicite davantage de masse musculaire en position verticale et produit souvent la FC max la plus élevée. Le vélo, en position assise avec moins de muscles engagés simultanément, donne typiquement une FC max inférieure de 3 à 8 bpm. La natation va plus loin : la position horizontale, l'immersion et le réflexe de plongée réduisent la FC max de 10 à 15 bpm en moyenne par rapport à la course."}
                         </p>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Conséquence pratique : si vous pratiquez plusieurs disciplines, calculez des zones FC séparées pour chacune plutôt que de réutiliser la même FC max partout — sans quoi vos zones en natation ou à vélo seront systématiquement décalées vers le haut."}
+                            {"Conséquence pratique : si tu pratiques plusieurs disciplines, calcule des zones FC séparées pour chacune plutôt que de réutiliser la même FC max partout — sans quoi tes zones en natation ou à vélo seront systématiquement décalées vers le haut."}
                         </p>
                     </div>
 
                     <div>
                         <p className="mb-4 leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"PulsePeak suit l'évolution de votre FC repos au fil des semaines et recalcule vos zones cardiaques automatiquement — un repère utile pour détecter une fatigue qui s'installe, en complément de vos zones de puissance ou d'allure si vous combinez plusieurs disciplines."}
+                            {"PulsePeak suit l'évolution de ta FC repos au fil des semaines et recalcule tes zones cardiaques automatiquement — un repère utile pour détecter une fatigue qui s'installe, en complément de tes zones de puissance ou d'allure si tu combines plusieurs disciplines."}
                         </p>
                         <PrimaryButton text="Essayer PulsePeak" href="https://app.pulsepeak.fr" icon={ArrowRight} />
                     </div>

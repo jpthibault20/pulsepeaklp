@@ -120,7 +120,7 @@ export default function GpxAnalyzer() {
                 >
                     <Upload size={28} className="text-blue-600" />
                     <span className="font-semibold text-slate-900 dark:text-white">
-                        {fileName ? "Changer de fichier GPX" : "Cliquez pour choisir un fichier GPX"}
+                        {fileName ? "Changer de fichier GPX" : "Clique pour choisir un fichier GPX"}
                     </span>
                     <span className="text-xs text-slate-500 dark:text-slate-400">
                         {fileName ?? "Export depuis Strava, Garmin Connect, Komoot..."}
@@ -130,7 +130,7 @@ export default function GpxAnalyzer() {
                 {loading && <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">Analyse du fichier…</p>}
                 {error && <p className="mt-4 text-sm font-medium text-red-600 dark:text-red-400">{error}</p>}
                 <p className="mt-4 text-xs text-slate-500 dark:text-slate-500">
-                    Votre fichier est traité entièrement dans votre navigateur — il n&apos;est jamais envoyé à un serveur.
+                    Ton fichier est traité entièrement dans ton navigateur — il n&apos;est jamais envoyé à un serveur.
                 </p>
             </div>
 
@@ -214,7 +214,7 @@ export default function GpxAnalyzer() {
                             <div className="mb-6 grid gap-4 sm:grid-cols-2 max-w-md">
                                 <div>
                                     <label className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300">
-                                        Poids total (vélo + vous, kg)
+                                        Poids total (vélo + toi, kg)
                                     </label>
                                     <input type="number" inputMode="decimal" min={0} value={weightInput} onChange={(e) => setWeightInput(e.target.value)} className={inputClass} />
                                 </div>
@@ -246,7 +246,7 @@ export default function GpxAnalyzer() {
                             </>
                         ) : (
                             <p className="text-sm text-slate-500 dark:text-slate-400">
-                                Renseignez les valeurs demandées pour estimer votre temps sur ce parcours.
+                                Renseigne les valeurs demandées pour estimer ton temps sur ce parcours.
                             </p>
                         )}
                     </div>

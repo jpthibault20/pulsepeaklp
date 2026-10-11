@@ -61,7 +61,7 @@ export default function DisciplineLandingPage({ discipline }: { discipline: Disc
       <section className="px-4 py-16">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="mb-6 text-2xl font-bold text-slate-900 md:text-3xl dark:text-white">
-            Vous vous reconnaissez ?
+            Tu te reconnais ?
           </h2>
           <div className="mx-auto divide-y divide-slate-200/80 text-left dark:divide-slate-800">
             {config.mirrorPoints.map((point) => (
@@ -109,7 +109,7 @@ export default function DisciplineLandingPage({ discipline }: { discipline: Disc
               {"L'expérience PulsePeak"}
             </p>
             <h2 className="mb-6 text-3xl font-bold text-slate-900 md:text-4xl dark:text-white">
-              {`Votre semaine ${config.label.toLowerCase()}, visualisée.`}
+              {`Ta semaine ${config.label.toLowerCase()}, visualisée.`}
             </h2>
           </div>
 
@@ -122,7 +122,7 @@ export default function DisciplineLandingPage({ discipline }: { discipline: Disc
       <div className="mx-auto max-w-3xl border-t border-slate-200/60 dark:border-slate-800/60" />
 
       <FinalCta
-        title={`Prêt à transformer votre entraînement ${config.label.toLowerCase()} ?`}
+        title={`Prêt à transformer ton entraînement ${config.label.toLowerCase()} ?`}
         subtitle={
           config.finalCtaSubtitle ??
           "Le premier mois est offert, puis 5€/mois avec le tarif de lancement jusqu'au 31 décembre 2026. Sans engagement, résiliable à tout moment."
