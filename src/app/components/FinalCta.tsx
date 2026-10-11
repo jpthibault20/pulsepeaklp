@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function FinalCta({
-  title = "Prêt à transformer votre entraînement ?",
+  title = "Prêt à transformer ton entraînement ?",
   subtitle = "Le premier mois est offert, puis 5€/mois avec le tarif de lancement jusqu'au 31 décembre 2026. Sans engagement, résiliable à tout moment.",
 }: Props) {
   return (

@@ -13,10 +13,10 @@ export async function POST(request: Request) {
 
         const userHtml = `
         <div style="font-family: sans-serif; padding: 20px;">
-            <h1 style="color: #2563eb;">Vos résultats — ${tool}</h1>
+            <h1 style="color: #2563eb;">Tes résultats — ${tool}</h1>
             <p style="white-space: pre-wrap;">${summary}</p>
             <p style="margin-top: 24px; color: #64748b; font-size: 13px;">
-                Calculé avec l'outil gratuit PulsePeak — <a href="https://pulsepeak.fr/outils">retrouvez tous nos outils</a>.
+                Calculé avec l'outil gratuit PulsePeak — <a href="https://pulsepeak.fr/outils">retrouve tous nos outils</a>.
             </p>
         </div>
         `;
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
             resend.emails.send({
                 from: "PulsePeak <thibault@jp-developpement.com>",
                 to: [email],
-                subject: `Vos résultats PulsePeak — ${tool}`,
+                subject: `Tes résultats PulsePeak — ${tool}`,
                 html: userHtml,
             }),
             resend.emails.send({

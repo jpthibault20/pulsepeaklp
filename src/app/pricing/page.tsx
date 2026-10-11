@@ -34,11 +34,11 @@ const included = [
 const faqs: { q: string; a: React.ReactNode }[] = [
   {
     q: "Comment fonctionne le mois offert ?",
-    a: "Le mois offert s'applique à l'abonnement mensuel : à l'inscription, vous accédez à toutes les fonctionnalités sans être prélevé. Le premier paiement n'intervient qu'à la fin de ce mois, et vous pouvez résilier avant cette échéance si le service ne vous convient pas. L'abonnement annuel, déjà remisé, n'inclut pas ce mois offert.",
+    a: "Le mois offert s'applique à l'abonnement mensuel : à l'inscription, tu accèdes à toutes les fonctionnalités sans être prélevé. Le premier paiement n'intervient qu'à la fin de ce mois, et tu peux résilier avant cette échéance si le service ne te convient pas. L'abonnement annuel, déjà remisé, n'inclut pas ce mois offert.",
   },
   {
     q: "Puis-je résilier à tout moment ?",
-    a: "Oui, l'abonnement est sans engagement. Comme précisé dans nos CGV, vous pouvez résilier à tout moment — y compris pendant le mois offert ; la résiliation prend effet à la fin de la période en cours.",
+    a: "Oui, l'abonnement est sans engagement. Comme précisé dans nos CGV, tu peux résilier à tout moment — y compris pendant le mois offert ; la résiliation prend effet à la fin de la période en cours.",
   },
   {
     q: "Le tarif à 5€/mois est-il garanti indéfiniment ?",
@@ -171,7 +171,7 @@ export default function PrixPage() {
           <p className="mt-10 text-center text-sm text-slate-500 dark:text-slate-500">
             Une autre question ?{" "}
             <a href="/contact" className="font-medium text-blue-600 hover:underline">
-              Contactez-nous
+              Contacte-nous
             </a>
             .
           </p>

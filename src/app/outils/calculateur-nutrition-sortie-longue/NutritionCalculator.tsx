@@ -166,7 +166,7 @@ export default function NutritionCalculator() {
             <div className={`p-6 md:p-8 ${card}`}>
                 <div className="mb-6 flex flex-wrap items-start justify-between gap-3">
                     <div>
-                        <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Vos besoins estimés</h3>
+                        <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">Tes besoins estimés</h3>
                         <p className="text-sm text-slate-500 dark:text-slate-400">
                             Pour {h > 0 ? `${h}h` : ""}{m > 0 ? `${m}min` : h === 0 ? "0min" : ""} d&apos;effort en intensité {intensityOptions.find((o) => o.key === intensity)?.label.toLowerCase()}.
                         </p>
@@ -196,12 +196,12 @@ export default function NutritionCalculator() {
                 </div>
 
                 {result === null ? (
-                    <p className="text-sm text-slate-500 dark:text-slate-400">Renseignez une durée pour afficher vos besoins.</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">Renseigne une durée pour afficher tes besoins.</p>
                 ) : durationMin < 45 ? (
                     <div className="flex items-start gap-3 rounded-xl border border-slate-200/80 bg-slate-50 p-4 text-sm text-slate-600 dark:border-slate-800 dark:bg-slate-800/40 dark:text-slate-400">
                         <Wheat size={18} className="mt-0.5 shrink-0 text-blue-600" />
                         <p>
-                            {"Sur moins de 45 minutes, un apport en glucides pendant l'effort n'est généralement pas nécessaire — une hydratation simple suffit. Pensez surtout à bien manger avant et après la séance."}
+                            {"Sur moins de 45 minutes, un apport en glucides pendant l'effort n'est généralement pas nécessaire — une hydratation simple suffit. Pense surtout à bien manger avant et après la séance."}
                         </p>
                     </div>
                 ) : (
@@ -243,7 +243,7 @@ export default function NutritionCalculator() {
                 )}
 
                 <p className="mt-6 text-xs text-slate-500 dark:text-slate-500">
-                    {"Ces repères sont des recommandations générales issues de la littérature en nutrition sportive (30 à 90 g/h de glucides, 400 à 800+ mL/h de liquides selon l'intensité et la chaleur). Ajustez selon votre tolérance digestive, votre taux de sudation personnel et vos sensations — testez toujours vos apports à l'entraînement avant une compétition."}
+                    {"Ces repères sont des recommandations générales issues de la littérature en nutrition sportive (30 à 90 g/h de glucides, 400 à 800+ mL/h de liquides selon l'intensité et la chaleur). Ajuste selon ta tolérance digestive, ton taux de sudation personnel et tes sensations — teste toujours tes apports à l'entraînement avant une compétition."}
                 </p>
 
                 {result !== null && durationMin >= 45 && (

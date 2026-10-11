@@ -165,7 +165,7 @@ export default function RacePredictor() {
                     </div>
                 </div>
             ) : (
-                <p className="text-sm text-slate-500 dark:text-slate-400">Renseignez un temps de course pour voir les prédictions.</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">Renseigne un temps de course pour voir les prédictions.</p>
             )}
 
             <p className="mt-6 text-xs text-slate-500 dark:text-slate-500">

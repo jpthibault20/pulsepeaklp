@@ -20,7 +20,7 @@ export default function InstallAppBanner() {
                             {"Pas d'app à télécharger sur le Store"}
                         </p>
                         <p className="text-sm text-slate-600 dark:text-slate-400">
-                            {"PulsePeak s'ajoute à votre écran d'accueil en 10 secondes."}
+                            {"PulsePeak s'ajoute à ton écran d'accueil en 10 secondes."}
                         </p>
                     </div>
                 </div>

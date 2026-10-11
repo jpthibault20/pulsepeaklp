@@ -43,7 +43,7 @@ export default function ContactForm() {
                 <CheckCircle2 className="text-emerald-600 dark:text-emerald-400" size={40} />
                 <h2 className="text-xl font-bold text-slate-900 dark:text-white">Message envoyé</h2>
                 <p className="text-slate-600 dark:text-slate-400">
-                    Merci, votre message a bien été transmis. Nous vous répondrons rapidement.
+                    Merci, ton message a bien été transmis. On te répond rapidement.
                 </p>
             </div>
         );
@@ -64,7 +64,7 @@ export default function ContactForm() {
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Votre nom"
+                    placeholder="Ton nom"
                     className={inputClass}
                 />
             </div>
@@ -79,7 +79,7 @@ export default function ContactForm() {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="vous@exemple.com"
+                    placeholder="toi@exemple.com"
                     className={inputClass}
                 />
             </div>
@@ -94,7 +94,7 @@ export default function ContactForm() {
                     rows={5}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Comment pouvons-nous vous aider ?"
+                    placeholder="Comment peut-on t'aider ?"
                     className={`${inputClass} resize-none`}
                 />
             </div>

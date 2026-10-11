@@ -43,7 +43,8 @@ export default function DisciplineLandingPage({ discipline }: { discipline: Disc
             </p>
 
             <p className="mb-10 text-sm font-semibold text-blue-600">
-              {"1er mois offert, sans engagement — puis dès 5€/mois, offre de lancement jusqu'au 31 décembre 2026"}
+              {config.heroPriceLine ??
+                "1er mois offert, sans engagement — puis dès 5€/mois, offre de lancement jusqu'au 31 décembre 2026"}
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
@@ -56,21 +57,47 @@ export default function DisciplineLandingPage({ discipline }: { discipline: Disc
         </div>
       </section>
 
-      {/* Section miroir — un seul cas, celui de cette discipline */}
+      {/* Section miroir — liste nue sans card, pour ne pas dupliquer le pattern visuel des arguments juste en dessous */}
       <section className="px-4 py-16">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="mb-6 text-2xl font-bold text-slate-900 md:text-3xl dark:text-white">
-            Vous vous reconnaissez ?
+            Tu te reconnais ?
           </h2>
-          <div className={`mx-auto flex items-start gap-4 p-6 text-left ${card}`}>
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
-              <Icon size={20} />
-            </span>
-            <p className="text-base leading-relaxed text-slate-700 dark:text-slate-300">{config.mirrorText}</p>
+          <div className="mx-auto divide-y divide-slate-200/80 text-left dark:divide-slate-800">
+            {config.mirrorPoints.map((point) => (
+              <div key={point} className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
+                  <Icon size={16} />
+                </span>
+                <p className="text-base leading-relaxed text-slate-700 dark:text-slate-300">{point}</p>
+              </div>
+            ))}
           </div>
           <p className="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">{config.bridge}</p>
         </div>
       </section>
+
+      {/* Arguments concrets — fond teinté pour rompre l'empilement de cards blanches et devenir la première "vraie" card de la page */}
+      {config.benefits && (
+        <section className="bg-slate-100/60 px-4 py-16 dark:bg-slate-900/40">
+          <div className="mx-auto max-w-5xl">
+            <div className="grid gap-6 md:grid-cols-3">
+              {config.benefits.map((benefit) => (
+                <div
+                  key={benefit.title}
+                  className={`p-6 transition-shadow hover:shadow-lg hover:shadow-slate-900/10 dark:hover:shadow-black/20 ${card}`}
+                >
+                  <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
+                    <benefit.icon size={20} />
+                  </span>
+                  <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">{benefit.title}</h3>
+                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">{benefit.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <PricingBanner />
 
@@ -81,8 +108,8 @@ export default function DisciplineLandingPage({ discipline }: { discipline: Disc
             <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-blue-600">
               {"L'expérience PulsePeak"}
             </p>
-            <h2 className="mb-6 text-3xl font-bold text-slate-900 md:text-5xl dark:text-white">
-              {`Votre semaine ${config.label.toLowerCase()}, visualisée.`}
+            <h2 className="mb-6 text-3xl font-bold text-slate-900 md:text-4xl dark:text-white">
+              {`Ta semaine ${config.label.toLowerCase()}, visualisée.`}
             </h2>
           </div>
 
@@ -90,17 +117,22 @@ export default function DisciplineLandingPage({ discipline }: { discipline: Disc
         </div>
       </section>
 
-      <CompetitorFaq />
+      <CompetitorFaq extraItems={config.extraFaq ? [config.extraFaq] : undefined} />
+
+      <div className="mx-auto max-w-3xl border-t border-slate-200/60 dark:border-slate-800/60" />
 
       <FinalCta
-        title={`Prêt à transformer votre entraînement ${config.label.toLowerCase()} ?`}
-        subtitle="Le premier mois est offert, puis 5€/mois avec le tarif de lancement jusqu'au 31 décembre 2026. Sans engagement, résiliable à tout moment."
+        title={`Prêt à transformer ton entraînement ${config.label.toLowerCase()} ?`}
+        subtitle={
+          config.finalCtaSubtitle ??
+          "Le premier mois est offert, puis 5€/mois avec le tarif de lancement jusqu'au 31 décembre 2026. Sans engagement, résiliable à tout moment."
+        }
       />
 
       {/* Maillage interne — les autres disciplines, sans jamais donner l'impression que ce n'est "pas pour vous" */}
       <section className="px-4 pb-16">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 text-sm font-semibold text-slate-500 dark:text-slate-500">Une autre discipline ?</p>
+          <p className="mb-4 text-sm font-semibold text-slate-600 dark:text-slate-400">Une autre discipline ?</p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             {others.map((key) => {
               const other = getDiscipline(key);
@@ -108,7 +140,7 @@ export default function DisciplineLandingPage({ discipline }: { discipline: Disc
                 <Link
                   key={key}
                   href={`/${other.slug}`}
-                  className="rounded-full border border-slate-200/80 px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:border-blue-300 hover:text-blue-600 dark:border-slate-800 dark:text-slate-400 dark:hover:text-blue-400"
+                  className="inline-flex h-11 items-center rounded-full border border-slate-200/80 px-5 text-sm font-medium text-slate-600 transition-colors hover:border-blue-300 hover:text-blue-600 dark:border-slate-800 dark:text-slate-400 dark:hover:text-blue-400"
                 >
                   {other.label}
                 </Link>

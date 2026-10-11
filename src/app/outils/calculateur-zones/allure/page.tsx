@@ -18,7 +18,7 @@ const card =
 
 const title = "Calculateur de zones d'allure course à pied (VMA) — PulsePeak";
 const description =
-    "Calculez vos zones d'allure course à pied à partir de votre VMA, d'un résultat de course récent ou de votre allure seuil. Récupération, endurance, seuil, VMA, fractionné.";
+    "Calcule tes zones d'allure course à pied à partir de ta VMA, d'un résultat de course récent ou de ton allure seuil. Récupération, endurance, seuil, VMA, fractionné.";
 
 export const metadata: Metadata = {
     title,
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 const vmaTests = [
     {
         name: "VAMEVAL",
-        text: "Course sur piste ou terrain plat balisé, avec une vitesse qui augmente de 0,5 km/h toutes les minutes, cadencée par des bips sonores. Arrêt à l'épuisement : la dernière vitesse tenue est votre VMA.",
+        text: "Course sur piste ou terrain plat balisé, avec une vitesse qui augmente de 0,5 km/h toutes les minutes, cadencée par des bips sonores. Arrêt à l'épuisement : la dernière vitesse tenue est ta VMA.",
     },
     {
         name: "Demi-Cooper (6 minutes)",
@@ -55,19 +55,19 @@ const correspondanceTable = [
 const faqs = [
     {
         q: "Comment mesurer sa VMA ?",
-        a: "Les tests terrain les plus courants sont le VAMEVAL, le demi-Cooper (test de 6 minutes) ou le test 45-15. Ils donnent une vitesse en km/h qui sert de référence pour calculer toutes vos zones d'allure.",
+        a: "Les tests terrain les plus courants sont le VAMEVAL, le demi-Cooper (test de 6 minutes) ou le test 45-15. Ils donnent une vitesse en km/h qui sert de référence pour calculer toutes tes zones d'allure.",
     },
     {
         q: "L'estimation à partir d'un résultat de course est-elle fiable ?",
-        a: "C'est une approximation basée sur le pourcentage de VMA généralement soutenu sur chaque distance par un coureur entraîné. Elle est utile si vous n'avez pas fait de test VMA récent, mais moins précise qu'un test dédié — le pourcentage réel varie selon votre profil (endurance vs vitesse) et vos conditions de course.",
+        a: "C'est une approximation basée sur le pourcentage de VMA généralement soutenu sur chaque distance par un coureur entraîné. Elle est utile si tu n'as pas fait de test VMA récent, mais moins précise qu'un test dédié — le pourcentage réel varie selon ton profil (endurance vs vitesse) et tes conditions de course.",
     },
     {
         q: "Pourquoi l'allure seuil correspond-elle à environ 88% de la VMA ?",
-        a: "C'est une valeur moyenne couramment utilisée chez les coureurs entraînés en endurance. Elle peut varier de quelques points selon votre typologie physiologique — un profil plutôt endurant tiendra un % de VMA plus élevé au seuil qu'un profil plutôt rapide.",
+        a: "C'est une valeur moyenne couramment utilisée chez les coureurs entraînés en endurance. Elle peut varier de quelques points selon ta typologie physiologique — un profil plutôt endurant tiendra un % de VMA plus élevé au seuil qu'un profil plutôt rapide.",
     },
     {
         q: "À quelle fréquence retester sa VMA ?",
-        a: "Toutes les 6 à 10 semaines, ou après un bloc de travail spécifique (VMA, seuil). PulsePeak ajuste vos zones d'allure en continu à partir de vos séances et de vos courses, sans nécessiter un test dédié à chaque fois.",
+        a: "Toutes les 6 à 10 semaines, ou après un bloc de travail spécifique (VMA, seuil). PulsePeak ajuste tes zones d'allure en continu à partir de tes séances et de tes courses, sans nécessiter un test dédié à chaque fois.",
     },
 ];
 
@@ -112,7 +112,7 @@ export default function AllureZonesPage() {
                         Calculateur de zones d&apos;allure course à pied (VMA)
                     </h1>
                     <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl dark:text-slate-400">
-                        {"À partir de votre VMA, d'un résultat de course récent ou de votre allure seuil, obtenez vos 7 zones d'allure en min/km."}
+                        {"À partir de ta VMA, d'un résultat de course récent ou de ton allure seuil, obtiens tes 7 zones d'allure en min/km."}
                     </p>
                 </div>
             </section>
@@ -153,7 +153,7 @@ export default function AllureZonesPage() {
                             Table de correspondance % VMA → allure
                         </h2>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Pour visualiser directement l'effet de votre VMA sur vos allures d'entraînement, sans repasser par le calculateur :"}
+                            {"Pour visualiser directement l'effet de ta VMA sur tes allures d'entraînement, sans repasser par le calculateur :"}
                         </p>
                         <div className="overflow-x-auto">
                             <table className="w-full min-w-[520px] border-collapse text-sm">
@@ -190,25 +190,25 @@ export default function AllureZonesPage() {
                             Pourquoi l&apos;estimation depuis une course reste approximative
                         </h2>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Le pourcentage de VMA tenu sur une distance donnée dépend de votre profil physiologique. Un coureur plutôt endurant (filière aérobie dominante) tiendra un pourcentage plus élevé sur un 10 km ou un semi qu'un coureur plutôt rapide mais moins endurant, à VMA identique. Ce calculateur applique des pourcentages moyens issus de la littérature sur l'entraînement par la VMA (travaux popularisés en France notamment par Véronique Billat) — un vrai test terrain reste plus fiable si vous cherchez une précision maximale, en particulier pour caler des séances de fractionné exigeantes."}
+                            {"Le pourcentage de VMA tenu sur une distance donnée dépend de ton profil physiologique. Un coureur plutôt endurant (filière aérobie dominante) tiendra un pourcentage plus élevé sur un 10 km ou un semi qu'un coureur plutôt rapide mais moins endurant, à VMA identique. Ce calculateur applique des pourcentages moyens issus de la littérature sur l'entraînement par la VMA (travaux popularisés en France notamment par Véronique Billat) — un vrai test terrain reste plus fiable si tu cherches une précision maximale, en particulier pour caler des séances de fractionné exigeantes."}
                         </p>
                     </div>
 
                     <div className="space-y-4">
                         <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                            Comment utiliser ces zones dans votre plan
+                            Comment utiliser ces zones dans ton plan
                         </h2>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"L'erreur la plus répandue chez les coureurs autonomes est de passer trop de temps dans les zones intermédiaires (tempo, résistance dure) et pas assez aux deux extrêmes — l'endurance fondamentale (Z2) qui construit la base aérobie, et le travail spécifique VMA (Z6-Z7) qui la fait progresser. La majorité de votre volume hebdomadaire devrait rester en endurance fondamentale, avec une ou deux séances ciblées par semaine dans les zones plus intenses selon votre objectif du moment (10 km, semi, marathon)."}
+                            {"L'erreur la plus répandue chez les coureurs autonomes est de passer trop de temps dans les zones intermédiaires (tempo, résistance dure) et pas assez aux deux extrêmes — l'endurance fondamentale (Z2) qui construit la base aérobie, et le travail spécifique VMA (Z6-Z7) qui la fait progresser. La majorité de ton volume hebdomadaire devrait rester en endurance fondamentale, avec une ou deux séances ciblées par semaine dans les zones plus intenses selon ton objectif du moment (10 km, semi, marathon)."}
                         </p>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Gardez aussi à l'esprit que ces zones se décalent avec la fatigue : une allure de zone 2 en tout début de bloc d'entraînement peut demander l'effort d'une zone 3 en fin de semaine chargée. C'est pour cette raison qu'il est utile de croiser l'allure avec la fréquence cardiaque plutôt que de se fier à un seul indicateur."}
+                            {"Garde aussi à l'esprit que ces zones se décalent avec la fatigue : une allure de zone 2 en tout début de bloc d'entraînement peut demander l'effort d'une zone 3 en fin de semaine chargée. C'est pour cette raison qu'il est utile de croiser l'allure avec la fréquence cardiaque plutôt que de se fier à un seul indicateur."}
                         </p>
                     </div>
 
                     <div>
                         <p className="mb-4 leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"PulsePeak recalcule vos zones d'allure automatiquement à partir de vos séances et de vos courses, et les croise avec vos données de fréquence cardiaque — utile pour repérer un écart inhabituel entre l'allure et l'effort ressenti, souvent le premier signe de fatigue accumulée."}
+                            {"PulsePeak recalcule tes zones d'allure automatiquement à partir de tes séances et de tes courses, et les croise avec tes données de fréquence cardiaque — utile pour repérer un écart inhabituel entre l'allure et l'effort ressenti, souvent le premier signe de fatigue accumulée."}
                         </p>
                         <PrimaryButton text="Essayer PulsePeak" href="https://app.pulsepeak.fr" icon={ArrowRight} />
                     </div>

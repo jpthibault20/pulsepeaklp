@@ -14,7 +14,7 @@ const card =
 
 const title = "Installer l'application PulsePeak — PulsePeak";
 const description =
-    "PulsePeak est une web app installable sur votre écran d'accueil en quelques secondes, sans passer par l'App Store ou le Google Play Store. Suivez le tuto iOS et Android.";
+    "PulsePeak est une web app installable sur ton écran d'accueil en quelques secondes, sans passer par l'App Store ou le Google Play Store. Suis le tuto iOS et Android.";
 
 export const metadata: Metadata = {
     title,
@@ -29,7 +29,7 @@ const reasons = [
     {
         icon: Zap,
         title: "Aucune installation à attendre",
-        text: "Pas de téléchargement, pas de mise à jour à valider manuellement : ouvrez PulsePeak et c'est déjà la dernière version.",
+        text: "Pas de téléchargement, pas de mise à jour à valider manuellement : ouvre PulsePeak et c'est déjà la dernière version.",
     },
     {
         icon: RefreshCw,
@@ -39,7 +39,7 @@ const reasons = [
     {
         icon: Laptop,
         title: "La même app partout",
-        text: "Téléphone, tablette ou ordinateur : une seule application, avec vos données synchronisées, sans distinction entre « app » et « site ».",
+        text: "Téléphone, tablette ou ordinateur : une seule application, avec tes données synchronisées, sans distinction entre « app » et « site ».",
     },
 ];
 
@@ -50,11 +50,11 @@ const faqs = [
     },
     {
         q: "Est-ce que ça prend de la place sur mon téléphone ?",
-        a: "Beaucoup moins qu'une application native classique : il ne s'agit pas d'un téléchargement complet, seulement d'un raccourci vers PulsePeak avec son icône sur votre écran d'accueil.",
+        a: "Beaucoup moins qu'une application native classique : il ne s'agit pas d'un téléchargement complet, seulement d'un raccourci vers PulsePeak avec son icône sur ton écran d'accueil.",
     },
     {
         q: "Puis-je désinstaller l'icône facilement ?",
-        a: "Oui, exactement comme n'importe quelle autre icône : un appui long puis « Supprimer », que ce soit sur iOS ou Android. Cela ne supprime ni votre compte ni vos données.",
+        a: "Oui, exactement comme n'importe quelle autre icône : un appui long puis « Supprimer », que ce soit sur iOS ou Android. Cela ne supprime ni ton compte ni tes données.",
     },
     {
         q: "Ça fonctionne aussi sur ordinateur ?",
@@ -72,10 +72,10 @@ export default function TelechargerPage() {
                 <div className="mx-auto max-w-3xl">
                     <Badge text="Web app installable" icon={Smartphone} color="blue" className="mb-6" />
                     <h1 className="mb-6 text-4xl font-black leading-tight tracking-tighter text-slate-900 md:text-5xl dark:text-white">
-                        Installer PulsePeak sur votre téléphone
+                        Installer PulsePeak sur ton téléphone
                     </h1>
                     <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl dark:text-slate-400">
-                        {"PulsePeak est une web app : elle fonctionne directement depuis votre navigateur, sans rien à télécharger sur un store. En 10 secondes, ajoutez-la à votre écran d'accueil pour l'ouvrir comme n'importe quelle application."}
+                        {"PulsePeak est une web app : elle fonctionne directement depuis ton navigateur, sans rien à télécharger sur un store. En 10 secondes, ajoute-la à ton écran d'accueil pour l'ouvrir comme n'importe quelle application."}
                     </p>
                 </div>
             </section>

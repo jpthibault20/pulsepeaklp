@@ -10,17 +10,17 @@ const platforms = [
     {
         os: "iOS · Safari",
         steps: [
-            { icon: Smartphone, text: "Ouvrez app.pulsepeak.fr dans Safari" },
-            { icon: Share2, text: "Appuyez sur l'icône Partager" },
-            { icon: SquarePlus, text: "Sélectionnez « Sur l'écran d'accueil »" },
+            { icon: Smartphone, text: "Ouvre app.pulsepeak.fr dans Safari" },
+            { icon: Share2, text: "Appuie sur l'icône Partager" },
+            { icon: SquarePlus, text: "Sélectionne « Sur l'écran d'accueil »" },
         ],
     },
     {
         os: "Android · Chrome",
         steps: [
-            { icon: Smartphone, text: "Ouvrez app.pulsepeak.fr dans Chrome" },
-            { icon: MoreVertical, text: "Appuyez sur le menu ⋮ en haut à droite" },
-            { icon: SquarePlus, text: "Sélectionnez « Installer l'application »" },
+            { icon: Smartphone, text: "Ouvre app.pulsepeak.fr dans Chrome" },
+            { icon: MoreVertical, text: "Appuie sur le menu ⋮ en haut à droite" },
+            { icon: SquarePlus, text: "Sélectionne « Installer l'application »" },
         ],
     },
 ];

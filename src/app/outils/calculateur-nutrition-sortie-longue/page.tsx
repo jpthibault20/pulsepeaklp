@@ -17,7 +17,7 @@ const card =
 
 const title = "Calculateur de nutrition de sortie longue — PulsePeak";
 const description =
-    "Calculez vos besoins en glucides, liquides et sodium pour une sortie longue à vélo ou en course à pied, selon la durée, l'intensité et la température.";
+    "Calcule tes besoins en glucides, liquides et sodium pour une sortie longue à vélo ou en course à pied, selon la durée, l'intensité et la température.";
 
 export const metadata: Metadata = {
     title,
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const faqs = [
     {
         q: "Faut-il vraiment manger pendant une sortie de moins d'une heure ?",
-        a: "En général non, sauf sensation de faim ou séance très intense enchaînée avec peu de récupération. Vos réserves de glycogène suffisent largement sur ce type de durée — l'important est surtout de bien manger avant et après.",
+        a: "En général non, sauf sensation de faim ou séance très intense enchaînée avec peu de récupération. Tes réserves de glycogène suffisent largement sur ce type de durée — l'important est surtout de bien manger avant et après.",
     },
     {
         q: "Pourquoi un mix glucose/fructose plutôt que du glucose seul ?",
@@ -39,11 +39,11 @@ const faqs = [
     },
     {
         q: "Comment savoir si je transpire beaucoup de sodium ?",
-        a: "Un signe classique : des traces blanches de sel séché sur vos vêtements ou votre casquette après l'effort. Si c'est votre cas, visez le haut des fourchettes indiquées ici, voire au-delà avec l'avis d'un professionnel.",
+        a: "Un signe classique : des traces blanches de sel séché sur tes vêtements ou ta casquette après l'effort. Si c'est ton cas, vise le haut des fourchettes indiquées ici, voire au-delà avec l'avis d'un professionnel.",
     },
     {
         q: "Ces recommandations sont-elles valables en natation ?",
-        a: "Les repères de glucides et de sodium restent une base valable, mais les besoins en liquides sont plus difficiles à estimer en piscine ou en eau libre (moins de perception de la transpiration). Fiez-vous davantage à la durée et à l'intensité qu'à la sensation de soif.",
+        a: "Les repères de glucides et de sodium restent une base valable, mais les besoins en liquides sont plus difficiles à estimer en piscine ou en eau libre (moins de perception de la transpiration). Fie-toi davantage à la durée et à l'intensité qu'à la sensation de soif.",
     },
 ];
 
@@ -88,7 +88,7 @@ export default function NutritionPage() {
                         Calculateur de nutrition de sortie longue : glucides, liquides, sodium
                     </h1>
                     <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl dark:text-slate-400">
-                        {"Durée, intensité et température : obtenez vos besoins en glucides, liquides et sodium pour tenir jusqu'au bout."}
+                        {"Durée, intensité et température : obtiens tes besoins en glucides, liquides et sodium pour tenir jusqu'au bout."}
                     </p>
                 </div>
             </section>
@@ -108,7 +108,7 @@ export default function NutritionPage() {
                             Pourquoi anticiper sa nutrition d&apos;effort ?
                         </h2>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"La fringale (« fringale » ou « coup de bambou ») et la déshydratation sont parmi les premières causes d'échec sur une sortie longue ou une course d'endurance. Vos réserves de glycogène sont limitées à 60-90 minutes d'effort intense : au-delà, un apport régulier en glucides devient nécessaire pour maintenir l'allure et éviter la baisse de régime."}
+                            {"La fringale (« fringale » ou « coup de bambou ») et la déshydratation sont parmi les premières causes d'échec sur une sortie longue ou une course d'endurance. Tes réserves de glycogène sont limitées à 60-90 minutes d'effort intense : au-delà, un apport régulier en glucides devient nécessaire pour maintenir l'allure et éviter la baisse de régime."}
                         </p>
                     </div>
 
@@ -126,7 +126,7 @@ export default function NutritionPage() {
                             Comment s&apos;entraîner à son plan nutritionnel
                         </h2>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"L'intestin s'entraîne comme un muscle : un apport de 90 g/h de glucides toléré sans souci par un athlète expérimenté peut provoquer des troubles digestifs chez quelqu'un qui n'y est pas habitué. Augmentez progressivement vos apports sur plusieurs sorties longues d'entraînement, jamais pour la première fois le jour d'une course. Testez aussi le produit exact (gel, boisson, barre) que vous prévoyez d'utiliser en compétition, dans les mêmes conditions d'intensité."}
+                            {"L'intestin s'entraîne comme un muscle : un apport de 90 g/h de glucides toléré sans souci par un athlète expérimenté peut provoquer des troubles digestifs chez quelqu'un qui n'y est pas habitué. Augmente progressivement tes apports sur plusieurs sorties longues d'entraînement, jamais pour la première fois le jour d'une course. Teste aussi le produit exact (gel, boisson, barre) que tu prévois d'utiliser en compétition, dans les mêmes conditions d'intensité."}
                         </p>
                     </div>
 
@@ -143,16 +143,16 @@ export default function NutritionPage() {
                     <div className="space-y-4">
                         <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Avant et après l&apos;effort</h2>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"La nutrition pendant l'effort ne compense pas une mauvaise préparation en amont. Dans les 3 à 4 heures précédant une sortie longue, privilégiez un repas riche en glucides et pauvre en fibres et en graisses (pour limiter les inconforts digestifs), avec une bonne hydratation. Un petit encas glucidique 30 à 60 minutes avant le départ peut compléter vos réserves sans perturber la digestion si le reste du repas était suffisamment espacé."}
+                            {"La nutrition pendant l'effort ne compense pas une mauvaise préparation en amont. Dans les 3 à 4 heures précédant une sortie longue, privilégie un repas riche en glucides et pauvre en fibres et en graisses (pour limiter les inconforts digestifs), avec une bonne hydratation. Un petit encas glucidique 30 à 60 minutes avant le départ peut compléter tes réserves sans perturber la digestion si le reste du repas était suffisamment espacé."}
                         </p>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Après l'effort, la fenêtre des 30 à 60 minutes qui suit est la plus efficace pour relancer la reconstitution des réserves de glycogène : visez un apport combinant glucides et protéines (ratio souvent cité autour de 3:1 ou 4:1), plus important après une sortie très longue ou très intense qu'après une sortie facile."}
+                            {"Après l'effort, la fenêtre des 30 à 60 minutes qui suit est la plus efficace pour relancer la reconstitution des réserves de glycogène : vise un apport combinant glucides et protéines (ratio souvent cité autour de 3:1 ou 4:1), plus important après une sortie très longue ou très intense qu'après une sortie facile."}
                         </p>
                     </div>
 
                     <div>
                         <p className="mb-4 leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Dans PulsePeak, vos sorties longues sont identifiées à l'avance dans votre plan, ce qui vous permet d'anticiper votre stratégie nutritionnelle plutôt que de l'improviser le jour J."}
+                            {"Dans PulsePeak, tes sorties longues sont identifiées à l'avance dans ton plan, ce qui te permet d'anticiper ta stratégie nutritionnelle plutôt que de l'improviser le jour J."}
                         </p>
                         <PrimaryButton text="Essayer PulsePeak" href="https://app.pulsepeak.fr" icon={ArrowRight} />
                     </div>

@@ -88,7 +88,7 @@ export default function PmcCalculator() {
                 >
                     <Upload size={28} className="text-blue-600" />
                     <span className="font-semibold text-slate-900 dark:text-white">
-                        {fileName ? "Changer de fichier CSV" : "Cliquez pour choisir un export CSV Strava"}
+                        {fileName ? "Changer de fichier CSV" : "Clique pour choisir un export CSV Strava"}
                     </span>
                     <span className="text-xs text-slate-500 dark:text-slate-400">
                         {fileName ?? "Réglages Strava → Mon compte → Télécharger ou supprimer vos données"}
@@ -135,14 +135,14 @@ export default function PmcCalculator() {
                         </div>
                         {(dateIdx === null || loadIdx === null) && (
                             <p className="text-sm text-slate-500 dark:text-slate-400 sm:col-span-2">
-                                {"Nous n'avons pas pu détecter automatiquement les bonnes colonnes — sélectionnez-les manuellement ci-dessus."}
+                                {"Nous n'avons pas pu détecter automatiquement les bonnes colonnes — sélectionne-les manuellement ci-dessus."}
                             </p>
                         )}
                     </div>
                 )}
 
                 <p className="mt-4 text-xs text-slate-500 dark:text-slate-500">
-                    Votre fichier est traité entièrement dans votre navigateur — il n&apos;est jamais envoyé à un serveur.
+                    Ton fichier est traité entièrement dans ton navigateur — il n&apos;est jamais envoyé à un serveur.
                 </p>
             </div>
 
@@ -173,7 +173,7 @@ export default function PmcCalculator() {
                         </div>
                         <PmcChart points={pmc} />
                         <p className="mt-6 text-xs text-slate-500 dark:text-slate-500">
-                            {"CTL = moyenne mobile exponentielle sur 42 jours de votre charge quotidienne. ATL = idem sur 7 jours. TSB = CTL − ATL de la veille. Les premières semaines du graphique sous-estiment votre CTL/ATL réelles, le temps que le modèle \"monte en charge\" à partir de zéro."}
+                            {"CTL = moyenne mobile exponentielle sur 42 jours de ta charge quotidienne. ATL = idem sur 7 jours. TSB = CTL − ATL de la veille. Les premières semaines du graphique sous-estiment tes CTL/ATL réelles, le temps que le modèle \"monte en charge\" à partir de zéro."}
                         </p>
                         <div className="mt-6">
                             <LeadCapture

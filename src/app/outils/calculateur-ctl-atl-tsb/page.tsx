@@ -19,7 +19,7 @@ const card =
 
 const title = "Calculateur CTL / ATL / TSB à partir d'un export Strava — PulsePeak";
 const description =
-    "Importez votre export CSV Strava pour visualiser votre forme (CTL, ATL, TSB) dans le temps — le modèle de gestion de charge popularisé par Coggan et TrainingPeaks.";
+    "Importe ton export CSV Strava pour visualiser ta forme (CTL, ATL, TSB) dans le temps — le modèle de gestion de charge popularisé par Coggan et TrainingPeaks.";
 
 export const metadata: Metadata = {
     title,
@@ -49,19 +49,19 @@ const tsbTable: { range: string; label: string; color: BadgeColor }[] = [
 const faqs = [
     {
         q: "Comment exporter mes données depuis Strava ?",
-        a: "Dans Strava, allez dans Réglages → Mon compte → « Télécharger ou supprimer vos données », puis demandez votre archive. Elle contient un fichier activities.csv que vous pouvez importer ici.",
+        a: "Dans Strava, va dans Réglages → Mon compte → « Télécharger ou supprimer vos données », puis demande ton archive. Elle contient un fichier activities.csv que tu peux importer ici.",
     },
     {
         q: "Pourquoi mes colonnes ne sont pas détectées automatiquement ?",
-        a: "Le format d'export de Strava peut varier selon la langue de votre compte ou les évolutions de la plateforme. Si la détection automatique échoue, sélectionnez manuellement la colonne de date et une colonne représentant une charge d'entraînement (Relative Effort, TSS, ou équivalent).",
+        a: "Le format d'export de Strava peut varier selon la langue de ton compte ou les évolutions de la plateforme. Si la détection automatique échoue, sélectionne manuellement la colonne de date et une colonne représentant une charge d'entraînement (Relative Effort, TSS, ou équivalent).",
     },
     {
         q: "Je n'ai pas de colonne \"Relative Effort\" ou \"TSS\" dans mon export, que faire ?",
-        a: "Le Relative Effort de Strava n'est calculé que pour les activités avec donnée de fréquence cardiaque ou de puissance. Sans cette colonne, vous pouvez utiliser n'importe quelle mesure de charge disponible dans votre export (par exemple une estimation d'effort perçu), en gardant à l'esprit que la précision du modèle en dépend directement.",
+        a: "Le Relative Effort de Strava n'est calculé que pour les activités avec donnée de fréquence cardiaque ou de puissance. Sans cette colonne, tu peux utiliser n'importe quelle mesure de charge disponible dans ton export (par exemple une estimation d'effort perçu), en gardant à l'esprit que la précision du modèle en dépend directement.",
     },
     {
         q: "Que signifie un TSB très négatif ?",
-        a: "Un TSB très négatif (en dessous de -30) indique une fatigue accumulée importante par rapport à votre niveau de fitness — utile en bloc de charge, mais risqué s'il persiste sur la durée sans récupération, avec un risque de blessure ou de surentraînement.",
+        a: "Un TSB très négatif (en dessous de -30) indique une fatigue accumulée importante par rapport à ton niveau de fitness — utile en bloc de charge, mais risqué s'il persiste sur la durée sans récupération, avec un risque de blessure ou de surentraînement.",
     },
 ];
 
@@ -106,7 +106,7 @@ export default function CtlAtlTsbPage() {
                         Calculateur CTL / ATL / TSB à partir d&apos;un export Strava
                     </h1>
                     <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl dark:text-slate-400">
-                        {"Importez votre export CSV Strava pour visualiser l'évolution de votre fitness, votre fatigue et votre forme."}
+                        {"Importe ton export CSV Strava pour visualiser l'évolution de ton fitness, ta fatigue et ta forme."}
                     </p>
                 </div>
             </section>
@@ -142,7 +142,7 @@ export default function CtlAtlTsbPage() {
                     </div>
 
                     <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
-                        Importez votre propre export CSV ci-dessous pour remplacer cet exemple par vos données.
+                        Importe ton propre export CSV ci-dessous pour remplacer cet exemple par tes données.
                     </p>
                 </div>
             </section>
@@ -174,7 +174,7 @@ export default function CtlAtlTsbPage() {
                             </p>
                         </div>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Le TSB du jour utilise le CTL et l'ATL de la veille : il représente votre forme en entrant dans la journée, avant que la séance du jour ne soit prise en compte — c'est la convention utilisée par TrainingPeaks. Les jours sans activité comptent comme un TSS de 0, ce qui fait naturellement redescendre l'ATL (plus vite) et le CTL (plus lentement) pendant le repos."}
+                            {"Le TSB du jour utilise le CTL et l'ATL de la veille : il représente ta forme en entrant dans la journée, avant que la séance du jour ne soit prise en compte — c'est la convention utilisée par TrainingPeaks. Les jours sans activité comptent comme un TSS de 0, ce qui fait naturellement redescendre l'ATL (plus vite) et le CTL (plus lentement) pendant le repos."}
                         </p>
                     </div>
 
@@ -203,7 +203,7 @@ export default function CtlAtlTsbPage() {
                             </table>
                         </div>
                         <p className="text-xs text-slate-500 dark:text-slate-500">
-                            Seuils indicatifs, popularisés par TrainingPeaks — à ajuster selon votre propre historique et votre ressenti.
+                            Seuils indicatifs, popularisés par TrainingPeaks — à ajuster selon ton propre historique et ton ressenti.
                         </p>
                     </div>
 
@@ -217,16 +217,16 @@ export default function CtlAtlTsbPage() {
                     <div className="space-y-4">
                         <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Les limites du modèle</h2>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Le modèle CTL/ATL/TSB reste une simplification utile, pas une mesure directe de votre état physiologique. Il ne tient compte ni de votre sommeil, ni de votre niveau de stress, ni de votre alimentation — trois facteurs qui influencent tout autant votre capacité de récupération réelle. Les constantes de temps (42 et 7 jours) sont des valeurs moyennes issues des travaux de Banister : certains athlètes récupèrent plus vite ou plus lentement, sans que le modèle s'ajuste automatiquement à leur profil individuel."}
+                            {"Le modèle CTL/ATL/TSB reste une simplification utile, pas une mesure directe de ton état physiologique. Il ne tient compte ni de ton sommeil, ni de ton niveau de stress, ni de ton alimentation — trois facteurs qui influencent tout autant ta capacité de récupération réelle. Les constantes de temps (42 et 7 jours) sont des valeurs moyennes issues des travaux de Banister : certains athlètes récupèrent plus vite ou plus lentement, sans que le modèle s'ajuste automatiquement à leur profil individuel."}
                         </p>
                         <p className="leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Le TSS (ou le Relative Effort de Strava) lui-même est une estimation imparfaite de la charge réelle d'une séance : deux séances au même score peuvent solliciter très différemment votre organisme selon le type d'effort (fractionné vs sortie longue, par exemple). Utilisez ces courbes comme une tendance à surveiller dans le temps, pas comme une valeur absolue à interpréter isolément."}
+                            {"Le TSS (ou le Relative Effort de Strava) lui-même est une estimation imparfaite de la charge réelle d'une séance : deux séances au même score peuvent solliciter très différemment ton organisme selon le type d'effort (fractionné vs sortie longue, par exemple). Utilise ces courbes comme une tendance à surveiller dans le temps, pas comme une valeur absolue à interpréter isolément."}
                         </p>
                     </div>
 
                     <div>
                         <p className="mb-4 leading-relaxed text-slate-600 dark:text-slate-400">
-                            {"Dans PulsePeak, votre CTL/ATL/TSB est calculé en continu à partir de vos séances réelles, toutes disciplines confondues, sans avoir besoin d'exporter et importer un fichier à chaque fois."}
+                            {"Dans PulsePeak, ton CTL/ATL/TSB est calculé en continu à partir de tes séances réelles, toutes disciplines confondues, sans avoir besoin d'exporter et importer un fichier à chaque fois."}
                         </p>
                         <PrimaryButton text="Essayer PulsePeak" href="https://app.pulsepeak.fr" icon={ArrowRight} />
                     </div>
