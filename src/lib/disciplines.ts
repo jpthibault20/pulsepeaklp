@@ -57,37 +57,37 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
     h1: "Un coach IA pour cyclistes qui n'ont pas le temps de tout calculer eux-mêmes.",
     subtitle:
       "Zones de puissance, charge d'entraînement, sorties longues : PulsePeak construit et ajuste ton plan vélo semaine après semaine, sans coach humain à 150€/mois.",
-    mirrorText: "Tu roules 8h/semaine, tu as un capteur de puissance, et tu stagnes depuis un an.",
-      "Vous roulez 8h par semaine, capteur de puissance au guidon, et vos watts ne bougent plus depuis un an.",
-      "Vous ne savez jamais si aujourd'hui c'est un jour d'endurance, de seuil ou de repos — alors vous roulez au feeling.",
-      "Vous avez déjà enchaîné deux grosses semaines sans savoir si c'était de la forme ou le début d'une blessure — et vous avez continué quand même.",
+    mirrorPoints: [
+      "Tu roules 8h par semaine, capteur de puissance au guidon, et tes watts ne bougent plus depuis un an.",
+      "Tu ne sais jamais si aujourd'hui c'est un jour d'endurance, de seuil ou de repos — alors tu roules au feeling.",
+      "Tu as déjà enchaîné deux grosses semaines sans savoir si c'était de la forme ou le début d'une blessure — et tu as continué quand même.",
     ],
     bridge:
       "PulsePeak analyse ta charge réelle et restructure ta semaine en blocs Force / Seuil / Endurance, pour que la stagnation ne soit plus une fatalité.",
     heroPriceLine:
-      "1er mois offert, sans engagement — puis 5€/mois si vous démarrez avant le 31 décembre 2026 (9€/mois ensuite)",
+      "1er mois offert, sans engagement — puis 5€/mois si tu démarres avant le 31 décembre 2026 (9€/mois ensuite)",
     finalCtaSubtitle:
       "Le premier mois est offert, puis 5€/mois avec le tarif de lancement — encore valable jusqu'au 31 décembre 2026, après quoi ce sera 9€/mois pour les nouveaux inscrits. Sans engagement, résiliable à tout moment.",
     extraFaq: {
       question: "Une IA peut-elle vraiment remplacer un coach humain ?",
       answer:
-        "Non — et ce n'est pas son rôle. Un coach humain suit plusieurs athlètes et ajuste votre plan une fois par semaine, s'il en a le temps. PulsePeak recalcule le vôtre à chaque signal — nuit courte, séance ratée, fatigue — et explique chaque décision : quoi, combien, pourquoi. C'est la rigueur d'un suivi structuré et disponible en continu, à un tarif qu'un coach humain ne propose pas.",
+        "Non — et ce n'est pas son rôle. Un coach humain suit plusieurs athlètes et ajuste ton plan une fois par semaine, s'il en a le temps. PulsePeak recalcule le tien à chaque signal — nuit courte, séance ratée, fatigue — et explique chaque décision : quoi, combien, pourquoi. C'est la rigueur d'un suivi structuré et disponible en continu, à un tarif qu'un coach humain ne propose pas.",
     },
     benefits: [
       {
         icon: Gauge,
-        title: "Vos zones, pas une formule générique",
-        text: "L'IA calibre vos zones de puissance sur votre FTP et votre historique réel, puis les recalibre au fil de vos progrès — pas sur un pourcentage théorique sorti d'un tableau.",
+        title: "Tes zones, pas une formule générique",
+        text: "L'IA calibre tes zones de puissance sur ta FTP et ton historique réel, puis les recalibre au fil de tes progrès — pas sur un pourcentage théorique sorti d'un tableau.",
       },
       {
         icon: RefreshCw,
-        title: "La semaine s'adapte à vous",
-        text: "Nuit courte, jambes lourdes, séance ratée : le plan recalcule votre charge dans la foulée pour protéger votre progression, au lieu de vous laisser deviner quoi faire à la place.",
+        title: "La semaine s'adapte à toi",
+        text: "Nuit courte, jambes lourdes, séance ratée : le plan recalcule ta charge dans la foulée pour protéger ta progression, au lieu de te laisser deviner quoi faire à la place.",
       },
       {
         icon: TrendingUp,
         title: "Une saison qui progresse, pas qui se répète",
-        text: "Vos sorties s'enchaînent en blocs Force, Seuil et Endurance pensés pour casser un plateau — pas en semaines identiques qui vous maintiennent au même niveau.",
+        text: "Tes sorties s'enchaînent en blocs Force, Seuil et Endurance pensés pour casser un plateau — pas en semaines identiques qui te maintiennent au même niveau.",
       },
     ],
     metaTitle: "Coach IA pour cyclistes — plans vélo personnalisés | PulsePeak",
@@ -169,7 +169,9 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
     h1: "Un coach IA pensé pour les nageurs, pas seulement pour les triathlètes.",
     subtitle:
       "Technique, endurance, séances seuil : un plan piscine complet, sans devoir te fondre dans un plan pensé pour le vélo.",
-    mirrorText: "Tu nages seul le midi et tu refais la même séance depuis six mois.",
+    mirrorPoints: [
+      "Tu nages seul le midi et tu refais la même séance depuis six mois.",
+    ],
     bridge:
       "PulsePeak construit ta progression natation en blocs dédiés — technique, endurance, seuil — pour sortir de la routine sans y penser.",
     metaTitle: "Coach IA natation — plans piscine personnalisés | PulsePeak",

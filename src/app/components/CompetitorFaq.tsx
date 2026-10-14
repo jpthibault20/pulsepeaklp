@@ -12,7 +12,7 @@ interface FaqItem {
 const baseItem: FaqItem = {
   question: "Pourquoi payer, alors que Garmin Coach ou Decathlon Coach sont inclus ?",
   answer:
-    "Ces plans embarqués suivent un calendrier figé : ils ne savent pas que votre nuit a été mauvaise, que votre semaine a basculé, ou que vous courez et roulez la même semaine. PulsePeak réadapte votre plan sur votre fatigue réelle, combine plusieurs disciplines dans une même logique de charge, et tient compte de vos contraintes de vie — ce qu'un plan livré avec une montre ne fait pas.",
+    "Ces plans embarqués suivent un calendrier figé : ils ne savent pas que ta nuit a été mauvaise, que ta semaine a basculé, ou que tu cours et roules la même semaine. PulsePeak réadapte ton plan sur ta fatigue réelle, combine plusieurs disciplines dans une même logique de charge, et tient compte de tes contraintes de vie — ce qu'un plan livré avec une montre ne fait pas.",
 };
 
 interface Props {
@@ -36,7 +36,7 @@ export default function CompetitorFaq({ extraItems = [] }: Props) {
             </div>
             <p className="leading-relaxed text-slate-600 dark:text-slate-400">{item.answer}</p>
           </div>
-            "Ces plans embarqués suivent un calendrier figé : ils ne savent pas que ta nuit a été mauvaise, que ta semaine a basculé, ou que tu cours et roules la même semaine. PulsePeak réadapte ton plan sur ta fatigue réelle, combine plusieurs disciplines dans une même logique de charge, et tient compte de tes contraintes de vie — ce qu'un plan livré avec une montre ne fait pas."
+        ))}
       </div>
     </section>
   );
