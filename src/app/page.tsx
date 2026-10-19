@@ -23,44 +23,52 @@ import PhoneMockup from "./components/PhoneMockup";
 import PricingBanner from "./components/PricingBanner";
 import FinalCta from "./components/FinalCta";
 import ProductFilm from "./components/ProductFilm";
+import { getPricingCopy } from "@/lib/launchOffer";
+
+// Revalidation horaire : bascule des prix à la fin de l'offre de lancement
+export const revalidate = 3600;
 
 const card =
   "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://pulsepeak.fr/#organization",
-      name: "PulsePeak",
-      url: "https://pulsepeak.fr",
-      logo: "https://pulsepeak.fr/logoBlack.png",
-    },
-    {
-      "@type": "SoftwareApplication",
-      name: "PulsePeak",
-      url: "https://pulsepeak.fr",
-      applicationCategory: "SportsApplication",
-      operatingSystem: "Web, iOS, Android",
-      description:
-        "Coach IA multisport pour la natation, le vélo et la course à pied : planification personnalisée, analyse de performance et suivi de forme.",
-      offers: {
-        "@type": "Offer",
-        price: "5",
-        priceCurrency: "EUR",
-        url: "https://pulsepeak.fr/pricing",
+function getJsonLd(monthlyPrice: string) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://pulsepeak.fr/#organization",
+        name: "PulsePeak",
+        url: "https://pulsepeak.fr",
+        logo: "https://pulsepeak.fr/logoBlack.png",
       },
-    },
-  ],
-};
+      {
+        "@type": "SoftwareApplication",
+        name: "PulsePeak",
+        url: "https://pulsepeak.fr",
+        applicationCategory: "SportsApplication",
+        operatingSystem: "Web, iOS, Android",
+        description:
+          "Coach IA multisport pour la natation, le vélo et la course à pied : planification personnalisée, analyse de performance et suivi de forme.",
+        offers: {
+          "@type": "Offer",
+          price: monthlyPrice,
+          priceCurrency: "EUR",
+          url: "https://pulsepeak.fr/pricing",
+        },
+      },
+    ],
+  };
+}
 
 export default function Home() {
+  const offer = getPricingCopy();
+
   return (
     <main className="min-h-screen overflow-x-hidden text-slate-900 selection:bg-blue-600 selection:text-white dark:text-slate-200">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getJsonLd(offer.monthlyPrice)) }}
       />
       <LandingBackground />
       <Navbar />
@@ -83,7 +91,7 @@ export default function Home() {
             </p>
 
             <p className="mb-10 text-sm font-semibold text-blue-600">
-              {"1er mois offert, sans engagement — puis dès 5€/mois, offre de lancement jusqu'au 31 décembre 2026"}
+              {offer.heroPriceLine}
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">

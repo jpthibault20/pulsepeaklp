@@ -12,12 +12,14 @@ import PricingBanner from "./PricingBanner";
 import CompetitorFaq from "./CompetitorFaq";
 import FinalCta from "./FinalCta";
 import { disciplineOrder, getDiscipline, type Discipline } from "@/lib/disciplines";
+import { getPricingCopy } from "@/lib/launchOffer";
 
 const card =
   "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
 export default function DisciplineLandingPage({ discipline }: { discipline: Discipline }) {
   const config = getDiscipline(discipline);
+  const offer = getPricingCopy();
   const Icon = config.icon;
   const others = disciplineOrder.filter((key) => key !== discipline);
 
@@ -43,8 +45,7 @@ export default function DisciplineLandingPage({ discipline }: { discipline: Disc
             </p>
 
             <p className="mb-10 text-sm font-semibold text-blue-600">
-              {config.heroPriceLine ??
-                "1er mois offert, sans engagement — puis dès 5€/mois, offre de lancement jusqu'au 31 décembre 2026"}
+              {(offer.open && config.heroPriceLine) || offer.heroPriceLine}
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
@@ -123,10 +124,7 @@ export default function DisciplineLandingPage({ discipline }: { discipline: Disc
 
       <FinalCta
         title={`Prêt à transformer ton entraînement ${config.label.toLowerCase()} ?`}
-        subtitle={
-          config.finalCtaSubtitle ??
-          "Le premier mois est offert, puis 5€/mois avec le tarif de lancement jusqu'au 31 décembre 2026. Sans engagement, résiliable à tout moment."
-        }
+        subtitle={(offer.open && config.finalCtaSubtitle) || offer.finalCtaSubtitle}
       />
 
       {/* Maillage interne — les autres disciplines, sans jamais donner l'impression que ce n'est "pas pour vous" */}

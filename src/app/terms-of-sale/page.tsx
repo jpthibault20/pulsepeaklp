@@ -47,7 +47,7 @@ export default function TermsOfSalePage() {
           <h1 className="mb-4 text-4xl font-black tracking-tighter text-slate-900 md:text-5xl dark:text-white">
             Conditions générales de vente
           </h1>
-          <p className="mb-10 text-sm text-slate-500 dark:text-slate-500">Dernière mise à jour : 2 septembre 2026</p>
+          <p className="mb-10 text-sm text-slate-500 dark:text-slate-500">Dernière mise à jour : 20 octobre 2026</p>
 
           <LegalToc items={toc} />
 
@@ -86,6 +86,13 @@ export default function TermsOfSalePage() {
             toutes taxes comprises (TTC) — TVA non applicable, art. 293 B du CGI (franchise en base de TVA
             applicable aux micro-entreprises). L&apos;éditeur se réserve le droit de modifier ses tarifs à tout moment ; les modifications ne
             s&apos;appliquent pas aux abonnements déjà souscrits avant leur date de renouvellement.
+          </p>
+          <p className={p}>
+            Offre de lancement : tout abonnement mensuel souscrit au plus tard le 31 décembre 2026 à 23h59 (heure de Paris) est
+            facturé 5 € par mois pour chaque échéance intervenant jusqu&apos;au 31 décembre 2027 inclus, y compris lorsque la période
+            d&apos;essai gratuite se termine en 2027. À compter du 1er janvier 2028, il est facturé au tarif mensuel en vigueur (9 € par
+            mois à la date de publication) dès l&apos;échéance suivante, sans prorata. Les abonnements mensuels souscrits à partir du
+            1er janvier 2027 à 00h00 (heure de Paris) sont facturés directement au tarif en vigueur.
           </p>
 
           <h2 id="paiement" className={h2}>4. Modalités de paiement</h2>

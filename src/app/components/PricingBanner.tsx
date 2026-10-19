@@ -1,11 +1,14 @@
 // app/components/PricingBanner.tsx
 import { ArrowRight } from "lucide-react";
 import PrimaryButton from "./PrimaryButton";
+import { getPricingCopy } from "@/lib/launchOffer";
 
 const card =
   "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
 
 export default function PricingBanner() {
+  const offer = getPricingCopy();
+
   return (
     <section className="px-4 pb-4">
       <div
@@ -13,9 +16,9 @@ export default function PricingBanner() {
       >
         <div>
           <p className="font-semibold text-slate-900 dark:text-white">
-            {"1er mois offert, puis l'offre de lancement à 5€/mois jusqu'au 31 décembre 2026."}
+            {offer.bannerTitle}
           </p>
-          <p className="text-sm text-slate-600 dark:text-slate-400">Ensuite 9€/mois. Sans engagement, résiliable à tout moment.</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">{offer.bannerSubtitle}</p>
         </div>
         <PrimaryButton text="Voir les tarifs" href="/pricing" icon={ArrowRight} className="shrink-0" />
       </div>
