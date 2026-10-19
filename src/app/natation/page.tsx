@@ -1,19 +1,24 @@
 // app/natation/page.tsx
 import type { Metadata } from "next";
 import { pageOpenGraph } from "@/lib/seo";
-import { getDiscipline } from "@/lib/disciplines";
+import { getDiscipline, getMetaDescription } from "@/lib/disciplines";
 import DisciplineLandingPage from "../components/DisciplineLandingPage";
 
-const config = getDiscipline("natation");
+// Revalidation horaire : bascule des prix à la fin de l'offre de lancement
+export const revalidate = 3600;
 
-export const metadata: Metadata = {
-  title: config.metaTitle,
-  description: config.metaDescription,
-  alternates: {
-    canonical: "/natation",
-  },
-  ...pageOpenGraph({ title: config.metaTitle, description: config.metaDescription, path: "/natation" }),
-};
+export function generateMetadata(): Metadata {
+  const config = getDiscipline("natation");
+  const description = getMetaDescription(config);
+  return {
+    title: config.metaTitle,
+    description,
+    alternates: {
+      canonical: "/natation",
+    },
+    ...pageOpenGraph({ title: config.metaTitle, description, path: "/natation" }),
+  };
+}
 
 export default function NatationPage() {
   return <DisciplineLandingPage discipline="natation" />;

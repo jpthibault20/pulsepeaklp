@@ -7,19 +7,26 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PrimaryButton from "../components/PrimaryButton";
 import Badge from "../components/Badge";
+import { isLaunchOfferOpen } from "@/lib/launchOffer";
+
+// Revalidation horaire : bascule des prix à la fin de l'offre de lancement
+export const revalidate = 3600;
 
 const title = "Tarifs — PulsePeak";
-const description =
-  "Un tarif simple pour un coach IA natation, vélo, course à pied. 1er mois offert sur l'abonnement mensuel, puis 5€/mois avec l'offre de lancement jusqu'au 31 décembre 2026. Sans engagement.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: {
-    canonical: "/pricing",
-  },
-  ...pageOpenGraph({ title, description, path: "/pricing" }),
-};
+export function generateMetadata(): Metadata {
+  const description = isLaunchOfferOpen()
+    ? "Un tarif simple pour un coach IA natation, vélo, course à pied. 1er mois offert sur l'abonnement mensuel, puis 5€/mois jusqu'au 31 décembre 2027 avec l'offre de lancement (souscription avant le 31 décembre 2026). Sans engagement."
+    : "Un tarif simple pour un coach IA natation, vélo, course à pied. 1er mois offert sur l'abonnement mensuel, puis 9€/mois, ou 90€/an. Sans engagement.";
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: "/pricing",
+    },
+    ...pageOpenGraph({ title, description, path: "/pricing" }),
+  };
+}
 
 const card =
   "rounded-xl md:rounded-2xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-md shadow-slate-900/5 border border-slate-200/80 dark:border-slate-800";
@@ -31,6 +38,17 @@ const included = [
   "Toutes les fonctionnalités de l'application",
 ];
 
+const launchFaq = {
+  q: "Le tarif à 5€/mois est-il garanti indéfiniment ?",
+  a: "Non, c'est un tarif de lancement. Il est réservé aux souscriptions effectuées jusqu'au 31 décembre 2026 à 23h59 (heure de Paris) et reste facturé 5€/mois jusqu'au 31 décembre 2027, même si ton mois offert se termine en 2027. À partir du 1er janvier 2028, l'abonnement passe à 9€/mois à ta prochaine échéance, sans prorata ; les souscriptions effectuées à partir du 1er janvier 2027 sont directement au tarif de 9€/mois. Le tarif annuel à 90€/an n'est pas concerné.",
+};
+
+// Après l'offre : la question ne concerne plus que les abonnés déjà au tarif de lancement
+const launchSubscriberFaq = {
+  q: "J'ai souscrit à 5€/mois pendant l'offre de lancement : jusqu'à quand ?",
+  a: "Les abonnements mensuels souscrits jusqu'au 31 décembre 2026 restent facturés 5€/mois jusqu'au 31 décembre 2027. À partir du 1er janvier 2028, ils passent à 9€/mois à la prochaine échéance, sans prorata.",
+};
+
 const faqs: { q: string; a: React.ReactNode }[] = [
   {
     q: "Comment fonctionne le mois offert ?",
@@ -40,10 +58,7 @@ const faqs: { q: string; a: React.ReactNode }[] = [
     q: "Puis-je résilier à tout moment ?",
     a: "Oui, l'abonnement est sans engagement. Comme précisé dans nos CGV, tu peux résilier à tout moment — y compris pendant le mois offert ; la résiliation prend effet à la fin de la période en cours.",
   },
-  {
-    q: "Le tarif à 5€/mois est-il garanti indéfiniment ?",
-    a: "Non, c'est un tarif de lancement valable jusqu'au 31 décembre 2026. Passé cette date, l'abonnement mensuel repasse à 9€/mois — le tarif annuel à 90€/an n'est pas concerné.",
-  },
+  launchFaq,
   {
     q: "PulsePeak remplace-t-il un coach ou un avis médical ?",
     a: "Non. Les recommandations de PulsePeak sont fournies à titre informatif et ne remplacent pas l'avis d'un professionnel de santé, notamment avant de démarrer un programme d'entraînement intensif.",
@@ -63,6 +78,9 @@ const faqs: { q: string; a: React.ReactNode }[] = [
 ];
 
 export default function PrixPage() {
+  const offerOpen = isLaunchOfferOpen();
+  const pageFaqs = offerOpen ? faqs : faqs.map((faq) => (faq === launchFaq ? launchSubscriberFaq : faq));
+
   return (
     <main className="min-h-screen overflow-x-hidden text-slate-900 selection:bg-blue-600 selection:text-white dark:text-slate-200">
       <LandingBackground />
@@ -72,13 +90,15 @@ export default function PrixPage() {
         <div className="mx-auto max-w-3xl">
           <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
             <Badge text="1er mois offert sur le mensuel" icon={Gift} color="blue" />
-            <Badge text="Offre de lancement · -44%" icon={Zap} color="orange" />
+            {offerOpen && <Badge text="Offre de lancement · -44%" icon={Zap} color="orange" />}
           </div>
           <h1 className="mb-6 text-4xl font-black tracking-tighter text-slate-900 md:text-6xl dark:text-white">
             Un tarif simple, sans surprise.
           </h1>
           <p className="mx-auto max-w-xl text-lg leading-relaxed text-slate-600 md:text-xl dark:text-slate-400">
-            {"Un seul abonnement, toutes les fonctionnalités. Le premier mois est offert sur l'abonnement mensuel, puis 5€/mois jusqu'au 31 décembre 2026 avec le tarif de lancement — sans engagement, résiliable à tout moment."}
+            {offerOpen
+              ? "Un seul abonnement, toutes les fonctionnalités. Le premier mois est offert sur l'abonnement mensuel, puis 5€/mois jusqu'au 31 décembre 2027 avec le tarif de lancement si tu souscris avant le 31 décembre 2026 — sans engagement, résiliable à tout moment."
+              : "Un seul abonnement, toutes les fonctionnalités. Le premier mois est offert sur l'abonnement mensuel, puis 9€/mois — sans engagement, résiliable à tout moment."}
           </p>
         </div>
       </section>
@@ -89,13 +109,15 @@ export default function PrixPage() {
           <div className={`flex flex-col p-8 ${card}`}>
             <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Mensuel</h2>
             <div className="mt-4 flex items-end gap-2">
-              <span className="text-5xl font-black tracking-tight text-slate-900 dark:text-white">5€</span>
+              <span className="text-5xl font-black tracking-tight text-slate-900 dark:text-white">{offerOpen ? "5€" : "9€"}</span>
               <span className="pb-1 text-slate-500 dark:text-slate-400">/mois</span>
             </div>
             <p className="mt-3 text-sm font-semibold text-blue-600">1er mois offert à l&apos;inscription</p>
-            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-              Puis 5€/mois au lieu de <span className="line-through">9€/mois</span> jusqu&apos;au 31 décembre 2026, ensuite 9€/mois.
-            </p>
+            {offerOpen && (
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                Puis 5€/mois au lieu de <span className="line-through">9€/mois</span> jusqu&apos;au 31 décembre 2027 pour toute souscription avant le 31 décembre 2026.
+              </p>
+            )}
 
             <ul className="mt-8 space-y-3">
               {included.map((item) => (
@@ -154,7 +176,7 @@ export default function PrixPage() {
             Questions fréquentes
           </h2>
           <div className="space-y-4">
-            {faqs.map((faq) => (
+            {pageFaqs.map((faq) => (
               <details key={faq.q} className={`group p-5 ${card}`}>
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 marker:content-none dark:text-white">
                   {faq.q}

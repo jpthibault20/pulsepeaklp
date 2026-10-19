@@ -1,6 +1,7 @@
 // app/components/FinalCta.tsx
 import { ArrowRight } from "lucide-react";
 import PrimaryButton from "./PrimaryButton";
+import { getPricingCopy } from "@/lib/launchOffer";
 
 interface Props {
   title?: string;
@@ -9,7 +10,7 @@ interface Props {
 
 export default function FinalCta({
   title = "Prêt à transformer ton entraînement ?",
-  subtitle = "Le premier mois est offert, puis 5€/mois avec le tarif de lancement jusqu'au 31 décembre 2026. Sans engagement, résiliable à tout moment.",
+  subtitle = getPricingCopy().finalCtaSubtitle,
 }: Props) {
   return (
     <section className="px-4 py-20 text-center">

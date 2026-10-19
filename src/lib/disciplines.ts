@@ -4,6 +4,7 @@
 
 import { Bike, Footprints, Gauge, RefreshCw, Repeat, TrendingUp, Waves } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { getPricingCopy } from "./launchOffer";
 
 export type Discipline = "velo" | "course-a-pied" | "triathlon" | "natation";
 
@@ -29,13 +30,14 @@ export interface DisciplineConfig {
   bridge: string;
   /** Arguments concrets affichés juste avant le prix ; optionnel tant que non rédigés pour une discipline */
   benefits?: DisciplineBenefit[];
-  /** Surcharge de la ligne de prix sous le CTA du hero ; sinon texte par défaut du composant */
+  /** Surcharge de la ligne de prix sous le CTA du hero pendant l'offre de lancement ; sinon texte de launchOffer */
   heroPriceLine?: string;
-  /** Surcharge du sous-titre du CTA final ; sinon texte par défaut du composant */
+  /** Surcharge du sous-titre du CTA final pendant l'offre de lancement ; sinon texte de launchOffer */
   finalCtaSubtitle?: string;
   /** Question/réponse additionnelle affichée après le FAQ concurrentiel, pour traiter une objection propre à la discipline */
   extraFaq?: { question: string; answer: string };
   metaTitle: string;
+  /** Sans le prix : les pages ajoutent "1er mois offert puis …" selon l'état de l'offre */
   metaDescription: string;
   image: string;
   imageAlt: string;
@@ -65,9 +67,9 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
     bridge:
       "PulsePeak analyse ta charge réelle et restructure ta semaine en blocs Force / Seuil / Endurance, pour que la stagnation ne soit plus une fatalité.",
     heroPriceLine:
-      "1er mois offert, sans engagement — puis 5€/mois si tu démarres avant le 31 décembre 2026 (9€/mois ensuite)",
+      "1er mois offert, sans engagement — puis 5€/mois jusqu'à fin 2027 si tu démarres avant le 31 décembre 2026 (9€/mois ensuite)",
     finalCtaSubtitle:
-      "Le premier mois est offert, puis 5€/mois avec le tarif de lancement — encore valable jusqu'au 31 décembre 2026, après quoi ce sera 9€/mois pour les nouveaux inscrits. Sans engagement, résiliable à tout moment.",
+      "Le premier mois est offert, puis 5€/mois avec le tarif de lancement — ouvert aux souscriptions jusqu'au 31 décembre 2026 et garanti jusqu'au 31 décembre 2027. Les nouveaux inscrits passeront ensuite à 9€/mois. Sans engagement, résiliable à tout moment.",
     extraFaq: {
       question: "Une IA peut-elle vraiment remplacer un coach humain ?",
       answer:
@@ -92,7 +94,7 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
     ],
     metaTitle: "Coach IA pour cyclistes — plans vélo personnalisés | PulsePeak",
     metaDescription:
-      "Un coach IA dédié au vélo : plans de puissance, sorties longues et blocs de progression adaptés à ta semaine, 1er mois offert puis dès 5€/mois.",
+      "Un coach IA dédié au vélo : plans de puissance, sorties longues et blocs de progression adaptés à ta semaine",
     image: "/phoneCalendar_cycling.png",
     imageAlt: "Agenda d'entraînement vélo dans PulsePeak",
     week: [
@@ -120,7 +122,7 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
       "Une séance ratée n'est plus un échec : PulsePeak recalcule la semaine autour de tes disponibilités réelles, sans casser la progression.",
     metaTitle: "Coach IA course à pied — plans adaptés à ta semaine | PulsePeak",
     metaDescription:
-      "Un coach IA qui recalcule ton plan course à pied selon tes vraies disponibilités et ta forme du moment, 1er mois offert puis dès 5€/mois.",
+      "Un coach IA qui recalcule ton plan course à pied selon tes vraies disponibilités et ta forme du moment",
     image: "/phoneCalendar_run.png",
     imageAlt: "Agenda d'entraînement course à pied dans PulsePeak",
     week: [
@@ -148,7 +150,7 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
       "PulsePeak tient compte de la fatigue cumulée sur les trois disciplines pour décider quoi ajuster, plutôt que de te laisser arbitrer seul.",
     metaTitle: "Coach IA triathlon — plans multisport personnalisés | PulsePeak",
     metaDescription:
-      "Un coach IA qui répartit vélo, course à pied et natation dans un seul plan cohérent, ajusté à ta fatigue réelle, 1er mois offert puis dès 5€/mois.",
+      "Un coach IA qui répartit vélo, course à pied et natation dans un seul plan cohérent, ajusté à ta fatigue réelle",
     image: "/phonecalendare_run&cycling.png",
     imageAlt: "Agenda d'entraînement multisport dans PulsePeak",
     week: [
@@ -176,7 +178,7 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
       "PulsePeak construit ta progression natation en blocs dédiés — technique, endurance, seuil — pour sortir de la routine sans y penser.",
     metaTitle: "Coach IA natation — plans piscine personnalisés | PulsePeak",
     metaDescription:
-      "Un coach IA dédié à la natation : séances technique, endurance et seuil qui évoluent avec ta progression, 1er mois offert puis dès 5€/mois.",
+      "Un coach IA dédié à la natation : séances technique, endurance et seuil qui évoluent avec ta progression",
     image: "/phoneCalendar_swim.png",
     imageAlt: "Agenda d'entraînement natation dans PulsePeak",
     week: [
@@ -187,6 +189,10 @@ export const disciplines: Record<Discipline, DisciplineConfig> = {
     ],
   },
 };
+
+export function getMetaDescription(config: DisciplineConfig): string {
+  return `${config.metaDescription}, 1er mois offert puis ${getPricingCopy().metaPrice}.`;
+}
 
 export function getDiscipline(key: Discipline): DisciplineConfig {
   return disciplines[key];
